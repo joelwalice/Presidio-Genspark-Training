@@ -10,7 +10,7 @@ namespace FirstAPI.Services
     public class PatientService
     {
         public IRepository<int, Patient> _patientRepository;
-        public IAppointmentRepository _appointmentRepository;
+        public IRepository<int, Appointment> _appointmentRepository;
         public PatientService(IRepository<int, Patient> PatientRepository,
                               IRepository<int, Appointment> appointmentRepository)
         {
@@ -25,7 +25,7 @@ namespace FirstAPI.Services
                 Name = patientDto.Name,
                 Age = patientDto.Age,
                 Email = patientDto.Email,
-                PhoneNumber = patientDto.PhoneNumber,
+                Phone = patientDto.Phone,
             };
             var createdPatient = await _patientRepository.Add(newPatient);
             if (patientDto.Appointments != null) {
@@ -33,8 +33,7 @@ namespace FirstAPI.Services
                 {
                     var newAppointment = new Appointment
                     {
-                        Date = appointment.Date,
-                        Time = appointment.Time,
+                        AppointmentDateTime = appointment.AppointmentDateTime,
                         DoctorId = appointment.DoctorId,
                         PatientId = createdPatient.Id
                     };

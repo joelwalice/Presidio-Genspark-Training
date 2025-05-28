@@ -11,9 +11,9 @@ namespace FirstAPI.Services
 {
     public class DoctorService : IDoctorService
     {
-        public IDoctorRepository _doctorRepository;
-        public ISpecialityRepository _specialityRepository;
-        public IDoctorSpecialityRepository _doctorSpecialityRepository;
+        public IRepository<int, Doctor> _doctorRepository;
+        public IRepository<int, Speciality> _specialityRepository;
+        public IRepository<int, DoctorSpeciality> _doctorSpecialityRepository;
 
         public DoctorService(IRepository<int, Doctor> doctorRepository,
                             IRepository<int, Speciality> specialityRepository,
@@ -23,7 +23,7 @@ namespace FirstAPI.Services
             _specialityRepository = specialityRepository;
             _doctorSpecialityRepository = doctorSpecialityRepository;
         }
-        public Task<Doctor> AddDoctor(DoctorAddRequestDto doctor)
+        public async Task<Doctor> AddDoctor(DoctorAddRequestDto doctor)
         {
             var newDoctor = new Doctor
             {
@@ -32,7 +32,7 @@ namespace FirstAPI.Services
                 Status = "Active",
             };
 
-            var createdDoctor = await _doctorRepository.Add(doctor);
+            var createdDoctor = await _doctorRepository.Add(newDoctor);
 
             if (doctor.Specialities != null)
             {
@@ -58,9 +58,9 @@ namespace FirstAPI.Services
 
         }
 
-        public Task<Doctor> GetDoctByName(string name)
+        public async Task<Doctor> GetDoctByName(string name)
         {
-            var allDoctors = _doctorRepository.GetAll();
+            var allDoctors = await _doctorRepository.GetAll();
             var doctor = allDoctors.FirstOrDefault(d => d.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
             if (doctor == null)
             {
@@ -69,20 +69,20 @@ namespace FirstAPI.Services
             return doctor;
         }
 
-        public Task<ICollection<Doctor>> GetDoctorsBySpeciality(string speciality)
+        public async Task<ICollection<Doctor>> GetDoctorsBySpeciality(string speciality)
         {
-            var allSpecialities = _specialityRepository.GetAll();
+            var allSpecialities = await _specialityRepository.GetAll();
             var specialityEntity = allSpecialities.FirstOrDefault(s => s.Name.Equals(speciality, StringComparison.OrdinalIgnoreCase));
             if (specialityEntity == null)
             {
                 throw new Exception($"Speciality {speciality} not found.");
             }
-            var allDoctorSpecialities = _doctorSpecialityRepository.GetAll();
+            var allDoctorSpecialities = await _doctorSpecialityRepository.GetAll();
             var doctorIds = allDoctorSpecialities
                 .Where(ds => ds.SpecialityId == specialityEntity.Id)
                 .Select(ds => ds.DoctorId)
                 .ToList();
-            var allDoctors = _doctorRepository.GetAll();
+            var allDoctors = await _doctorRepository.GetAll();
             var doctors = allDoctors
                 .Where(d => doctorIds.Contains(d.Id))
                 .ToList();
