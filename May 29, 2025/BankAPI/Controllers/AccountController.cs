@@ -11,7 +11,7 @@ namespace BankAPI.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _accountService;
-        
+
         public AccountController(IAccountService accountService)
         {
             _accountService = accountService;
@@ -24,10 +24,10 @@ namespace BankAPI.Controllers
             return CreatedAtAction(nameof(GetAccountById), new { id = createdAccount.Id }, createdAccount);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AccountResponseDto>> GetAccountById(int id)
+        [HttpGet("{accountNumber}")]
+        public async Task<ActionResult<AccountResponseDto>> GetAccountById(string accountNumber)
         {
-            var account = await _accountService.GetAccountAsync(id);
+            var account = await _accountService.GetAccountAsync(accountNumber);
             if (account == null)
                 return NotFound();
             return Ok(account);
@@ -39,5 +39,15 @@ namespace BankAPI.Controllers
             var accounts = await _accountService.GetAllAccountsAsync();
             return Ok(accounts);
         }
+
+        [HttpGet("{accountNumber}/balance")]
+        public async Task<ActionResult<decimal>> GetAccountBalance(string accountNumber)
+        {
+            var balance = await _accountService.GetAccountBalanceAsync(accountNumber);
+            if (balance < 0)
+                return NotFound();
+            return Ok($"Your Balance is {balance}");
+        }
+
     }
 }

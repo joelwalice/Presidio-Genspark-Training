@@ -4,10 +4,7 @@ using System.Threading.Tasks;
 
 namespace BankAPI.Interfaces
 {
-    public interface ITransactionRepository
+    public interface ITransactionRepository : IRepository<string, Transaction>
     {
-        Task<Transaction> GetAsync(int id); 
-        Task<IEnumerable<Transaction>> GetAllAsync();
-        Task<Transaction> AddAsync(Transaction transaction);
     }
 }
