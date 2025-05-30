@@ -21,7 +21,7 @@ namespace BankAPI.Controllers
         public async Task<ActionResult<AccountResponseDto>> CreateAccount([FromBody] AccountCreateDto accountDto)
         {
             var createdAccount = await _accountService.CreateAccountAsync(accountDto);
-            return CreatedAtAction(nameof(GetAccountById), new { id = createdAccount.Id }, createdAccount);
+            return CreatedAtAction(nameof(GetAccountById), new { accountNumber = createdAccount.Id }, createdAccount);
         }
 
         [HttpGet("{accountNumber}")]

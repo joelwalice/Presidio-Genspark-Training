@@ -35,11 +35,12 @@ namespace BankAPI.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    AccountId = table.Column<int>(type: "integer", nullable: false),
+                    AccountNumber = table.Column<string>(type: "text", nullable: false),
                     Amount = table.Column<decimal>(type: "numeric", nullable: false),
                     Type = table.Column<int>(type: "integer", nullable: false),
                     TransactionDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    TargetAccountId = table.Column<int>(type: "integer", nullable: true)
+                    TargetAccountNumber = table.Column<string>(type: "text", nullable: true),
+                    AccountId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,8 +49,7 @@ namespace BankAPI.Migrations
                         name: "FK_Transactions_Accounts_AccountId",
                         column: x => x.AccountId,
                         principalTable: "Accounts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
