@@ -18,7 +18,6 @@ namespace BankAPI.Repositories
 
         public virtual async Task<T> GetAsync(string accountNumber)
         {
-            // If T has a property named AccountNumber, use it for lookup
             return await _dbSet.FirstOrDefaultAsync(e => EF.Property<string>(e, "AccountNumber") == accountNumber);
         }
 
