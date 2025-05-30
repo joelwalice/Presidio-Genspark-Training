@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BankAPI.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20250530044040_init")]
+    [Migration("20250530052449_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -63,14 +63,18 @@ namespace BankAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountId")
+                    b.Property<int?>("AccountId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("AccountNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
 
-                    b.Property<int?>("TargetAccountId")
-                        .HasColumnType("integer");
+                    b.Property<string>("TargetAccountNumber")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("timestamp with time zone");
@@ -89,9 +93,7 @@ namespace BankAPI.Migrations
                 {
                     b.HasOne("BankAPI.Models.Account", null)
                         .WithMany("Transactions")
-                        .HasForeignKey("AccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AccountId");
                 });
 
             modelBuilder.Entity("BankAPI.Models.Account", b =>

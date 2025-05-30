@@ -28,7 +28,7 @@ namespace BankAPI.Services
 
             var transaction = new Transaction
             {
-                AccountId = account.Id,
+                AccountNumber = account.AccountNumber,
                 Amount = dto.Amount,
                 Type = TransactionType.Deposit,
                 TransactionDate = DateTime.UtcNow
@@ -49,7 +49,7 @@ namespace BankAPI.Services
 
             var transaction = new Transaction
             {
-                AccountId = account.Id,
+                AccountNumber = account.AccountNumber,
                 Amount = dto.Amount,
                 Type = TransactionType.Withdrawal,
                 TransactionDate = DateTime.UtcNow
@@ -61,8 +61,8 @@ namespace BankAPI.Services
 
         public async Task<bool> TransferAsync(TransferRequestDto dto)
         {
-            var sourceAccount = await _accountRepository.GetAsync(dto.SourceAccountId);
-            var targetAccount = await _accountRepository.GetAsync(dto.TargetAccountId);
+            var sourceAccount = await _accountRepository.GetAsync(dto.SourceAccountNumber);
+            var targetAccount = await _accountRepository.GetAsync(dto.TargetAccountNumber);
             if (sourceAccount == null || targetAccount == null || sourceAccount.Balance < dto.Amount)
                 return false;
 
@@ -73,11 +73,11 @@ namespace BankAPI.Services
 
             var transaction = new Transaction
             {
-                AccountId = sourceAccount.Id,
+                AccountNumber = sourceAccount.AccountNumber,
                 Amount = dto.Amount,
                 Type = TransactionType.Transfer,
                 TransactionDate = DateTime.UtcNow,
-                TargetAccountId = targetAccount.Id
+                TargetAccountNumber = targetAccount.AccountNumber
             };
 
             await _transactionRepository.AddAsync(transaction);

@@ -12,10 +12,10 @@ namespace BankAPI.Models
     public class Transaction
     {
         public int Id { get; set; }
-        public int AccountId { get; set; } 
+        public string AccountNumber { get; set; } 
         public decimal Amount { get; set; }
         public TransactionType Type { get; set; }
         public DateTime TransactionDate { get; set; }
-        public int? TargetAccountId { get; set; }
+        public string? TargetAccountNumber { get; set; }
     }
 }
