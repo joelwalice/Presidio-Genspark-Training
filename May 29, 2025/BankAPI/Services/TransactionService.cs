@@ -19,7 +19,7 @@ namespace BankAPI.Services
 
         public async Task<bool> DepositAsync(DepositRequestDto dto)
         {
-            var account = await _accountRepository.GetAsync(dto.AccountId);
+            var account = await _accountRepository.GetAsync(dto.AccountNumber);
             if (account == null)
                 return false;
 
@@ -40,7 +40,7 @@ namespace BankAPI.Services
 
         public async Task<bool> WithdrawAsync(WithdrawRequestDto dto)
         {
-            var account = await _accountRepository.GetAsync(dto.AccountId);
+            var account = await _accountRepository.GetAsync(dto.AccountNumber);
             if (account == null || account.Balance < dto.Amount)
                 return false;
 

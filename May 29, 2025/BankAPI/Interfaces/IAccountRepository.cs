@@ -4,12 +4,7 @@ using System.Threading.Tasks;
 
 namespace BankAPI.Interfaces
 {
-    public interface IAccountRepository
+    public interface IAccountRepository : IRepository<string, Account>
     {
-        Task<Account> GetAsync(int id); 
-        Task<IEnumerable<Account>> GetAllAsync();
-        Task<Account> AddAsync(Account account);
-        Task<Account> UpdateAsync(Account account);
-        Task<bool> DeleteAsync(int id);
     }
 }

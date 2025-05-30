@@ -20,7 +20,7 @@ namespace BankAPI.Services
         {
             var account = new Account
             {
-                AccountNumber = dto.AccountNumber,
+                AccountNumber = Guid.NewGuid().ToString("N").Substring(0, 16),
                 HolderName = dto.HolderName,
                 Balance = dto.InitialDeposit
             };
@@ -36,11 +36,11 @@ namespace BankAPI.Services
             };
         }
 
-        public async Task<AccountResponseDto> GetAccountAsync(int accountId)
+        public async Task<AccountResponseDto> GetAccountAsync(string accountId)
         {
             var account = await _accountRepository.GetAsync(accountId);
             if (account == null)
-                return null;
+                throw new KeyNotFoundException($"Account with ID '{accountId}' was not found.");
             return new AccountResponseDto
             {
                 Id = account.Id,
@@ -60,6 +60,13 @@ namespace BankAPI.Services
                 HolderName = a.HolderName,
                 Balance = a.Balance
             });
+        }
+        public async Task<decimal> GetAccountBalanceAsync(string accountId)
+        {
+            var account = await _accountRepository.GetAsync(accountId);
+            if (account == null)
+                return 0;
+            return account.Balance;
         }
     }
 }
