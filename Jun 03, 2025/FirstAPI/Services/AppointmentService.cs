@@ -23,9 +23,6 @@ namespace FirstAPI.Services
             var doctor = await _context.Doctors.FindAsync(doctorId)
                         ?? throw new Exception("Doctor not found");
 
-            if (doctor.YearsOfExperience < 3)
-                throw new Exception("Only doctors with at least 3 years of experience can cancel an Appointment");
-            
             appointment.Status = "Cancelled";
             await _context.SaveChangesAsync();
         }
