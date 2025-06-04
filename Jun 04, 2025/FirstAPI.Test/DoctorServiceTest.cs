@@ -58,6 +58,86 @@ namespace FirstAPI.Test
             //Assert
             Assert.That(result.Count(), Is.EqualTo(1));
         }
+        [TestCase("Exception")]
+        public void TestGetDoctorBySpecialityException(string speciality)
+        {
+            Mock<DoctorRepository> doctorRepositoryMock = new Mock<DoctorRepository>(_context);
+            Mock<SpecialityRepository> specialityRepositoryMock = new(_context);
+            Mock<DoctorSpecialityRepository> doctorSpecialityRepositoryMock = new(_context);
+            Mock<UserRepository> userRepositoryMock = new(_context);
+            Mock<IOtherContextFunctionities> otherContextFunctionitiesMock = new();
+            Mock<EncryptionService> encryptionServiceMock = new();
+            Mock<IMapper> mapperMock = new();
+
+            otherContextFunctionitiesMock.Setup(ocf => ocf.GetDoctorsBySpeciality(It.IsAny<string>()))
+                                        .Throws(new Exception("Error fetching doctors"));
+
+            IDoctorService doctorService = new DoctorService(doctorRepositoryMock.Object,
+                                                            specialityRepositoryMock.Object,
+                                                            doctorSpecialityRepositoryMock.Object,
+                                                            userRepositoryMock.Object,
+                                                            otherContextFunctionitiesMock.Object,
+                                                            encryptionServiceMock.Object,
+                                                            mapperMock.Object);
+
+            //Action & Assert
+            Assert.ThrowsAsync<Exception>(async () => await doctorService.GetDoctorsBySpeciality(speciality));
+        }
+
+        [TestCase("General")]
+
+        public async Task CancelAppointmentTest(string speciality)
+        {
+            Mock<DoctorRepository> doctorRepositoryMock = new Mock<DoctorRepository>(_context);
+            Mock<SpecialityRepository> specialityRepositoryMock = new(_context);
+            Mock<DoctorSpecialityRepository> doctorSpecialityRepositoryMock = new(_context);
+            Mock<UserRepository> userRepositoryMock = new(_context);
+            Mock<IOtherContextFunctionities> otherContextFunctionitiesMock = new();
+            Mock<EncryptionService> encryptionServiceMock = new();
+            Mock<IMapper> mapperMock = new();
+
+            otherContextFunctionitiesMock.Setup(ocf => ocf.CancelAppointment(It.IsAny<int>()))
+                                        .ReturnsAsync(true);
+
+            IDoctorService doctorService = new DoctorService(doctorRepositoryMock.Object,
+                                                            specialityRepositoryMock.Object,
+                                                            doctorSpecialityRepositoryMock.Object,
+                                                            userRepositoryMock.Object,
+                                                            otherContextFunctionitiesMock.Object,
+                                                            encryptionServiceMock.Object,
+                                                            mapperMock.Object);
+
+            //Action
+            var result = await doctorService.CancelAppointment(1);
+            //Assert
+            Assert.IsTrue(result);
+        }
+        [TestCase("Exception")]
+        public void CancelAppointmentExceptionTest(string speciality)
+        {
+            Mock<DoctorRepository> doctorRepositoryMock = new Mock<DoctorRepository>(_context);
+            Mock<SpecialityRepository> specialityRepositoryMock = new(_context);
+            Mock<DoctorSpecialityRepository> doctorSpecialityRepositoryMock = new(_context);
+            Mock<UserRepository> userRepositoryMock = new(_context);
+            Mock<IOtherContextFunctionities> otherContextFunctionitiesMock = new();
+            Mock<EncryptionService> encryptionServiceMock = new();
+            Mock<IMapper> mapperMock = new();
+
+            otherContextFunctionitiesMock.Setup(ocf => ocf.CancelAppointment(It.IsAny<int>()))
+                                        .Throws(new Exception("Error cancelling appointment"));
+
+            IDoctorService doctorService = new DoctorService(doctorRepositoryMock.Object,
+                                                            specialityRepositoryMock.Object,
+                                                            doctorSpecialityRepositoryMock.Object,
+                                                            userRepositoryMock.Object,
+                                                            otherContextFunctionitiesMock.Object,
+                                                            encryptionServiceMock.Object,
+                                                            mapperMock.Object);
+
+            //Action & Assert
+            Assert.ThrowsAsync<Exception>(async () => await doctorService.CancelAppointment(1));
+        }
+        
         [TearDown]
         public void TearDown()
         {
