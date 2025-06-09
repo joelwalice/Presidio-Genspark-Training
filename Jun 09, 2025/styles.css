@@ -1,0 +1,278 @@
+body{
+    font-family: 'Inter', 'Poppins', 'Roboto', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    color: #666666; 
+    font-size: 16px;
+    font-weight: 400;
+}
+a{
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 500;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    background: #fff;
+    gap: 32px;
+    
+}
+
+.Logo{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    gap: 0.5rem;
+} 
+h1, .Headings{
+    font-size: 32px;
+    font-weight: 600;
+    color: #333333;
+}
+h2, .SubHeadings{
+    font-size: 24px;
+    font-weight: 500; 
+    color: #333333;
+    margin-bottom: 12px;
+}
+p, .BodyText{
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+}
+.Nav-buttons{
+    display : flex;
+    align-items: center;
+    width: 1/2;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.nav-items{
+    display:flex;
+    gap: 1rem;
+}
+.controller-buttons{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.Login-btn{
+    font-family: 'Inter',  'Roboto', system-ui, sans-serif;
+    padding : 12px 24px;
+    background-color: #45a1e3;
+    color: white;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+}
+.OutlineBtn{
+    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+    border: 1px solid #666;
+    border-radius: 8px;
+    cursor: pointer;
+    padding : 12px 24px;
+}
+.OutlineBtn:hover{
+    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+    background-color: #E0E0E0;
+}
+.DoctorSegment{
+    background-color: #eaf6fe;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+.BookAppointment{
+    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+    margin-top: 20px;
+    padding : 24px;
+    font-size: 32px;
+    background-color: #45a1e3;
+    color: white;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+}
+.BookAppointment:hover{
+    background-color : #22699b;
+}
+.DoctorContents{
+    max-width : 50%;
+    padding: 64px;
+}
+.Services {
+    padding: 36px;
+    text-align: center;
+    background: #fff;
+}
+.Service-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 24px 0;
+}
+.DoctorPlaceholder{
+    margin: 0;
+}
+
+.Card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    width: 300px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border: 1px solid #CCCCCC;
+    transition: 0.8s ease-in-out;
+    cursor: pointer;
+}
+
+.Card:hover{
+    box-shadow: 0 0 5px gray;
+    /* transition: 0.8s ease-in-out; */
+    scale: 1.02;
+}
+
+
+.Testimonial {
+    background: #eaf6fe;
+    padding: 64px;
+    text-align: center;
+}
+
+.Testimonial-quote {
+    display: flex;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 16px;
+    align-items: center;
+}
+
+.Quote {
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #666666;
+}
+
+.Author {
+    font-weight: 500;
+    color: #333333;
+}
+
+.Clinic-hours {
+    display: flex;
+    justify-content: space-around;
+    padding: 48px;
+    background: #fff;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+@media (max-width: 1200px) {
+    nav, .Services, .Testimonial, .Clinic-hours {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .DoctorContents {
+        padding: 32px;
+    }
+}
+
+@media (max-width: 992px) {
+    nav, .Services, .Testimonial, .Clinic-hours {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .DoctorContents {
+        max-width: 100%;
+        padding: 24px;
+    }
+    .Service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .Clinic-hours {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px 10px;
+    }
+    .DoctorSegment {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px 0;
+    }
+    .DoctorContents {
+        padding: 16px;
+    }
+    .BookAppointment {
+        font-size: 20px;
+        padding: 16px;
+    }
+    .Card {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    h1, .Headings {
+        font-size: 24px;
+    }
+    h2, .SubHeadings {
+        font-size: 18px;
+    }
+    .Clinic-hours{
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 8px 4px;
+    }
+    .Services, .Testimonial, .Clinic-hours {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .DoctorContents {
+        text-align: center;
+        padding: 8px;
+    }
+    .BookAppointment, .Login-btn, .OutlineBtn {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        font-size: 16px;
+    }
+    .DoctorPlaceholder img{
+        width: 200px;
+    }
+    .Card {
+        padding: 12px;
+    }
+    .Testimonial-quote {
+        padding: 12px;
+    }
+    .Testimonial{
+        text-align: center;
+    }
+}
