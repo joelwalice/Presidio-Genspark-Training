@@ -1,0 +1,12 @@
+<p>first works!</p>
+
+<h1>Name is {{value}}</h1>
+<!-- Method Binding -->
+<button (click)="onButtonClick()">Click to change the name to {{value == 'Hai!' ? 'Hello!' : 'Hai!'}}</button>
+<!-- Property Binding -->
+ <br/>
+<input type="text" #uname [value]="value" />
+<button (click)="onClickAlert(uname.value)">Alert the User!</button>
+<!-- NgModel -->
+<input type="text" #uname [(ngModel)] = "value" />
+<i class="{{className}}" (click)="onToggle()"></i>

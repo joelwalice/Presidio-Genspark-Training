@@ -1,0 +1,17 @@
+#Like{
+    color: green;
+    cursor : pointer;
+    font-size: large;
+}
+
+#DisLike{
+    color: red;
+    cursor : pointer;
+    font-size: large;
+}
+
+.Columns{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}

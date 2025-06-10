@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace JobPortalAPI.Controllers
 {
     [ApiController]
-    [Route("api/v1/files")]
+    [Route("api/files")]
     public class FileController : ControllerBase
     {
         private readonly IFileService _fileService;
