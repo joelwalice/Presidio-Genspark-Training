@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.SignalR;
 namespace JobPortalAPI.Controllers
 {
     [ApiController]
-    [Route("api/v1/jobs")]
+    [Route("api/jobs")]
     public class JobController : ControllerBase
     {
         private readonly IJobServices _jobService;
