@@ -104,6 +104,7 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IRecruiterService, RecruiterService>();
 builder.Services.AddScoped<IJobServices, JobServices>();
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<ICompanyService, CompanyService>();
 #endregion
 
 #region CORS

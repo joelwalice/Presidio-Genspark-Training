@@ -105,17 +105,31 @@ namespace JobPortalAPI.Services
             {
                 if (refreshDto == null || string.IsNullOrEmpty(refreshDto.RefreshToken))
                 {
-                    _logger.LogWarning("Refresh token failed - missing refresh token or email");
+                    _logger.LogWarning("Refresh token failed - missing refresh token or user ID");
                     throw new UnauthorizedAccessException("Invalid refresh token request");
                 }
 
                 var users = await _userRepository.GetAllAsync();
                 var user = users.FirstOrDefault(u => u.Id == refreshDto.UserId);
 
-                if (user == null || user.RefreshToken != refreshDto.RefreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
+                if (user == null)
                 {
-                    _logger.LogWarning("Refresh token failed - invalid or expired refresh token for user: {Email}", refreshDto.UserId);
-                    throw new UnauthorizedAccessException("Invalid or expired refresh token");
+                    _logger.LogWarning("Refresh token failed - user not found with ID: {UserId}", refreshDto.UserId);
+                    throw new UnauthorizedAccessException("User not found");
+                }
+
+                if (user.RefreshToken != refreshDto.RefreshToken)
+                {
+                    _logger.LogWarning("Refresh token failed - token mismatch for user: {UserId}", user.Id);
+                    _logger.LogInformation("Expected: {StoredToken}, Received: {ProvidedToken}", user.RefreshToken, refreshDto.RefreshToken);
+                    throw new UnauthorizedAccessException("Refresh token mismatch");
+                }
+
+                if (user.RefreshTokenExpiryTime <= DateTime.UtcNow)
+                {
+                    _logger.LogWarning("Refresh token failed - token expired for user: {UserId}", user.Id);
+                    _logger.LogInformation("Token expired at: {ExpiryTime}, Current time: {Now}", user.RefreshTokenExpiryTime, DateTime.UtcNow);
+                    throw new UnauthorizedAccessException("Refresh token expired");
                 }
 
                 var claims = new List<Claim>
@@ -134,11 +148,12 @@ namespace JobPortalAPI.Services
                     signingCredentials: creds
                 );
 
-                // Optionally, generate a new refresh token
                 var newRefreshToken = Guid.NewGuid().ToString();
                 user.RefreshToken = newRefreshToken;
                 user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
                 await _userRepository.UpdateAsync(user);
+
+                _logger.LogInformation("Refresh token successful for user: {UserId}", user.Id);
 
                 return new AuthResultDto
                 {
@@ -154,21 +169,73 @@ namespace JobPortalAPI.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error during refresh token for user {Email}", refreshDto?.UserId);
+                _logger.LogError(ex, "Error during refresh token for user {UserId}", refreshDto?.UserId);
                 throw new Exception("An error occurred during token refresh. Please try again later.");
             }
         }
-
         public async Task LogoutAsync(string userId)
         {
-            // Implementation for logging out user
-            throw new NotImplementedException();
+            try
+            {
+                if (string.IsNullOrEmpty(userId))
+                {
+                    _logger.LogWarning("Logout failed - userId is null or empty");
+                    throw new ArgumentException("User ID is required");
+                }
+
+                var users = await _userRepository.GetAllAsync();
+                var user = users.FirstOrDefault(u => u.Id.ToString() == userId);
+
+                if (user == null)
+                {
+                    _logger.LogWarning("Logout failed - user not found with ID: {UserId}", userId);
+                    throw new UnauthorizedAccessException("User not found");
+                }
+                user.RefreshToken = null;
+                user.RefreshTokenExpiryTime = null;
+                await _userRepository.UpdateAsync(user);
+
+                _logger.LogInformation("User {UserId} logged out successfully", userId);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during logout for user {UserId}", userId);
+                throw new Exception("An error occurred during logout. Please try again later.");
+            }
         }
+
 
         public async Task<UserAddRequestDto?> GetUserByIdAsync(string userId)
         {
-            // Implementation for retrieving user by ID
-            throw new NotImplementedException();
+            try
+            {
+                if (string.IsNullOrEmpty(userId))
+                {
+                    _logger.LogWarning("GetUserById failed - userId is null or empty");
+                    return null;
+                }
+
+                var users = await _userRepository.GetAllAsync();
+                var user = users.FirstOrDefault(u => u.Id.ToString() == userId);
+
+                if (user == null)
+                {
+                    _logger.LogWarning("GetUserById failed - user not found with ID: {UserId}", userId);
+                    return null;
+                }
+                return new UserAddRequestDto
+                {
+                    Email = user.Email,
+                    Role = user.Role,
+                    Password = user.PasswordHash
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving user by ID {UserId}", userId);
+                throw new Exception("An error occurred while retrieving the user.");
+            }
         }
+
     }
 }

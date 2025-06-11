@@ -1,13 +1,11 @@
 using System;
-using Microsoft.AspNetCore.Mvc;
-using JobPortalAPI.Contexts;
-using JobPortalAPI.Models;
-using JobPortalAPI.Models.DTOs;
-using JobPortalAPI.Interfaces;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Authorization;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using JobPortalAPI.Interfaces;
+using JobPortalAPI.Models.DTOs;
 
 namespace JobPortalAPI.Controllers
 {
@@ -25,48 +23,78 @@ namespace JobPortalAPI.Controllers
         [HttpPost("auth/login")]
         public async Task<IActionResult> Login([FromBody] UserAddRequestDto loginDto)
         {
-            var result = await _authService.LoginAsync(loginDto);
-            // if (!result.Success)
-            //     return Unauthorized(result.Message);
-
-            return Ok(result);
+            try
+            {
+                var result = await _authService.LoginAsync(loginDto);
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
         }
 
         [HttpPost("auth/refresh")]
         public async Task<IActionResult> Refresh([FromBody] TokenRefreshDto refreshDto)
         {
-            var result = await _authService.RefreshTokenAsync(refreshDto);
-            // if (!result.Success)
-            //     return Unauthorized(result);
-
-            return Ok(result);
+            try
+            {
+                var result = await _authService.RefreshTokenAsync(refreshDto);
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
         }
 
         [Authorize]
         [HttpPost("auth/logout")]
         public async Task<IActionResult> Logout()
         {
-            var userId = User.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
-            if (userId == null)
-                return Unauthorized();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized(new { message = "Invalid user identity." });
 
-            await _authService.LogoutAsync(userId);
-            return Ok(new { message = "Logged out successfully" });
+            try
+            {
+                await _authService.LogoutAsync(userId);
+                return Ok(new { message = "Logged out successfully." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
         }
 
         [Authorize]
         [HttpGet("auth/me")]
         public async Task<IActionResult> Me()
         {
-            var userId = User.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
-            if (userId == null)
-                return Unauthorized();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized(new { message = "Invalid user identity." });
 
-            var user = await _authService.GetUserByIdAsync(userId);
-            if (user == null)
-                return NotFound();
+            try
+            {
+                var user = await _authService.GetUserByIdAsync(userId);
+                if (user == null)
+                    return NotFound(new { message = "User not found." });
 
-            return Ok(user);
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
         }
     }
 }
