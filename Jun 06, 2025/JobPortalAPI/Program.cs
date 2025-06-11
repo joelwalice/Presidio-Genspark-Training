@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Serilog;
 using Microsoft.AspNetCore.SignalR;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -131,7 +132,7 @@ builder.Services.AddRateLimiter(options =>
                 Window = TimeSpan.FromMinutes(1)
             }));
 });
-app.UseRateLimiter();
+
 
 builder.Services.AddAuthorization();
 
@@ -148,5 +149,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<JobHub>("/notification");
-
+app.UseRateLimiter();
 app.Run();

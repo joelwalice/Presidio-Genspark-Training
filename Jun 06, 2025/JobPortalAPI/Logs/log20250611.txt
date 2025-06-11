@@ -328,3 +328,9 @@ WHERE "Id" = @p0;
 2025-06-11 10:26:19.616 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/favicon-16x16.png - 200 665 image/png 0.6912ms
 2025-06-11 10:26:19.726 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 150.7122ms
 2025-06-11 10:29:16.253 +05:30 [INF] Application is shutting down...
+2025-06-11 16:40:25.086 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-11 16:40:25.258 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-11 16:40:25.260 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-11 16:40:25.260 +05:30 [INF] Hosting environment: Development
+2025-06-11 16:40:25.260 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-11 18:15:22.274 +05:30 [INF] Application is shutting down...
