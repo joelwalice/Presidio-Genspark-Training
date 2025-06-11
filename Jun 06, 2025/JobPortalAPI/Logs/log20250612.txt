@@ -1,0 +1,19 @@
+2025-06-12 02:45:26.020 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-12 02:45:26.214 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-12 02:45:26.217 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-12 02:45:26.218 +05:30 [INF] Hosting environment: Development
+2025-06-12 02:45:26.218 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-12 02:45:28.745 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/ - null null
+2025-06-12 02:45:28.844 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-12 02:45:28.862 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/ - 404 0 null 119.5138ms
+2025-06-12 02:45:28.900 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5039/, Response status code: 404
+2025-06-12 02:45:28.904 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/favicon.ico - null null
+2025-06-12 02:45:28.921 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/favicon.ico - 404 0 null 18.0366ms
+2025-06-12 02:45:28.922 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5039/favicon.ico, Response status code: 404
+2025-06-12 02:45:48.485 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-12 02:45:48.567 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 81.8864ms
+2025-06-12 02:45:48.843 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-12 02:45:49.066 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 223.3811ms
+2025-06-12 02:45:57.809 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-12 02:45:57.834 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.9592ms
+2025-06-12 03:01:20.619 +05:30 [INF] Application is shutting down...
