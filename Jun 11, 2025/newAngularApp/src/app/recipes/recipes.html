@@ -1,0 +1,18 @@
+@if (recipes()) {
+  <h1 class="title">Recipe List</h1>
+  <div class="card-container">
+    @for (recipe of recipes(); track recipe.id) {
+      <div class="card recipe-card">
+        <img class="card-img-top" [src]="recipe?.image" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{ recipe?.name }}</h4>
+          <p class="card-text"><b>Cuisine: </b><label>{{ recipe?.cuisine }}</label></p>
+          <p class="card-text"><b>Cooking Time: </b><label>{{ recipe?.cookTimeMinutes }} Minutes</label></p>
+          <p class="card-text"><b>Ingredients: </b><label>{{ recipe?.ingredients?.join(', ') }}</label></p>
+        </div>
+      </div>
+    }
+  </div>
+} @else {
+  <div>No Recipes Found..</div>
+}
