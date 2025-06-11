@@ -1,0 +1,20 @@
+<div>
+    <h1>Customer Details</h1>
+    Enter the Name : 
+    <input type="text" #uname [value]="name">
+    <button (click)="submitName(uname.value)">Enter</button>
+</div>
+
+<h2>
+    {{name !== '' ? 'Welcome, ' + name + '!' : ''}}
+</h2>
+<div class="Columns">
+    <div id="Like">
+        <i class="{{LikeClassName}}" (click)="clickLike()" ></i>
+    {{like}}
+    </div>
+    <div id="DisLike">
+        <i class="{{DislikeClassName}}" (click)="clickDislike()"></i> 
+        {{dislike}}
+    </div>
+</div>

@@ -1,0 +1,330 @@
+2025-06-11 00:03:14.005 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-11 00:03:14.008 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 3.0075ms
+2025-06-11 00:03:14.235 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-11 00:03:14.247 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.8059ms
+2025-06-11 00:08:46.793 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 81
+2025-06-11 00:08:46.795 +05:30 [INF] CORS policy execution failed.
+2025-06-11 00:08:46.795 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-11 00:08:46.795 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-11 00:08:46.795 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-11 00:08:46.820 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-11 00:08:47.384 +05:30 [INF] User joelw@gmail.com logged in successfully
+2025-06-11 00:08:47.388 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-11 00:08:47.388 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-11 00:08:47.388 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 587.9189ms
+2025-06-11 00:08:47.389 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-11 00:08:47.389 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 595.2252ms
+2025-06-11 00:10:44.267 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/refresh - application/json 664
+2025-06-11 00:10:44.268 +05:30 [INF] CORS policy execution failed.
+2025-06-11 00:10:44.268 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-11 00:10:44.268 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI)'
+2025-06-11 00:10:44.272 +05:30 [INF] Route matched with {action = "Refresh", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(JobPortalAPI.Models.DTOs.TokenRefreshDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-11 00:10:44.290 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-11 00:10:44.293 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-11 00:10:44.294 +05:30 [INF] Refresh token successful for user: "a83743db-a2c0-4d5e-b089-6f93f29ad17d"
+2025-06-11 00:10:44.294 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-11 00:10:44.295 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI) in 22.1922ms
+2025-06-11 00:10:44.295 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI)'
+2025-06-11 00:10:44.295 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/refresh - 200 null application/json; charset=utf-8 27.4869ms
+2025-06-11 00:13:58.825 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/authentication/auth/refresh - application/json 664
+2025-06-11 00:13:58.826 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI)'
+2025-06-11 00:13:58.826 +05:30 [INF] Route matched with {action = "Refresh", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(JobPortalAPI.Models.DTOs.TokenRefreshDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-11 00:13:58.841 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-11 00:13:58.844 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-11 00:13:58.845 +05:30 [INF] Refresh token successful for user: "a83743db-a2c0-4d5e-b089-6f93f29ad17d"
+2025-06-11 00:13:58.845 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-11 00:13:58.845 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI) in 18.592ms
+2025-06-11 00:13:58.845 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI)'
+2025-06-11 00:13:58.846 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/authentication/auth/refresh - 200 null application/json; charset=utf-8 20.2039ms
+2025-06-11 01:14:35.011 +05:30 [INF] Application is shutting down...
+2025-06-11 01:32:41.452 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-11 01:32:41.613 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-11 01:32:41.615 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-11 01:32:41.615 +05:30 [INF] Hosting environment: Development
+2025-06-11 01:32:41.615 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-11 01:32:48.924 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-11 01:32:49.077 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 156.5759ms
+2025-06-11 01:32:49.300 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-11 01:32:49.436 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 135.6496ms
+2025-06-11 01:33:02.557 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/Company - null null
+2025-06-11 01:33:02.564 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-11 01:33:02.570 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI)'
+2025-06-11 01:33:02.586 +05:30 [INF] Route matched with {action = "GetAllCompanies", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[JobPortalAPI.Models.DTOs.CompanyDTO]]] GetAllCompanies() on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:33:03.958 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-06-11 01:33:04.223 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM "Companies" AS c
+LEFT JOIN "Recruiters" AS r ON c."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c."Id" = j."CompanyId"
+ORDER BY c."Id", r."Id"
+2025-06-11 01:33:04.417 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[JobPortalAPI.Models.Company, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[JobPortalAPI.Models.DTOs.CompanyDTO, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-11 01:33:04.438 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI) in 1845.7297ms
+2025-06-11 01:33:04.439 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI)'
+2025-06-11 01:33:04.447 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/Company - 200 null application/json; charset=utf-8 1890.3593ms
+2025-06-11 01:34:37.283 +05:30 [INF] Application is shutting down...
+2025-06-11 01:35:34.063 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-11 01:35:34.191 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-11 01:35:34.192 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-11 01:35:34.193 +05:30 [INF] Hosting environment: Development
+2025-06-11 01:35:34.193 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-11 01:36:30.573 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/Company - null null
+2025-06-11 01:36:30.634 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-11 01:36:30.640 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Recruiter)
+2025-06-11 01:36:30.644 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-11 01:36:30.648 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/Company - 401 0 null 77.5833ms
+2025-06-11 01:37:01.300 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 80
+2025-06-11 01:37:01.309 +05:30 [INF] CORS policy execution failed.
+2025-06-11 01:37:01.309 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-11 01:37:01.315 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-11 01:37:01.337 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-11 01:37:02.811 +05:30 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-11 01:37:03.910 +05:30 [INF] User hari@gmail.com logged in successfully
+2025-06-11 01:37:04.027 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-11 01:37:04.060 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-11 01:37:04.078 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 2737.0571ms
+2025-06-11 01:37:04.079 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-11 01:37:04.087 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 2786.7041ms
+2025-06-11 01:38:58.478 +05:30 [INF] Request starting HTTP/1.1 PUT http://localhost:5039/api/Company - application/json 221
+2025-06-11 01:38:58.531 +05:30 [INF] CORS policy execution failed.
+2025-06-11 01:38:58.531 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-11 01:38:58.533 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI)'
+2025-06-11 01:38:58.539 +05:30 [INF] Route matched with {action = "UpdateCompany", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[JobPortalAPI.Models.Company]] UpdateCompany(JobPortalAPI.Models.DTOs.CompanyUpdateDTO) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:38:58.629 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-06-11 01:38:58.661 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Address", c0."CreatedAt", c0."Email", c0."EstablishedDate", c0."Name", c0."PhoneNumber", c0."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM (
+    SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+    FROM "Companies" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN "Recruiters" AS r ON c0."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c0."Id" = j."CompanyId"
+ORDER BY c0."Id", r."Id"
+2025-06-11 01:38:58.745 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p5='?' (DbType = Guid), @p0='?', @p1='?', @p2='?' (DbType = DateTime), @p3='?', @p4='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Companies" SET "Address" = @p0, "Email" = @p1, "EstablishedDate" = @p2, "PhoneNumber" = @p3, "UpdatedAt" = @p4
+WHERE "Id" = @p5;
+2025-06-11 01:38:58.747 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.Company'.
+2025-06-11 01:38:58.776 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI) in 236.4901ms
+2025-06-11 01:38:58.776 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI)'
+2025-06-11 01:38:58.776 +05:30 [INF] Request finished HTTP/1.1 PUT http://localhost:5039/api/Company - 200 null application/json; charset=utf-8 298.2225ms
+2025-06-11 01:39:18.184 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/Company - null null
+2025-06-11 01:39:18.188 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI)'
+2025-06-11 01:39:18.192 +05:30 [INF] Route matched with {action = "GetAllCompanies", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[JobPortalAPI.Models.DTOs.CompanyDTO]]] GetAllCompanies() on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:39:18.269 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-06-11 01:39:18.287 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM "Companies" AS c
+LEFT JOIN "Recruiters" AS r ON c."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c."Id" = j."CompanyId"
+ORDER BY c."Id", r."Id"
+2025-06-11 01:39:18.292 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[JobPortalAPI.Models.Company, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[JobPortalAPI.Models.DTOs.CompanyDTO, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-11 01:39:18.296 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI) in 104.2801ms
+2025-06-11 01:39:18.296 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI)'
+2025-06-11 01:39:18.297 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/Company - 200 null application/json; charset=utf-8 112.8366ms
+2025-06-11 01:40:43.584 +05:30 [INF] Request starting HTTP/1.1 PUT http://localhost:5039/api/Company - application/json 222
+2025-06-11 01:40:43.586 +05:30 [INF] CORS policy execution failed.
+2025-06-11 01:40:43.586 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-11 01:40:43.586 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI)'
+2025-06-11 01:40:43.586 +05:30 [INF] Route matched with {action = "UpdateCompany", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[JobPortalAPI.Models.Company]] UpdateCompany(JobPortalAPI.Models.DTOs.CompanyUpdateDTO) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:40:43.607 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Address", c0."CreatedAt", c0."Email", c0."EstablishedDate", c0."Name", c0."PhoneNumber", c0."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM (
+    SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+    FROM "Companies" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN "Recruiters" AS r ON c0."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c0."Id" = j."CompanyId"
+ORDER BY c0."Id", r."Id"
+2025-06-11 01:40:43.611 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p6='?' (DbType = Guid), @p0='?', @p1='?', @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Companies" SET "Address" = @p0, "Email" = @p1, "EstablishedDate" = @p2, "Name" = @p3, "PhoneNumber" = @p4, "UpdatedAt" = @p5
+WHERE "Id" = @p6;
+2025-06-11 01:40:43.612 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.Company'.
+2025-06-11 01:40:43.613 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI) in 26.1527ms
+2025-06-11 01:40:43.613 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI)'
+2025-06-11 01:40:43.613 +05:30 [INF] Request finished HTTP/1.1 PUT http://localhost:5039/api/Company - 200 null application/json; charset=utf-8 28.6786ms
+2025-06-11 01:42:25.213 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/company - null null
+2025-06-11 01:42:25.214 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI)'
+2025-06-11 01:42:25.214 +05:30 [INF] Route matched with {action = "GetAllCompanies", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[JobPortalAPI.Models.DTOs.CompanyDTO]]] GetAllCompanies() on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:42:25.238 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM "Companies" AS c
+LEFT JOIN "Recruiters" AS r ON c."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c."Id" = j."CompanyId"
+ORDER BY c."Id", r."Id"
+2025-06-11 01:42:25.239 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[JobPortalAPI.Models.Company, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[JobPortalAPI.Models.DTOs.CompanyDTO, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-11 01:42:25.239 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI) in 24.8519ms
+2025-06-11 01:42:25.239 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetAllCompanies (JobPortalAPI)'
+2025-06-11 01:42:25.239 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/company - 200 null application/json; charset=utf-8 26.6547ms
+2025-06-11 01:44:37.693 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/company - application/json 170
+2025-06-11 01:44:37.694 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.AddCompany (JobPortalAPI)'
+2025-06-11 01:44:37.697 +05:30 [INF] Route matched with {action = "AddCompany", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[JobPortalAPI.Models.Company]] AddCompany(JobPortalAPI.Models.DTOs.CompanyAddDTO) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:44:37.732 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?', @p4='?' (DbType = DateTime), @p5='?', @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Companies" ("Id", "Address", "CreatedAt", "Email", "EstablishedDate", "Name", "PhoneNumber", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-11 01:44:37.735 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.Models.Company'.
+2025-06-11 01:44:37.756 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.AddCompany (JobPortalAPI) in 59.4783ms
+2025-06-11 01:44:37.756 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.AddCompany (JobPortalAPI)'
+2025-06-11 01:44:37.757 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/company - 201 null application/json; charset=utf-8 64.1103ms
+2025-06-11 01:50:21.017 +05:30 [INF] Request starting HTTP/1.1 PUT http://localhost:5039/api/company - application/json 222
+2025-06-11 01:50:21.017 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI)'
+2025-06-11 01:50:21.017 +05:30 [INF] Route matched with {action = "UpdateCompany", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[JobPortalAPI.Models.Company]] UpdateCompany(JobPortalAPI.Models.DTOs.CompanyUpdateDTO) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:50:21.074 +05:30 [INF] Executed DbCommand (47ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Address", c0."CreatedAt", c0."Email", c0."EstablishedDate", c0."Name", c0."PhoneNumber", c0."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM (
+    SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+    FROM "Companies" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN "Recruiters" AS r ON c0."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c0."Id" = j."CompanyId"
+ORDER BY c0."Id", r."Id"
+2025-06-11 01:50:21.082 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Companies" SET "UpdatedAt" = @p0
+WHERE "Id" = @p1;
+2025-06-11 01:50:21.085 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.Company'.
+2025-06-11 01:50:21.086 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI) in 68.2902ms
+2025-06-11 01:50:21.086 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.UpdateCompany (JobPortalAPI)'
+2025-06-11 01:50:21.086 +05:30 [INF] Request finished HTTP/1.1 PUT http://localhost:5039/api/company - 200 null application/json; charset=utf-8 69.3764ms
+2025-06-11 01:53:11.869 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/company/c4d38f54-d7cb-4751-8fec-47f321794c76/recruiters - null null
+2025-06-11 01:53:11.870 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetRecruitersByCompanyId (JobPortalAPI)'
+2025-06-11 01:53:11.874 +05:30 [INF] Route matched with {action = "GetRecruitersByCompanyId", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[JobPortalAPI.Models.Recruiter]]] GetRecruitersByCompanyId(System.Guid) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:53:11.878 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Address", c0."CreatedAt", c0."Email", c0."EstablishedDate", c0."Name", c0."PhoneNumber", c0."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM (
+    SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+    FROM "Companies" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN "Recruiters" AS r ON c0."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c0."Id" = j."CompanyId"
+ORDER BY c0."Id", r."Id"
+2025-06-11 01:53:11.878 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.Recruiter, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-11 01:53:11.879 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetRecruitersByCompanyId (JobPortalAPI) in 4.6807ms
+2025-06-11 01:53:11.879 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetRecruitersByCompanyId (JobPortalAPI)'
+2025-06-11 01:53:11.880 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/company/c4d38f54-d7cb-4751-8fec-47f321794c76/recruiters - 200 null application/json; charset=utf-8 10.7237ms
+2025-06-11 01:53:43.672 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/company/2ab7a332-a681-424a-8818-836e5a9ba05e/recruiters - null null
+2025-06-11 01:53:43.673 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetRecruitersByCompanyId (JobPortalAPI)'
+2025-06-11 01:53:43.673 +05:30 [INF] Route matched with {action = "GetRecruitersByCompanyId", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[JobPortalAPI.Models.Recruiter]]] GetRecruitersByCompanyId(System.Guid) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:53:43.676 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Address", c0."CreatedAt", c0."Email", c0."EstablishedDate", c0."Name", c0."PhoneNumber", c0."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM (
+    SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+    FROM "Companies" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN "Recruiters" AS r ON c0."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c0."Id" = j."CompanyId"
+ORDER BY c0."Id", r."Id"
+2025-06-11 01:53:43.676 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.Recruiter, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-11 01:53:43.677 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetRecruitersByCompanyId (JobPortalAPI) in 3.7297ms
+2025-06-11 01:53:43.677 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetRecruitersByCompanyId (JobPortalAPI)'
+2025-06-11 01:53:43.677 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/company/2ab7a332-a681-424a-8818-836e5a9ba05e/recruiters - 200 null application/json; charset=utf-8 5.1903ms
+2025-06-11 01:55:33.679 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/company/2ab7a332-a681-424a-8818-836e5a9ba05e/jobs - null null
+2025-06-11 01:55:33.680 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetJobsByCompanyId (JobPortalAPI)'
+2025-06-11 01:55:33.683 +05:30 [INF] Route matched with {action = "GetJobsByCompanyId", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[JobPortalAPI.Models.Job]]] GetJobsByCompanyId(System.Guid) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:55:33.698 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Address", c0."CreatedAt", c0."Email", c0."EstablishedDate", c0."Name", c0."PhoneNumber", c0."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM (
+    SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+    FROM "Companies" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN "Recruiters" AS r ON c0."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c0."Id" = j."CompanyId"
+ORDER BY c0."Id", r."Id"
+2025-06-11 01:55:33.699 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.Job, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-11 01:55:33.702 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetJobsByCompanyId (JobPortalAPI) in 18.8155ms
+2025-06-11 01:55:33.702 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetJobsByCompanyId (JobPortalAPI)'
+2025-06-11 01:55:33.702 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/company/2ab7a332-a681-424a-8818-836e5a9ba05e/jobs - 200 null application/json; charset=utf-8 22.8318ms
+2025-06-11 01:57:00.498 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/company/2ab7a332-a681-424a-8818-836e5a9ba05e - null null
+2025-06-11 01:57:00.499 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetCompanyById (JobPortalAPI)'
+2025-06-11 01:57:00.501 +05:30 [INF] Route matched with {action = "GetCompanyById", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[JobPortalAPI.Models.DTOs.CompanyDTO]] GetCompanyById(System.Guid) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:57:00.505 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Address", c0."CreatedAt", c0."Email", c0."EstablishedDate", c0."Name", c0."PhoneNumber", c0."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM (
+    SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+    FROM "Companies" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN "Recruiters" AS r ON c0."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c0."Id" = j."CompanyId"
+ORDER BY c0."Id", r."Id"
+2025-06-11 01:57:00.506 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.CompanyDTO'.
+2025-06-11 01:57:00.506 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetCompanyById (JobPortalAPI) in 4.5763ms
+2025-06-11 01:57:00.506 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetCompanyById (JobPortalAPI)'
+2025-06-11 01:57:00.506 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/company/2ab7a332-a681-424a-8818-836e5a9ba05e - 200 null application/json; charset=utf-8 8.0211ms
+2025-06-11 01:58:17.482 +05:30 [INF] Request starting HTTP/1.1 DELETE http://localhost:5039/api/company/c4d38f54-d7cb-4751-8fec-47f321794c76 - null null
+2025-06-11 01:58:17.482 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.DeleteCompany (JobPortalAPI)'
+2025-06-11 01:58:17.486 +05:30 [INF] Route matched with {action = "DeleteCompany", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCompany(System.Guid) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-06-11 01:58:17.506 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+FROM "Companies" AS c
+WHERE c."Id" = @__p_0
+LIMIT 1
+2025-06-11 01:58:17.519 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Companies"
+WHERE "Id" = @p0;
+2025-06-11 01:58:17.526 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-06-11 01:58:17.526 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.DeleteCompany (JobPortalAPI) in 39.6349ms
+2025-06-11 01:58:17.526 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.DeleteCompany (JobPortalAPI)'
+2025-06-11 01:58:17.526 +05:30 [INF] Request finished HTTP/1.1 DELETE http://localhost:5039/api/company/c4d38f54-d7cb-4751-8fec-47f321794c76 - 204 null null 44.7541ms
+2025-06-11 10:25:54.606 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-11 10:25:54.753 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-11 10:25:54.755 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-11 10:25:54.755 +05:30 [INF] Hosting environment: Development
+2025-06-11 10:25:54.755 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-11 10:26:19.036 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger - null null
+2025-06-11 10:26:19.124 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger - 301 0 null 90.617ms
+2025-06-11 10:26:19.142 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-11 10:26:19.211 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 68.8817ms
+2025-06-11 10:26:19.236 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/swagger-ui.css - null null
+2025-06-11 10:26:19.241 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/swagger-ui-bundle.js - null null
+2025-06-11 10:26:19.244 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/swagger-ui-standalone-preset.js - null null
+2025-06-11 10:26:19.266 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-06-11 10:26:19.266 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-06-11 10:26:19.268 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/swagger-ui.css - 200 144929 text/css 32.0642ms
+2025-06-11 10:26:19.268 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 24.8369ms
+2025-06-11 10:26:19.269 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-06-11 10:26:19.269 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 28.3221ms
+2025-06-11 10:26:19.575 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-11 10:26:19.613 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/favicon-32x32.png - null null
+2025-06-11 10:26:19.614 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-06-11 10:26:19.614 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/favicon-32x32.png - 200 628 image/png 0.8899ms
+2025-06-11 10:26:19.615 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/favicon-16x16.png - null null
+2025-06-11 10:26:19.615 +05:30 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2025-06-11 10:26:19.616 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/favicon-16x16.png - 200 665 image/png 0.6912ms
+2025-06-11 10:26:19.726 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 150.7122ms
+2025-06-11 10:29:16.253 +05:30 [INF] Application is shutting down...

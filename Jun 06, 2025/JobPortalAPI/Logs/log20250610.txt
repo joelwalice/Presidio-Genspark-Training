@@ -476,3 +476,196 @@ WHERE "Id" = @p8;
 2025-06-10 01:49:53.838 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 587.1508ms
 2025-06-10 01:49:53.838 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
 2025-06-10 01:49:53.838 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 589.0385ms
+2025-06-10 18:14:45.065 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-10 18:14:45.206 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-10 18:14:45.208 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-10 18:14:45.208 +05:30 [INF] Hosting environment: Development
+2025-06-10 18:14:45.208 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-10 18:14:52.394 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/ - null null
+2025-06-10 18:14:52.481 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-10 18:14:52.487 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/ - 404 0 null 97.6532ms
+2025-06-10 18:14:52.519 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5039/, Response status code: 404
+2025-06-10 18:15:00.563 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-10 18:15:00.645 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 82.4472ms
+2025-06-10 18:15:00.755 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-10 18:15:00.875 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 119.9338ms
+2025-06-10 18:15:36.003 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 81
+2025-06-10 18:15:36.008 +05:30 [INF] CORS policy execution failed.
+2025-06-10 18:15:36.008 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-10 18:15:36.010 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-10 18:15:36.034 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 18:15:37.527 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 18:15:38.630 +05:30 [INF] User joelw@gmail.com logged in successfully
+2025-06-10 18:15:38.737 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-10 18:15:38.767 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-10 18:15:38.780 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 2741.7214ms
+2025-06-10 18:15:38.781 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-10 18:15:38.789 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 2786.0549ms
+2025-06-10 18:18:21.260 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/refresh - application/json 668
+2025-06-10 18:18:21.311 +05:30 [INF] CORS policy execution failed.
+2025-06-10 18:18:21.311 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-10 18:18:21.312 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI)'
+2025-06-10 18:18:21.316 +05:30 [INF] Route matched with {action = "Refresh", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(JobPortalAPI.Models.DTOs.TokenRefreshDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 18:18:21.349 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 18:18:21.350 +05:30 [WRN] Refresh token failed - invalid or expired refresh token for user: "5f195bd6-ca2b-4145-971e-79d8c9319674"
+2025-06-10 18:18:21.352 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-10 18:18:21.356 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI) in 40.1915ms
+2025-06-10 18:18:21.356 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI)'
+2025-06-10 18:18:21.357 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/refresh - 401 null application/json; charset=utf-8 96.9034ms
+2025-06-10 18:21:52.909 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/refresh - application/json 664
+2025-06-10 18:21:52.911 +05:30 [INF] CORS policy execution failed.
+2025-06-10 18:21:52.912 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-10 18:21:52.912 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI)'
+2025-06-10 18:21:52.912 +05:30 [INF] Route matched with {action = "Refresh", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(JobPortalAPI.Models.DTOs.TokenRefreshDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 18:21:52.996 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 18:21:52.997 +05:30 [WRN] Refresh token failed - invalid or expired refresh token for user: "5f195bd6-ca2b-4145-971e-79d8c9319674"
+2025-06-10 18:21:52.998 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-10 18:21:52.998 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI) in 85.3357ms
+2025-06-10 18:21:52.998 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Refresh (JobPortalAPI)'
+2025-06-10 18:21:52.998 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/refresh - 401 null application/json; charset=utf-8 88.6236ms
+2025-06-10 18:33:07.843 +05:30 [INF] Application is shutting down...
+2025-06-10 18:33:25.958 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-10 18:33:26.073 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-10 18:33:26.074 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-10 18:33:26.074 +05:30 [INF] Hosting environment: Development
+2025-06-10 18:33:26.074 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-10 18:33:44.090 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-10 18:33:44.208 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 119.0897ms
+2025-06-10 18:33:44.394 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-10 18:33:44.501 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.5014ms
+2025-06-10 18:34:12.562 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 81
+2025-06-10 18:34:12.569 +05:30 [INF] CORS policy execution failed.
+2025-06-10 18:34:12.570 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-10 18:34:12.572 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-10 18:34:12.576 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-10 18:34:12.592 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 18:34:13.790 +05:30 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 18:34:14.871 +05:30 [INF] User joelw@gmail.com logged in successfully
+2025-06-10 18:34:14.962 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-10 18:34:14.984 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-10 18:34:14.995 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 2398.7751ms
+2025-06-10 18:34:14.996 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-10 18:34:15.004 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 2441.1067ms
+2025-06-10 20:22:20.884 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-10 20:22:21.016 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-10 20:22:21.017 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-10 20:22:21.018 +05:30 [INF] Hosting environment: Development
+2025-06-10 20:22:21.018 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-10 20:22:32.004 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-10 20:22:32.143 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 141.6236ms
+2025-06-10 20:22:32.360 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-10 20:22:32.487 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 127.4337ms
+2025-06-10 20:22:53.062 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 81
+2025-06-10 20:22:53.072 +05:30 [INF] CORS policy execution failed.
+2025-06-10 20:22:53.072 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-10 20:22:53.074 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-10 20:22:53.079 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-10 20:22:53.104 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 20:22:54.692 +05:30 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 20:22:55.784 +05:30 [INF] User joelw@gmail.com logged in successfully
+2025-06-10 20:22:55.895 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-10 20:22:55.927 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-10 20:22:55.940 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 2830.8764ms
+2025-06-10 20:22:55.941 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-10 20:22:55.950 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 2888.0624ms
+2025-06-10 20:23:20.792 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/Authentication/auth/me - null null
+2025-06-10 20:23:20.843 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Me (JobPortalAPI)'
+2025-06-10 20:23:20.847 +05:30 [INF] Route matched with {action = "Me", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Me() on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 20:23:20.876 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 20:23:20.877 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.UserAddRequestDto'.
+2025-06-10 20:23:20.878 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Me (JobPortalAPI) in 30.5985ms
+2025-06-10 20:23:20.878 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Me (JobPortalAPI)'
+2025-06-10 20:23:20.879 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/Authentication/auth/me - 200 null application/json; charset=utf-8 87.0362ms
+2025-06-10 20:24:10.867 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/authentication/auth/me - null null
+2025-06-10 20:24:10.871 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-06-10 20:24:10.878 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-10 20:24:10.880 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/authentication/auth/me - 401 0 null 11.7058ms
+2025-06-10 20:24:18.562 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/authentication/auth/me - null null
+2025-06-10 20:24:18.565 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/9/2025 8:55:27 PM', Current time (UTC): '6/10/2025 2:54:18 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-10 20:24:18.579 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/9/2025 8:55:27 PM', Current time (UTC): '6/10/2025 2:54:18 PM'.
+2025-06-10 20:24:18.582 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-06-10 20:24:18.583 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-10 20:24:18.583 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/authentication/auth/me - 401 0 null 21.5769ms
+2025-06-10 20:24:29.055 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/authentication/auth/me - null null
+2025-06-10 20:24:29.056 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Me (JobPortalAPI)'
+2025-06-10 20:24:29.056 +05:30 [INF] Route matched with {action = "Me", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Me() on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 20:24:29.129 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 20:24:29.130 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.UserAddRequestDto'.
+2025-06-10 20:24:29.130 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Me (JobPortalAPI) in 73.9473ms
+2025-06-10 20:24:29.130 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Me (JobPortalAPI)'
+2025-06-10 20:24:29.130 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/authentication/auth/me - 200 null application/json; charset=utf-8 75.2912ms
+2025-06-10 20:25:12.206 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/logout - null 0
+2025-06-10 20:25:12.207 +05:30 [INF] CORS policy execution failed.
+2025-06-10 20:25:12.207 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-10 20:25:12.208 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Logout (JobPortalAPI)'
+2025-06-10 20:25:12.211 +05:30 [INF] Route matched with {action = "Logout", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 20:25:12.215 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 20:25:12.220 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-10 20:25:12.221 +05:30 [INF] User a83743db-a2c0-4d5e-b089-6f93f29ad17d logged out successfully
+2025-06-10 20:25:12.221 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-10 20:25:12.225 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Logout (JobPortalAPI) in 14.2829ms
+2025-06-10 20:25:12.226 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Logout (JobPortalAPI)'
+2025-06-10 20:25:12.226 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/logout - 200 null application/json; charset=utf-8 19.3074ms
+2025-06-10 20:26:06.430 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/authentication/auth/logout - null 0
+2025-06-10 20:26:06.431 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Logout (JobPortalAPI)'
+2025-06-10 20:26:06.431 +05:30 [INF] Route matched with {action = "Logout", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-10 20:26:06.433 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-10 20:26:06.435 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-10 20:26:06.435 +05:30 [INF] User a83743db-a2c0-4d5e-b089-6f93f29ad17d logged out successfully
+2025-06-10 20:26:06.435 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-10 20:26:06.435 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Logout (JobPortalAPI) in 3.7442ms
+2025-06-10 20:26:06.435 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Logout (JobPortalAPI)'
+2025-06-10 20:26:06.436 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/authentication/auth/logout - 200 null application/json; charset=utf-8 5.1814ms
