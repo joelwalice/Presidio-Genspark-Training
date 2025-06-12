@@ -69,6 +69,7 @@ namespace JobPortalAPI.Controllers
             _logger.LogInformation("Creating a new job");
             _logger.LogInformation("User {User} is creating a new job", User.Identity?.Name);
             var created = await _jobService.CreateJobAsync(dto);
+            Console.WriteLine(created);
             if (created == null)
             {
                 _logger.LogError("Failed to create job");
@@ -76,7 +77,12 @@ namespace JobPortalAPI.Controllers
             }
             _logger.LogInformation("Successfully created job with ID {JobId}", User.Identity?.Name);
             _logger.LogInformation("User {User} successfully created a new job with ID {JobId}", User.Identity?.Name);
-            await _hubContext.Clients.All.SendAsync("ReceiveNotification", $"New job posted: {created.Title}");
+            await _hubContext.Clients.All.SendAsync("ReceiveNotification", new {
+                Title = created.Title,
+                CompanyName = created.CompanyName,
+                Description = created.Description,
+                Salary = created.Salary
+            });
             return CreatedAtAction(nameof(GetById), new { id = Guid.NewGuid() }, created);
         }
 

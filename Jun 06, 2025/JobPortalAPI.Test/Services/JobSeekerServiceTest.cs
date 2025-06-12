@@ -9,6 +9,7 @@ using JobPortalAPI.Contexts;
 using JobPortalAPI.Models;
 using JobPortalAPI.Models.DTOs;
 using JobPortalAPI.Services;
+using JobPortalAPI.Repositories;
 
 public class JobSeekerServiceTests
 {
@@ -86,41 +87,49 @@ public class JobSeekerServiceTests
     }
 
     [Fact]
-    public async Task GetAllJobSeekersAsync_ShouldReturnAllJobSeekers()
+public async Task GetAllAsync_ShouldReturnAllRecruiters()
+{
+    var context = GetInMemoryDbContext();
+    var repo = new RecruiterRepository(context);
+
+    // Add a dummy company because recruiter needs a valid CompanyId
+    var company = new Company
     {
-        var context = GetInMemoryDbContext();
-        var service = new JobSeekerService(context);
+        Id = Guid.NewGuid(),
+        Name = "Test Company",
+        Email = "company@example.com",
+        Address = "Test City",
+        PhoneNumber = "+91 977583902"
+    };
+    await context.Companies.AddAsync(company);
+    await context.SaveChangesAsync();
 
-        context.Users.Add(new User
-        {
-            Id = Guid.NewGuid(),
-            Email = "a@example.com",
-            Name = "UserA",
-            Role = "JobSeeker",
-            PasswordHash = "hash"
-        });
+    var recruiter1 = new Recruiter
+    {
+        Id = Guid.NewGuid(),
+        Name = "Alice Recruiter",
+        Email = "alice@example.com",
+        PhoneNumber = "1111111111",
+        CompanyId = company.Id
+    };
 
-        context.JobSeekers.Add(new JobSeeker
-        {
-            Id = Guid.NewGuid(),
-            Name = "UserA",
-            Email = "a@example.com",
-            PhoneNumber = "0000",
-            DateOfBirth = new DateTime(1990, 1, 1),
-            Address = "AddrA",
-            PasswordHash = "hash",
-            UserId = context.Users.First().Id
-        });
+    var recruiter2 = new Recruiter
+    {
+        Id = Guid.NewGuid(),
+        Name = "Bob Recruiter",
+        Email = "bob@example.com",
+        PhoneNumber = "2222222222",
+        CompanyId = company.Id
+    };
 
-        await context.SaveChangesAsync();
+    await repo.AddAsync(recruiter1);
+    await repo.AddAsync(recruiter2);
 
-        // Act
-        var result = await service.GetAllJobSeekersAsync();
+    var result = await repo.GetAllAsync();
 
-        // Assert
-        Assert.NotEmpty(result);
-        Assert.Single(result);
-    }
+    Assert.Equal(2, result.Count());
+}
+
 
     [Fact]
     public async Task UpdateJobSeekerAsync_ShouldUpdateFields()

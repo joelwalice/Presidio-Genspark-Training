@@ -4,15 +4,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Security.Claims;
-using System.Text;
 using JobPortalAPI.Services;
 using JobPortalAPI.Interfaces;
 using JobPortalAPI.Models;
 using JobPortalAPI.Models.DTOs;
-using Microsoft.IdentityModel.Tokens;
 
 namespace JobPortalAPI.Tests
 {
@@ -29,7 +25,9 @@ namespace JobPortalAPI.Tests
             _loggerMock = new Mock<ILogger<AuthenticationService>>();
             _configMock = new Mock<IConfiguration>();
 
-            _configMock.Setup(x => x["Keys:JwtTokenKey"]).Returns("supersecretkey!123");
+            // Use valid 256-bit key for HMAC-SHA256
+            _configMock.Setup(c => c["Keys:JwtTokenKey"])
+                .Returns("32_character_supersecret_key_1234567890!");
 
             _authService = new AuthenticationService(
                 _userRepoMock.Object,
@@ -42,14 +40,23 @@ namespace JobPortalAPI.Tests
         public async Task LoginAsync_ValidCredentials_ReturnsAuthResult()
         {
             // Arrange
-            var password = "password123";
-            var passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(password);
-            var userId = Guid.NewGuid();
-            var user = new User { Id = userId, Email = "test@example.com", PasswordHash = passwordHash, Role = "User" };
+            var password = "securepassword";
+            var hashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(password, 13); // Standard hash
+            var user = new User
+            {
+                Id = Guid.NewGuid(),
+                Email = "user@example.com",
+                PasswordHash = hashedPassword,
+                Role = "User"
+            };
 
-            _userRepoMock.Setup(x => x.GetAllAsync()).ReturnsAsync(new List<User> { user });
+            _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<User> { user });
 
-            var loginDto = new UserAddRequestDto { Email = user.Email, Password = password };
+            var loginDto = new UserAddRequestDto
+            {
+                Email = user.Email,
+                Password = password
+            };
 
             // Act
             var result = await _authService.LoginAsync(loginDto);
@@ -57,18 +64,19 @@ namespace JobPortalAPI.Tests
             // Assert
             Assert.NotNull(result);
             Assert.Equal(user.Email, result.Email);
-            Assert.False(string.IsNullOrEmpty(result.Token));
-            Assert.False(string.IsNullOrEmpty(result.RefreshToken));
+            Assert.False(string.IsNullOrWhiteSpace(result.Token));
+            Assert.False(string.IsNullOrWhiteSpace(result.RefreshToken));
         }
 
         [Fact]
         public async Task LoginAsync_InvalidPassword_ThrowsUnauthorizedAccessException()
         {
+            // Arrange
             var user = new User
             {
                 Id = Guid.NewGuid(),
                 Email = "user@example.com",
-                PasswordHash = BCrypt.Net.BCrypt.EnhancedHashPassword("correct"),
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("correctpass"),
                 Role = "User"
             };
 
@@ -76,8 +84,8 @@ namespace JobPortalAPI.Tests
 
             var dto = new UserAddRequestDto
             {
-                Email = "user@example.com",
-                Password = "wrong"
+                Email = user.Email,
+                Password = "wrongpass"
             };
 
             // Act & Assert
@@ -87,83 +95,103 @@ namespace JobPortalAPI.Tests
         [Fact]
         public async Task RefreshTokenAsync_ValidToken_ReturnsNewAuthResult()
         {
+            // Arrange
             var userId = Guid.NewGuid();
             var user = new User
             {
                 Id = userId,
-                Email = "test@example.com",
-                PasswordHash = "hashed",
+                Email = "refresh@example.com",
                 RefreshToken = "validtoken",
-                RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(1),
+                RefreshTokenExpiryTime = DateTime.UtcNow.AddHours(1),
                 Role = "User"
             };
 
             _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<User> { user });
 
-            var refreshDto = new TokenRefreshDto { UserId = userId, RefreshToken = "validtoken" };
+            var dto = new TokenRefreshDto
+            {
+                UserId = userId,
+                RefreshToken = "validtoken"
+            };
 
-            var result = await _authService.RefreshTokenAsync(refreshDto);
+            // Act
+            var result = await _authService.RefreshTokenAsync(dto);
 
+            // Assert
             Assert.NotNull(result);
             Assert.Equal(user.Email, result.Email);
             Assert.False(string.IsNullOrEmpty(result.Token));
         }
 
         [Fact]
-        public async Task RefreshTokenAsync_ExpiredToken_ThrowsUnauthorizedAccessException()
+        public async Task RefreshTokenAsync_Expired_ThrowsUnauthorizedAccessException()
         {
+            // Arrange
             var userId = Guid.NewGuid();
             var user = new User
             {
                 Id = userId,
                 Email = "expired@example.com",
-                RefreshToken = "expiredtoken",
+                RefreshToken = "expired",
                 RefreshTokenExpiryTime = DateTime.UtcNow.AddMinutes(-5),
                 Role = "User"
             };
 
             _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<User> { user });
 
-            var dto = new TokenRefreshDto { UserId = userId, RefreshToken = "expiredtoken" };
+            var dto = new TokenRefreshDto
+            {
+                UserId = userId,
+                RefreshToken = "expired"
+            };
 
+            // Act & Assert
             await Assert.ThrowsAsync<UnauthorizedAccessException>(() => _authService.RefreshTokenAsync(dto));
         }
 
         [Fact]
-        public async Task LogoutAsync_ValidUser_RemovesToken()
+        public async Task LogoutAsync_ValidUser_ClearsRefreshToken()
         {
+            // Arrange
             var userId = Guid.NewGuid();
             var user = new User
             {
                 Id = userId,
                 Email = "logout@example.com",
-                RefreshToken = "token",
-                RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(1)
+                RefreshToken = "some-token",
+                RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(1),
+                Role = "User"
             };
 
             _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<User> { user });
 
+            // Act
             await _authService.LogoutAsync(userId.ToString());
 
-            _userRepoMock.Verify(r => r.UpdateAsync(It.Is<User>(u => u.RefreshToken == null)), Times.Once);
+            // Assert
+            _userRepoMock.Verify(r => r.UpdateAsync(It.Is<User>(u =>
+                u.Id == userId && u.RefreshToken == null
+            )), Times.Once);
         }
 
         [Fact]
         public async Task GetUserByIdAsync_UserExists_ReturnsUserDto()
         {
+            // Arrange
             var userId = Guid.NewGuid();
             var user = new User
             {
                 Id = userId,
-                Email = "user@example.com",
-                Role = "User",
-                PasswordHash = "hashed"
+                Email = "check@example.com",
+                Role = "User"
             };
 
             _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<User> { user });
 
+            // Act
             var result = await _authService.GetUserByIdAsync(userId.ToString());
 
+            // Assert
             Assert.NotNull(result);
             Assert.Equal(user.Email, result.Email);
         }
@@ -171,10 +199,13 @@ namespace JobPortalAPI.Tests
         [Fact]
         public async Task GetUserByIdAsync_UserNotFound_ReturnsNull()
         {
+            // Arrange
             _userRepoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<User>());
 
+            // Act
             var result = await _authService.GetUserByIdAsync(Guid.NewGuid().ToString());
 
+            // Assert
             Assert.Null(result);
         }
     }
