@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>Stock Price Viewer</title>
+        <script src="script.js" defer></script> 
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body> 
+        <h2>Stock Price Viewer</h2>
+        <button onclick="getStockWithCallback()">Get Price (Callback)</button>
+        <button onclick="getStockWithPromise()">Get Price (Promise)</button>
+        <button onclick="getStockWithAsyncAwait()">Get Price (Async/Await)</button>
+        <br>
+        <div id="output"></div>
+    </body>
+</html>

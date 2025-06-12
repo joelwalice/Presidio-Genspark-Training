@@ -22,10 +22,10 @@ namespace JobPortalAPI.Contexts
         public DbSet<Company> Companies { get; set; }
         public DbSet<EmploymentType> EmploymentTypes { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("User ID=postgres;Password=1234;Host=localhost;Port=5432;Database=JobPortalDB;");
-        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     optionsBuilder.UseNpgsql("User ID=postgres;Password=1234;Host=localhost;Port=5432;Database=JobPortalDB;");
+        // }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
