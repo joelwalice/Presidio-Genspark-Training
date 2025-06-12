@@ -26,7 +26,7 @@ function simulateStockFetchWithPromise(symbol) {
         resolve(`${symbol} Price (Promise): $${stockData[symbol]}`);
       } else {reject("Stock not found");}
     }, 1000);
-  });
+  }); 
 }
 
 function getStockWithPromise() {
