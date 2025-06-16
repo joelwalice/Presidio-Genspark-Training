@@ -1,0 +1,7 @@
+<div class="card" style="width: 20rem; display: flex; flex-direction: column; align-items: center; justify-content: center;" >
+  <img class="card-img-top" style="object-fit: cover; height: 80%;" [src]="product?.thumbnail" alt="Card image cap">
+  <div class="card-body" style="display: flex; flex-direction: column; align-items: center;">
+    <h5 class="card-title">{{product?.title}}</h5>
+    <button (click)="handleBuyClick(product?.id)" class="btn btn-primary">Buy for {{product?.price | currency:'INR'}}</button>
+  </div>
+</div>

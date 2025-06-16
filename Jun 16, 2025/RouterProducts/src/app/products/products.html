@@ -1,0 +1,34 @@
+<div style="padding: 10px; display: flex; align-items: center; justify-content: space-between;">
+    <button type="button" class="btn btn-primary">
+        Notifications <span class="badge badge-light">{{cartCount}}</span>
+    </button>
+    <div style="display: flex; align-items: center; gap: 5px; justify-content: center;">
+        <h4>Search : </h4>
+        <input type="text" style="padding:5px;" [(ngModel)]="searchString" (input)="handleSearchProducts()"/>
+    </div>
+    
+</div>
+
+  <div>
+        @if (cartCount>0) {
+            @for (item of cartItems; track item.Id) {
+            <li>Item : {{item.Id}} with Count : {{item.Count}}</li>
+            }
+        }
+  </div>
+
+@if (!loading) {
+    <div class="fade-in" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px;">
+        @for (item of products; track item.id) {
+            <app-product (addToCart)="handleAddToCart($event)" [product]="item"></app-product>
+        }
+    </div>
+}
+@else {
+    <div>
+        <div class="spinner-border text-success" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+}
+<button class="back-to-top-btn" (click)="scrollToTop()">Top</button>
