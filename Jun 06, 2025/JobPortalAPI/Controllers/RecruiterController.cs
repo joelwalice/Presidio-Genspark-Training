@@ -112,7 +112,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Recruiter")]
         public async Task<IActionResult> DeleteRecruiter(Guid id)
         {
             _logger.LogInformation("Deleting recruiter with ID {RecruiterId}", id);
