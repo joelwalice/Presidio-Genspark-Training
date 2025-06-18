@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>User Dashboard</h2>
+
+    <div class="filters d-flex align-items-center">
+        <div>
+            <label>Gender:</label>
+            <select [(ngModel)]="selectedGender" (change)="filterUsers()">
+                <option value="">All</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div>
+            <label>Role:</label>
+            <input type="text" [(ngModel)]="roleSearch" (input)="filterUsers()" placeholder="Search by Role" />
+        </div>
+        <div>
+            <label>Name:</label>
+            <input type="text" [(ngModel)]="nameSearch" (input)="filterUsers()" placeholder="Search by Name" />
+        </div>
+        <button (click)="resetFilters()">Reset</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Role</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of filteredUsers">
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.company?.title }}</td>
+                <td>{{ user.address?.state }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light" >
+<form [formGroup]="UserForm" class="card p-4 shadow-md" style="min-width: 350px; max-width: 600px; width: 100%;" (ngSubmit)="handleSubmit()">
+    <h1 style="text-align: center;" class="p-3">Add the User</h1>
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <label for="exampleInputName" class="form-label">Enter your First Name : </label>
+        <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" style="width: 60%;" formControlName="firstName">  
+    </div>
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <label for="exampleInputName" class="form-label">Enter your Last Name : </label>
+        <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" style="width: 60%;" formControlName="lastName">  
+    </div>
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <label for="exampleInputName" class="form-label">Enter your Role : </label>
+        <input type="text" class="form-control" id="exampleInputRole" aria-describedby="emailHelp" style="width: 60%;" formControlName="role">  
+    </div>
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <label for="exampleInputName" class="form-label">Enter your Gender : </label>
+        <select style="width : 60%; padding: 4px;" formControlName="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>  
+    </div>
+    <button type="submit" class="btn btn-secondary" [disabled]="UserForm.invalid">Submit</button>
+</form>
+</div>
