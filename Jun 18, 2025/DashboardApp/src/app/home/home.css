@@ -1,0 +1,22 @@
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+ 
+canvas {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  width: 500px !important;
+  height: 500px !important;
+}
+.chart-section{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
