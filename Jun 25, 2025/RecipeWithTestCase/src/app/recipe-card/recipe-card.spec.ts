@@ -3,6 +3,7 @@ import { RecipeCard } from './recipe-card';
 import { RecipeModel } from '../models/recipe.model';
 import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RecipeService } from '../services/recipe-service';
 
 describe('RecipeCardComponent', () => {
   let component: RecipeCard;
@@ -20,6 +21,7 @@ describe('RecipeCardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RecipeCard, CommonModule, HttpClientTestingModule],
+      providers : [RecipeService]
     }).compileComponents();
 
     fixture = TestBed.createComponent(RecipeCard);
