@@ -45,7 +45,7 @@ namespace JobPortalAPI.Services
                 .FirstOrDefaultAsync();
             if (jobSeeker != null)
             {
-                jobSeeker.ResumeId = resume.Id;
+                jobSeeker.DefaultResumeId = resume.Id;
                 jobSeeker.UpdatedAt = DateTime.UtcNow;
                 _context.JobSeekers.Update(jobSeeker);
                 await _context.SaveChangesAsync();

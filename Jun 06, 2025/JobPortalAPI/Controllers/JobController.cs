@@ -28,7 +28,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin, Recruiter")]
+        [Authorize(Roles = "JobSeeker, Admin, Recruiter")]
         public async Task<IActionResult> GetAll()
         {
             _logger.LogInformation("Fetching all jobs");

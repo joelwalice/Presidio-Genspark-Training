@@ -4,36 +4,73 @@
   <div class="w-full max-w-2xl bg-gray-100 rounded-xl shadow-md shadow-gray-400 p-6 space-y-4">
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-4">
-        <div class="w-20 h-20 rounded-full bg-green-100 shadow-md shadow-gray-500 flex items-center justify-center text-green-700 text-3xl font-bold">
+        <div
+          class="w-20 h-20 rounded-full bg-green-100 shadow-md shadow-gray-500 flex items-center justify-center text-green-700 text-3xl font-bold">
           {{ userInitials }}
         </div>
         <div>
           <div class="flex items-center space-x-3">
             <h3 class="text-3xl font-semibold text-green-800">{{ fullName }}</h3>
-            <button (click)="isEditing = true" class="bg-blue-100 text-blue-600 hover:bg-blue-200 hover:text-blue-800 px-2 py-1 rounded-md text-sm border border-blue-400 shadow-sm transition">
+            <button (click)="isEditing = true"
+              class="bg-blue-100 text-blue-600 hover:bg-blue-200 hover:text-blue-800 px-2 py-1 rounded-md text-sm border border-blue-400 shadow-sm transition">
               Edit
             </button>
           </div>
           <p class="text-md text-gray-600">{{ email }}</p>
         </div>
       </div>
-      <div class="p-2 bg-yellow-300 rounded-lg text-red-500 border border-orange-500 shadow-sm transition select-none">JobSeeker</div>
+      <div class="p-2 bg-yellow-300 rounded-lg text-red-500 border border-orange-500 shadow-sm transition select-none">
+        JobSeeker</div>
     </div>
 
     <div class="border-t border-gray-500 pt-4">
       <p class="text-md text-gray-700"><strong>Phone:</strong> {{ phone }}</p>
       <p class="text-md text-gray-700"><strong>Location:</strong> {{ location }}</p>
-      <p class="text-md text-gray-700"><strong>Role:</strong> {{ role }}</p>
     </div>
 
     <div>
       <app-resume-page></app-resume-page>
     </div>
 
-    <div class="flex justify-center">
-      <button (click)="logout()" class="bg-red-100 text-red-600 hover:bg-red-200 hover:text-red-700 px-4 py-2 rounded-md text-sm border border-red-500 cursor-pointer shadow-lg">
-        Logout
-      </button>
+    <div class="mt-2 p-5 bg-white shadow-md rounded-2xl space-y-4">
+      <h2 class="text-2xl font-bold text-gray-800">Your Job Applications</h2>
+    </div>
+
+    <div class="mt-2 p-5 bg-white shadow-md rounded-2xl space-y-4">
+      <h2 class="text-2xl font-bold text-gray-800">User Control</h2>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-100 text-blue-600 hover:bg-blue-200 hover:text-blue-700 px-4 py-2 rounded-md text-sm border border-blue-500 cursor-pointer shadow-lg">
+          Need Help?</button>
+        <button (click)="showDeleteConfirm = true"
+          class="bg-red-100 text-red-600 hover:bg-red-200 hover:text-red-700 px-4 py-2 rounded-md text-sm border border-red-500 cursor-pointer shadow-lg">
+          DeActivate/Delete your Profile
+        </button>
+        <button (click)="logout()"
+          class="bg-orange-100 text-orange-600 hover:bg-orange-200 hover:text-orange-700 px-4 py-2 rounded-md text-sm border border-orange-500 cursor-pointer shadow-lg">
+          Logout
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div *ngIf="showDeleteConfirm" class="fixed inset-0 bg-black/40 z-50 flex justify-center items-center h-screen">
+    <div class="bg-white w-full max-w-md rounded-xl shadow-xl p-6 text-center space-y-4">
+      <h3 class="text-xl font-semibold text-red-700">Are you sure you want to delete your account?</h3>
+      <p class="text-sm text-gray-600">All your data will be permanently erased. This action cannot be undone.</p>
+
+      <div class="mt-6 flex justify-center space-x-4">
+        <button (click)="showDeleteConfirm = false"
+          class="px-4 py-2 rounded-md text-sm text-gray-700 bg-gray-100 border border-gray-400 hover:bg-gray-200">
+          No
+        </button>
+        <button (click)="confirmDeleteAccount()"
+          class="px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-700 text-sm">
+          Yes, Delete
+        </button>
+      </div>
     </div>
   </div>
 
@@ -44,25 +81,31 @@
       <div class="space-y-4">
         <div>
           <label class="text-sm text-gray-700 font-medium">Full Name</label>
-          <input type="text" [(ngModel)]="editable.fullName" class="w-full mt-1 p-2 border border-green-600 rounded-md focus:outline-none" />
+          <input type="text" [(ngModel)]="editable.fullName"
+            class="w-full mt-1 p-2 border border-green-600 rounded-md focus:outline-none" />
         </div>
         <div>
           <label class="text-sm text-gray-700 font-medium">Email</label>
-          <input type="email" [(ngModel)]="editable.email" class="w-full mt-1 p-2 border border-green-600 rounded-md focus:outline-none" />
+          <input type="email" [(ngModel)]="editable.email"
+            class="w-full mt-1 p-2 border border-green-600 rounded-md focus:outline-none" />
         </div>
         <div>
           <label class="text-sm text-gray-700 font-medium">Phone</label>
-          <input type="text" [(ngModel)]="editable.phone" class="w-full mt-1 p-2 border border-green-600 rounded-md focus:outline-none" />
+          <input type="text" [(ngModel)]="editable.phone"
+            class="w-full mt-1 p-2 border border-green-600 rounded-md focus:outline-none" />
         </div>
         <div>
           <label class="text-sm text-gray-700 font-medium">Location</label>
-          <input type="text" [(ngModel)]="editable.location" class="w-full mt-1 p-2 border border-green-600 rounded-md focus:outline-none" />
+          <input type="text" [(ngModel)]="editable.location"
+            class="w-full mt-1 p-2 border border-green-600 rounded-md focus:outline-none" />
         </div>
       </div>
 
       <div class="mt-6 flex justify-end space-x-3">
-        <button (click)="cancelEdit()" class="px-4 py-2 rounded-md text-sm text-red-700 bg-red-100 border border-red-600 hover:bg-red-200">Cancel</button>
-        <button (click)="updateProfile()" class="px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 text-sm">Update</button>
+        <button (click)="cancelEdit()"
+          class="px-4 py-2 rounded-md text-sm text-red-700 bg-red-100 border border-red-600 hover:bg-red-200">Cancel</button>
+        <button (click)="updateProfile()"
+          class="px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 text-sm">Update</button>
       </div>
     </div>
   </div>

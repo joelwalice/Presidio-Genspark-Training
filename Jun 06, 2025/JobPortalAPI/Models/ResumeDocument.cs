@@ -16,7 +16,7 @@ namespace JobPortalAPI.Models
         [Required]
         public byte[] Content { get; set; } = Array.Empty<byte>();
 
-        public long FileSize { get; set; }  // Optional
+        public long FileSize { get; set; } 
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;

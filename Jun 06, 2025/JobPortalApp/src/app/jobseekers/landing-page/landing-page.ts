@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Navbar } from "../../components/navbar/navbar";
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { JobSeekerService } from '../../services/user/job-seeker';
 
 @Component({
   selector: 'app-landing-page',
-  imports: [Navbar, RouterOutlet, CommonModule, RouterLink],
+  imports: [Navbar, RouterOutlet, CommonModule, RouterLink, CurrencyPipe],
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.css'
 })
@@ -30,19 +30,33 @@ export class LandingPage implements OnInit {
           }
         })
       }
-      else{
+      else {
         setTimeout(getDataById, 100);
       }
     }
     getDataById();
 
+    const setJobDetails = () => {
+      this.JobSeekerService.getJobDetails().subscribe({
+        next: (data) => {
+          this.jobs = data;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
+    }
+    setJobDetails();
   }
   get isOnJobSeekerLandingPage(): boolean {
     return this.router.url === '/jobseekers';
   }
-  jobs = [
-    { title: 'Frontend Developer', company: 'Google', location: 'Bangalore', type: 'Full Time' },
-    { title: 'UI/UX Designer', company: 'Adobe', location: 'Remote', type: 'Contract' },
-    { title: 'Angular Developer', company: 'Infosys', location: 'Chennai', type: 'Full Time' },
-  ];
+  jobs = [{
+    title: "xUnit Tester",
+    description: "Personnel to be knowledged in xUnit Testing, Application Testing",
+    location: "USA",
+    companyName: "Presidio Pvt Ltd",
+    salary: 600000,
+    requirements: "Unit Testing in ASP.Net",
+  }];
 }

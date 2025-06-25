@@ -43,6 +43,7 @@ namespace JobPortalAPI.Services
                 Id = Guid.NewGuid(),
                 Name = recruiterDto.Name,
                 Email = recruiterDto.Email,
+                IsDeleted = false,
                 Role = "Recruiter",
                 PasswordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(recruiterDto.Password, 13),
                 CreatedAt = DateTime.UtcNow,

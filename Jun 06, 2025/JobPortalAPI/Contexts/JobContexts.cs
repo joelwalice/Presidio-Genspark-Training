@@ -77,6 +77,11 @@ namespace JobPortalAPI.Contexts
                 .HasForeignKey(jet => jet.EmploymentTypeId)
                 .HasConstraintName("FK_JobEmploymentType_EmploymentType")
                 .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<JobSeeker>()
+                .HasOne(js => js.DefaultResume)
+                .WithMany() 
+                .HasForeignKey(js => js.DefaultResumeId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
 
 

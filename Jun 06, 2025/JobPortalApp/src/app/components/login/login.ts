@@ -52,7 +52,12 @@ export class Login implements OnInit {
       return;
     }
     console.log(this.user);
-    this.userService.validateUserLogin(this.user);
-    this.router.navigateByUrl('/jobseekers');
+    this.userService.validateUserLogin(this.user).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/jobseekers');
+      },
+      error: () => {
+      }
+    });
   }
 }

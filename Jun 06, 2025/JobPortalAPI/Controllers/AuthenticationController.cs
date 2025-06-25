@@ -28,13 +28,10 @@ namespace JobPortalAPI.Controllers
                 var result = await _authService.LoginAsync(loginDto);
                 return Ok(result);
             }
-            catch (UnauthorizedAccessException ex)
-            {
-                return Unauthorized(new { message = ex.Message });
-            }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                Console.WriteLine("------> " +  ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
         }
 
