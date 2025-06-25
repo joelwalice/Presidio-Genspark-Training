@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<div *ngIf="isOnJobSeekerLandingPage">
+    <div class="min-h-[80vh] p-6 bg-gray-50">
+        <div class="w-full bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm">
+            <h2 class="text-3xl font-semibold text-green-900 mb-1">Welcome, {{ fullName }}</h2>
+            <p class="text-sm text-gray-600">Here’s what’s new today, stay on track and apply confidently.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+                <p class="text-sm text-gray-500">Jobs Applied</p>
+                <p class="text-2xl font-semibold text-green-700 mt-2">4</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+                <p class="text-sm text-gray-500">Saved Jobs</p>
+                <p class="text-2xl font-semibold text-green-700 mt-2">7</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+                <p class="text-sm text-gray-500">Interviews</p>
+                <p class="text-2xl font-semibold text-green-700 mt-2">1</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+            <h3 class="text-xl font-semibold text-green-700 mb-4">Suggested Jobs</h3>
+            <div *ngIf="jobs.length > 0; else noJobs">
+                <div *ngFor="let job of jobs"
+                    class="flex items-center justify-between p-4 mb-3 border rounded-lg hover:shadow transition">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800">{{ job.title }}</h4>
+                        <p class="text-sm text-gray-500">{{ job.company }} – {{ job.location }} ({{ job.type }})</p>
+                    </div>
+                    <button
+                        class="bg-green-600 text-white px-4 py-2 text-sm rounded-md hover:bg-green-700 transition">Apply</button>
+                </div>
+            </div>
+            <ng-template #noJobs>
+                <p class="text-gray-500 text-sm">No job recommendations currently.</p>
+            </ng-template>
+        </div>
+
+        <div
+            class="flex justify-between items-center bg-yellow-50 border border-yellow-300 p-4 rounded-md shadow-inner">
+            <p class="text-sm text-yellow-800">
+                Resume Status:
+                <span [ngClass]="hasResume ? 'text-green-700 font-medium' : 'text-red-500 font-medium'">
+                    {{ hasResume ? 'Uploaded' : 'Not Uploaded' }}
+                </span>
+            </p>
+            <a routerLink="/jobseekers/profile" class="text-sm text-blue-700 underline hover:text-blue-900">Manage
+                Resume</a>
+        </div>
+
+        <div class="mt-8 text-center">
+            <a routerLink="/jobseekers/explore"
+                class="bg-green-700 hover:bg-green-800 text-white text-sm px-6 py-3 rounded-full shadow">
+                Browse More Jobs
+            </a>
+        </div>
+    </div>
+</div>

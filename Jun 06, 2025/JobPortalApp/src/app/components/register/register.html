@@ -1,0 +1,86 @@
+<div class="flex flex-col items-center justify-center">
+  <div class="w-full bg-gray-100 h-[80px] flex items-center justify-between p-5">
+    <a class="text-2xl cursor-pointer text-green-900 font-semibold" href="/">JobPortal App</a>
+  </div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="handleRegister()"
+    class="mt-5 w-[500px] h-[550px] bg-gray-100 flex flex-col rounded-lg shadow-lg m-4">
+    <h1 class="p-4 mt-4 font-semibold text-3xl text-center">Register Page</h1>
+
+    <div class="flex-1 overflow-y-scroll px-11">
+      <div class="mb-2">
+        <h1>Name</h1>
+        <input type="text" class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500"
+          placeholder="Enter your Name..." formControlName="name" [ngClass]="{'border border-1 border-red-500' : name.touched && name.errors, 'border border-1 border-green-700' : !name.errors}">
+        @if(name.touched && name.errors){
+          <p class="py-2 text-red-700 font-semibold">Name can't be Empty</p>
+        }
+      </div>
+
+      <div class="mb-2">
+        <h1>Email</h1>
+        <input type="text" class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500" [ngClass]="{'border border-1 border-red-500' : email.touched && email.errors, 'border border-1 border-green-700' : !email.errors}"
+          placeholder="example@gmail.com" formControlName="email">
+        @if(email.touched && email.errors){
+          <p class="py-2 text-red-700 font-semibold">Email can't be Empty</p>
+        }
+      </div>
+
+      <div class="mb-2">
+        <h1>Password</h1>
+        <input type="password"
+          class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500" [ngClass]="{'border border-1 border-red-500' : password.touched && password.errors, 'border border-1 border-green-700' : !password.errors}"
+          placeholder="At least 6 letters" formControlName="password">
+        @if(password.touched && password.errors){
+          <p class="py-2 text-red-700 font-semibold">Password can't be Empty</p>
+        }
+      </div>
+
+      <div class="mb-2">
+        <h1>Confirm Password</h1>
+        <input type="password"
+          class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500" [ngClass]="{'border border-1 border-red-500' : cpassword.touched && cpassword.errors, 'border border-1 border-green-700' : !cpassword.errors}"
+          placeholder="Enter as same as Password" formControlName="cpassword">
+        @if(cpassword.touched && cpassword.errors){
+          <p class="py-2 text-red-700 font-semibold">Confirm Password can't be Empty</p>
+        }
+      </div>
+
+      <div class="mb-2">
+        <h1>Phone Number</h1>
+        <input type="text" class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500" [ngClass]="{'border border-1 border-red-500' : phoneNumber.touched && phoneNumber.errors, 'border border-1 border-green-700' : !phoneNumber.errors}"
+          placeholder="Phone Number should be 10 digits" formControlName="phoneNumber">
+        @if(phoneNumber.touched && phoneNumber.errors){
+          <p class="py-2 text-red-700 font-semibold">Phone Number can't be Empty</p>
+        }
+      </div>
+
+      <div class="mb-2">
+        <h1>Address</h1>
+        <input type="text" class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500" [ngClass]="{'border border-1 border-red-500' : address.touched && address.errors, 'border border-1 border-green-700' : !address.errors}"
+          placeholder="Enter Your address" formControlName="address">
+        @if(address.touched && address.errors){
+          <p class="py-2 text-red-700 font-semibold">Address can't be Empty</p>
+        }
+      </div>
+
+      <div class="mb-2">
+        <h1>Date of Birth</h1>
+        <input type="date" class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500" [ngClass]="{'border border-1 border-red-500' : dateOfBirth.touched && dateOfBirth.errors, 'border border-1 border-green-700' : !dateOfBirth.errors}"
+          formControlName="dateOfBirth">
+        @if(dateOfBirth.touched && dateOfBirth.errors){
+          <p class="py-2 text-red-700 font-semibold">DOB can't be Empty</p>
+        }
+      </div>
+
+    </div>
+    <div class="px-8 py-4">
+      <button class="p-3 w-full bg-black text-white rounded-md shadow-lg cursor-pointer font-semibold" [disabled]="registerForm.invalid">Register
+        Now</button>
+      <div class="mt-4 flex items-center justify-between">
+        <h1>Already Registered?</h1>
+        <a href="login" class="cursor-pointer text-green-900 hover:underline">Login Now</a>
+      </div>
+    </div>
+  </form>
+</div>

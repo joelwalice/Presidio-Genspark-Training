@@ -61,12 +61,13 @@ namespace JobPortalAPI.Services
 
                 return jobSeekers.Select(js => new JobSeekerAddRequestDto
                 {
+                    Id = js.Id,
                     Name = js.Name,
                     Email = js.Email,
                     PhoneNumber = js.PhoneNumber,
                     DateOfBirth = js.DateOfBirth,
                     Address = js.Address,
-                    Password = js.User.PasswordHash
+                    Password = js.User.PasswordHash,
                 });
             }
             catch (Exception ex)
