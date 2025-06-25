@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate{
   constructor(private router:Router){}
 
   canActivate(route:ActivatedRouteSnapshot, state:RouterStateSnapshot):boolean{
-    const isAuthenticated = sessionStorage.getItem("JwtToken")?true:false;
+    const isAuthenticated = sessionStorage.getItem("JwtToken");
     if(!isAuthenticated)
     {
       this.router.navigate(["login"]);

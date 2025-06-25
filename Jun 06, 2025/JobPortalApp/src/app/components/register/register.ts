@@ -70,7 +70,10 @@ export class Register implements OnInit {
     this.user.dateOfBirth = this.dateOfBirth.value;
     this.user.cpassword = this.cpassword.value;
     this.user.phoneNumber = this.phoneNumber.value;
-    this.UserService.validateUserRegister(this.user);
-    this.router.navigateByUrl("/jobseekers");
+    this.UserService.validateUserRegister(this.user).subscribe({
+      next : () => {
+        this.router.navigateByUrl('/jobseekers');
+      }
+    })
   }
 }

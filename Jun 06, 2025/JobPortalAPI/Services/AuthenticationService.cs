@@ -37,26 +37,26 @@ namespace JobPortalAPI.Services
                 if (users == null || !users.Any())
                 {
                     _logger.LogWarning("Login failed - no users found in the system");
-                    throw new UnauthorizedAccessException("Invalid username or password");
+                    throw new Exception("Invalid username or password");
                 }
-                var user = users.FirstOrDefault(u => u.Email == userDto.Email);
+                var user = users.FirstOrDefault(u => u.Email == userDto.Email && u.IsDeleted == false);
                 if (user == null)
                 {
                     _logger.LogWarning($"Login failed - user not found: {userDto.Email}");
-                    throw new UnauthorizedAccessException("Invalid username or password");
+                    throw new Exception("Invalid username or password");
                 }
                 Console.WriteLine($"User found: {user.Email}");
 
                 if (string.IsNullOrEmpty(userDto.Password) || string.IsNullOrEmpty(user.PasswordHash))
                 {
                     _logger.LogWarning($"Login failed - missing password or hash for user: {userDto.Email}");
-                    throw new UnauthorizedAccessException("Invalid username or password");
+                    throw new Exception("Invalid username or password");
                 }
 
                 if (!BCrypt.Net.BCrypt.EnhancedVerify(userDto.Password, user.PasswordHash))
                 {
                     _logger.LogWarning($"Login failed - invalid password for user: {userDto.Email}");
-                    throw new UnauthorizedAccessException("Invalid username or password");
+                    throw new Exception("Invalid username or password");
                 }
 
                 var claims = new List<Claim>
@@ -88,14 +88,10 @@ namespace JobPortalAPI.Services
                     Email = user.Email
                 };
             }
-            catch (UnauthorizedAccessException)
-            {
-                throw;
-            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error during login for user {Username}", userDto.Email);
-                throw new Exception("An error occurred during login. Please try again later.");
+                throw new Exception(ex.Message);
             }
         }
 

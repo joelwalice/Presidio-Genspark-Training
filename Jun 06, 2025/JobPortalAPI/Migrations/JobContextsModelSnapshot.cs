@@ -17,7 +17,7 @@ namespace JobPortalAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.5")
+                .HasAnnotation("ProductVersion", "9.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -167,6 +167,9 @@ namespace JobPortalAPI.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<Guid?>("DefaultResumeId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
@@ -183,9 +186,6 @@ namespace JobPortalAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("ResumeId")
-                        .HasColumnType("uuid");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -193,6 +193,8 @@ namespace JobPortalAPI.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DefaultResumeId");
 
                     b.HasIndex("UserId")
                         .IsUnique();
@@ -297,6 +299,9 @@ namespace JobPortalAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -378,12 +383,19 @@ namespace JobPortalAPI.Migrations
 
             modelBuilder.Entity("JobPortalAPI.Models.JobSeeker", b =>
                 {
+                    b.HasOne("JobPortalAPI.Models.ResumeDocument", "DefaultResume")
+                        .WithMany()
+                        .HasForeignKey("DefaultResumeId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("JobPortalAPI.Models.User", "User")
                         .WithOne("JobSeeker")
                         .HasForeignKey("JobPortalAPI.Models.JobSeeker", "UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK_JobSeeker_User");
+
+                    b.Navigation("DefaultResume");
 
                     b.Navigation("User");
                 });

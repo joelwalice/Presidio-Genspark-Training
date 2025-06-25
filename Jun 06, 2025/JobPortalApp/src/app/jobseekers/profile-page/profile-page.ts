@@ -17,6 +17,7 @@ export class ProfilePage implements OnInit {
   phone = '+91 98765 43210';
   location = 'Chennai, India';
   role = 'Frontend Developer';
+  showDeleteConfirm: boolean = false;
 
   isEditing = false;
 
@@ -26,12 +27,14 @@ export class ProfilePage implements OnInit {
     phone: '',
     location: ''
   };
+  
 
   constructor(private JobSeekerService: JobSeekerService, private router: Router) {
 
   }
 
   ngOnInit(): void {
+
     const email = sessionStorage.getItem('email');
     if (email) {
       this.JobSeekerService.fetchJobSeekerByEmail(email).subscribe({
@@ -39,7 +42,7 @@ export class ProfilePage implements OnInit {
           this.fullName = user.name;
           this.email = user.email;
           this.phone = user.phoneNumber;
-          this.location = user.address; 
+          this.location = user.address;
           this.editable = {
             fullName: user.name,
             email: user.email,
@@ -55,6 +58,22 @@ export class ProfilePage implements OnInit {
       });
     }
 
+  }
+
+  confirmDeleteAccount() {
+    this.showDeleteConfirm = false;
+    this.deleteAccount();
+  }
+
+  deleteAccount() {
+    const Id = sessionStorage.getItem("Id");
+    if (Id) {
+      this.JobSeekerService.deleteJobSeeker(Id).subscribe({
+        next: () => {
+          this.logout();
+        }
+      })
+    }
   }
 
   get userInitials(): string {

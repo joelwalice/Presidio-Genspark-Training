@@ -29,6 +29,13 @@ export class JobSeekerService {
       });
     });
   }
+  deleteJobSeeker(id : string){
+    const token = sessionStorage.getItem("JwtToken");
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<any>(`http://localhost:5039/api/jobseeker/${id}`, { headers });
+  }
 
   fetchAllJobSeeker() {
     const token = sessionStorage.getItem("JwtToken");
@@ -54,5 +61,13 @@ export class JobSeekerService {
     };
 
     return this.http.post<any>('http://localhost:5039/api/files/upload', formData, { headers });
+  }
+
+  getJobDetails(): Observable<any>{
+    const token = sessionStorage.getItem('JwtToken');
+    const headers = {
+      Authorization : `Bearer ${token}`
+    };
+    return this.http.get<any>("http://localhost:5039/api/jobs", {headers});
   }
 }

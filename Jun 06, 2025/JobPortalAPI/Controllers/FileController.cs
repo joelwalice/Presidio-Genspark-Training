@@ -1,11 +1,7 @@
 using JobPortalAPI.DTOs;
 using JobPortalAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using JobPortalAPI.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace JobPortalAPI.Controllers
 {

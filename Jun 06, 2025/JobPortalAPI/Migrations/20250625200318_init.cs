@@ -36,6 +36,7 @@ namespace JobPortalAPI.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
                     Role = table.Column<string>(type: "text", nullable: false),
                     RefreshToken = table.Column<string>(type: "text", nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -46,33 +47,6 @@ namespace JobPortalAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserId", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "JobSeekers",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
-                    PasswordHash = table.Column<string>(type: "text", nullable: false),
-                    Address = table.Column<string>(type: "text", nullable: false),
-                    ResumeId = table.Column<Guid>(type: "uuid", nullable: false),
-                    DateOfBirth = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_JobSeekers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_JobSeeker_User",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -105,30 +79,6 @@ namespace JobPortalAPI.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ResumeDocuments",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    FileName = table.Column<string>(type: "text", nullable: false),
-                    FileType = table.Column<string>(type: "text", nullable: false),
-                    Content = table.Column<byte[]>(type: "bytea", nullable: false),
-                    FileSize = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    JobSeekerId = table.Column<Guid>(type: "uuid", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ResumeDocuments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ResumeDocument_JobSeeker",
-                        column: x => x.JobSeekerId,
-                        principalTable: "JobSeekers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,6 +159,57 @@ namespace JobPortalAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "JobSeekers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    PasswordHash = table.Column<string>(type: "text", nullable: false),
+                    Address = table.Column<string>(type: "text", nullable: false),
+                    DefaultResumeId = table.Column<Guid>(type: "uuid", nullable: true),
+                    DateOfBirth = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_JobSeekers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_JobSeeker_User",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ResumeDocuments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    FileName = table.Column<string>(type: "text", nullable: false),
+                    FileType = table.Column<string>(type: "text", nullable: false),
+                    Content = table.Column<byte[]>(type: "bytea", nullable: false),
+                    FileSize = table.Column<long>(type: "bigint", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    JobSeekerId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ResumeDocuments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ResumeDocument_JobSeeker",
+                        column: x => x.JobSeekerId,
+                        principalTable: "JobSeekers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_EmploymentTypes_JobId",
                 table: "EmploymentTypes",
@@ -235,6 +236,11 @@ namespace JobPortalAPI.Migrations
                 column: "RecruiterId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_JobSeekers_DefaultResumeId",
+                table: "JobSeekers",
+                column: "DefaultResumeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_JobSeekers_UserId",
                 table: "JobSeekers",
                 column: "UserId",
@@ -255,22 +261,32 @@ namespace JobPortalAPI.Migrations
                 name: "IX_ResumeDocuments_JobSeekerId",
                 table: "ResumeDocuments",
                 column: "JobSeekerId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_JobSeekers_ResumeDocuments_DefaultResumeId",
+                table: "JobSeekers",
+                column: "DefaultResumeId",
+                principalTable: "ResumeDocuments",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.SetNull);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_JobSeeker_User",
+                table: "JobSeekers");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_JobSeekers_ResumeDocuments_DefaultResumeId",
+                table: "JobSeekers");
+
             migrationBuilder.DropTable(
                 name: "JobEmploymentType");
 
             migrationBuilder.DropTable(
-                name: "ResumeDocuments");
-
-            migrationBuilder.DropTable(
                 name: "EmploymentTypes");
-
-            migrationBuilder.DropTable(
-                name: "JobSeekers");
 
             migrationBuilder.DropTable(
                 name: "Jobs");
@@ -283,6 +299,12 @@ namespace JobPortalAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "ResumeDocuments");
+
+            migrationBuilder.DropTable(
+                name: "JobSeekers");
         }
     }
 }

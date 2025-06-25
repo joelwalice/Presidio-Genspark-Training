@@ -88,6 +88,7 @@ namespace JobPortalAPI.Services
                     Id = Guid.NewGuid(),
                     Email = jobSeekerDto.Email,
                     Name = jobSeekerDto.Name,
+                    IsDeleted = false,
                     Role = "JobSeeker",
                     PasswordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(jobSeekerDto.Password, 13),
                     CreatedAt = DateTime.UtcNow,
@@ -108,7 +109,7 @@ namespace JobPortalAPI.Services
                     Address = jobSeekerDto.Address,
                 };
 
-                
+
                 _context.JobSeekers.Add(jobSeeker);
                 await _context.SaveChangesAsync();
 
@@ -152,13 +153,22 @@ namespace JobPortalAPI.Services
         {
             try
             {
-                var jobSeeker = await _context.JobSeekers.FindAsync(id);
+                var jobSeeker = await _context.JobSeekers
+                    .Include(js => js.ResumeDocuments)
+                    .FirstOrDefaultAsync(js => js.Id == id);
+
                 if (jobSeeker == null)
                 {
                     throw new KeyNotFoundException($"JobSeeker with ID {id} not found.");
                 }
 
+                _context.ResumeDocuments.RemoveRange(jobSeeker.ResumeDocuments);
+                
                 _context.JobSeekers.Remove(jobSeeker);
+
+                if (jobSeeker.User != null)
+                    jobSeeker.User.IsDeleted = true;
+                    
                 await _context.SaveChangesAsync();
                 return true;
             }
@@ -171,6 +181,7 @@ namespace JobPortalAPI.Services
                 throw new InvalidOperationException($"Error deleting JobSeeker: {ex.Message}", ex);
             }
         }
+
         public async Task<IEnumerable<ResumeDocument>> GetResumeDocumentsByJobSeekerIdAsync(Guid jobSeekerId)
         {
             try
