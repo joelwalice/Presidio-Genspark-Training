@@ -52,19 +52,22 @@ namespace JobPortalAPI.Controllers
         {
             _logger.LogInformation("Fetching all job seekers");
             _logger.LogInformation("User {User} is fetching all job seekers", User.Identity?.Name);
-            var jobSeekers = await _jobSeekerService.GetAllJobSeekersAsync();
+            var jobSeekers = await _jobSeekerService.GetAllJobSeekersAsync(); 
+            foreach (var js in jobSeekers)
+            {
+                Console.WriteLine($"Name: {js.Name}, Email: {js.Email}, Phone: {js.PhoneNumber}, DOB: {js.DateOfBirth}, Address: {js.Address}, Id : {js.Id}");
+            }
             if (jobSeekers == null || !jobSeekers.Any())
             {
                 _logger.LogWarning("No job seekers found");
                 return NotFound("No job seekers available.");
             }
-            _logger.LogInformation("Successfully fetched {Count} job seekers");
+            _logger.LogInformation("Successfully fetched job seekers");
             _logger.LogInformation("User {User} successfully fetched all job seekers", User.Identity?.Name);
             return Ok(jobSeekers);
         }
 
         [HttpPost]
-        
         public async Task<IActionResult> AddJobSeeker([FromBody] JobSeekerAddRequestDto jobSeeker)
         {
             _logger.LogInformation("Adding a new job seeker");
@@ -109,7 +112,7 @@ namespace JobPortalAPI.Controllers
             {
                 _logger.LogError("Failed to update job seeker with ID {JobSeekerId}", jobSeeker.Id);
                 return NotFound("Job seeker not found.");
-            }   
+            }
             _logger.LogInformation("Successfully updated job seeker with ID {JobSeekerId}", updatedJobSeeker.Id);
             _logger.LogInformation("User {User} successfully updated job seeker with ID {JobSeekerId}", User.Identity?.Name, updatedJobSeeker.Id);
             return Ok(updatedJobSeeker);
