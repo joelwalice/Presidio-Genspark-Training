@@ -20,23 +20,18 @@ export class UserRegisterService {
       this.errorMessage = "Passwords do not match.";
       return throwError(() => new Error(this.errorMessage));
     }
-
-    // If passed, call register API, then login
     return this.callRegisterAPI(user).pipe(
-      tap((data: any) => {
-        console.log("Registration successful:", data);
-      }),
-      switchMap(() => this.callLoginAPI(user)),
-      tap((data: any) => {
-        sessionStorage.setItem("JwtToken", data.token);
-        sessionStorage.setItem("email", data.email);
-        this.errorMessage = '';
-      }),
-      catchError((err) => {
-        this.errorMessage = err?.error?.message || "Something went wrong. Please try again.";
-        return throwError(() => new Error(this.errorMessage));
-      })
-    );
+    switchMap(() => this.callLoginAPI(user)),
+    tap((loginData: any) => {
+      sessionStorage.setItem("JwtToken", loginData.token);
+      sessionStorage.setItem("email", loginData.email);
+      this.errorMessage = '';
+    }),
+    catchError((err) => {
+      this.errorMessage = err?.error?.message || "Something went wrong. Please try again.";
+      return throwError(() => new Error(this.errorMessage));
+    })
+  )
   }
 
   private callRegisterAPI(user: UserRegisterModel): Observable<any> {

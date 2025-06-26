@@ -160,6 +160,27 @@ namespace JobPortalAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "JobApplications",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    JobId = table.Column<Guid>(type: "uuid", nullable: false),
+                    JobSeekerId = table.Column<Guid>(type: "uuid", nullable: false),
+                    ResumeDocumentId = table.Column<Guid>(type: "uuid", nullable: false),
+                    AppliedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_JobApplications", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_JobApplications_Jobs_JobId",
+                        column: x => x.JobId,
+                        principalTable: "Jobs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "JobSeekers",
                 columns: table => new
                 {
@@ -216,6 +237,21 @@ namespace JobPortalAPI.Migrations
                 column: "JobId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_JobApplications_JobId",
+                table: "JobApplications",
+                column: "JobId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_JobApplications_JobSeekerId",
+                table: "JobApplications",
+                column: "JobSeekerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_JobApplications_ResumeDocumentId",
+                table: "JobApplications",
+                column: "ResumeDocumentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_JobEmploymentType_EmploymentTypeId",
                 table: "JobEmploymentType",
                 column: "EmploymentTypeId");
@@ -263,6 +299,22 @@ namespace JobPortalAPI.Migrations
                 column: "JobSeekerId");
 
             migrationBuilder.AddForeignKey(
+                name: "FK_JobApplications_JobSeekers_JobSeekerId",
+                table: "JobApplications",
+                column: "JobSeekerId",
+                principalTable: "JobSeekers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_JobApplications_ResumeDocuments_ResumeDocumentId",
+                table: "JobApplications",
+                column: "ResumeDocumentId",
+                principalTable: "ResumeDocuments",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
                 name: "FK_JobSeekers_ResumeDocuments_DefaultResumeId",
                 table: "JobSeekers",
                 column: "DefaultResumeId",
@@ -275,12 +327,11 @@ namespace JobPortalAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_JobSeeker_User",
-                table: "JobSeekers");
+                name: "FK_ResumeDocument_JobSeeker",
+                table: "ResumeDocuments");
 
-            migrationBuilder.DropForeignKey(
-                name: "FK_JobSeekers_ResumeDocuments_DefaultResumeId",
-                table: "JobSeekers");
+            migrationBuilder.DropTable(
+                name: "JobApplications");
 
             migrationBuilder.DropTable(
                 name: "JobEmploymentType");
@@ -298,13 +349,13 @@ namespace JobPortalAPI.Migrations
                 name: "Companies");
 
             migrationBuilder.DropTable(
+                name: "JobSeekers");
+
+            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
                 name: "ResumeDocuments");
-
-            migrationBuilder.DropTable(
-                name: "JobSeekers");
         }
     }
 }

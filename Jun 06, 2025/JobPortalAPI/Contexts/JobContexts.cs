@@ -21,6 +21,9 @@ namespace JobPortalAPI.Contexts
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<EmploymentType> EmploymentTypes { get; set; }
+        
+        public DbSet<JobApplication> JobApplications { get; set; }
+
 
         // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         // {
@@ -79,7 +82,7 @@ namespace JobPortalAPI.Contexts
                 .OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<JobSeeker>()
                 .HasOne(js => js.DefaultResume)
-                .WithMany() 
+                .WithMany()
                 .HasForeignKey(js => js.DefaultResumeId)
                 .OnDelete(DeleteBehavior.SetNull);
         }

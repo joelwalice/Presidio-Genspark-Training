@@ -113,5 +113,49 @@ namespace JobPortalAPI.Services
 
             return true;
         }
+
+        public async Task<string> ApplyForJobWithResumeIdAsync(Guid jobId, Guid jobSeekerId, Guid resumeDocumentId)
+        {
+            var job = await _context.Jobs.FindAsync(jobId);
+            if (job == null) return "Job not found.";
+
+            var resume = await _context.ResumeDocuments.FindAsync(resumeDocumentId);
+            if (resume == null || resume.JobSeekerId != jobSeekerId)
+                return "Resume not found or does not belong to this job seeker.";
+
+            var alreadyApplied = await _context.JobApplications
+                .AnyAsync(a => a.JobId == jobId && a.JobSeekerId == jobSeekerId);
+
+            if (alreadyApplied)
+                return "You have already applied for this job.";
+
+            var application = new JobApplication
+            {
+                Id = Guid.NewGuid(),
+                JobId = jobId,
+                JobSeekerId = jobSeekerId,
+                ResumeDocumentId = resumeDocumentId,
+                AppliedAt = DateTime.UtcNow
+            };
+
+            _context.JobApplications.Add(application);
+            await _context.SaveChangesAsync();
+
+            return "Application submitted successfully.";
+        }
+        public async Task<IEnumerable<JobApplicationViewDto>> GetApplicationsForJobAsync(Guid jobId)
+        {
+            return await _context.JobApplications
+                .Where(a => a.JobId == jobId)
+                .Include(a => a.User)
+                .Include(a => a.ResumeDocument)
+                .Select(a => new JobApplicationViewDto
+                {
+                    JobSeekerId = a.User!.Id,
+                    JobSeekerName = a.User!.Name,
+                    ResumeDocumentId = a.ResumeDocumentId,
+                    AppliedAt = a.AppliedAt
+                }).ToListAsync();
+        }
     }
 }

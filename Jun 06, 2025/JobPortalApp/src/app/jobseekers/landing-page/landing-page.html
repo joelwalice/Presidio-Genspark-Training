@@ -28,13 +28,23 @@
                     class="flex items-center justify-between p-4 mb-3 shadow-md rounded-lg  border border-gray-200 hover:shadow-lg transition">
                     <div>
                         <h4 class="text-xl font-semibold text-gray-800">{{ job.title }}</h4>
-                        <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Posted By : </span>{{ job.companyName }}</p>
-                        <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Location : </span>{{ job.location }}</p>
-                        <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Requirements : </span>{{ job.requirements }}</p>
-                        <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Salary : </span>{{ job.salary | currency : 'INR' }}</p>
+                        <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Posted By : </span>{{
+                            job.companyName }}</p>
+                        <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Location : </span>{{
+                            job.location }}</p>
+                        <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Requirements :
+                            </span>{{ job.requirements }}</p>
+                        <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Salary : </span>{{
+                            job.salary | currency : 'INR' }}</p>
                     </div>
                     <button
                         class="bg-green-600 text-white px-4 py-2 text-sm rounded-md hover:bg-green-700 transition">Apply</button>
+                </div>
+                <div class="mt-8 text-center" *ngIf="jobs.length >= 5">
+                    <a routerLink="/jobseekers/explore"
+                        class="bg-green-700 hover:bg-green-800 text-white text-sm px-6 py-3 rounded-full shadow">
+                        Browse More Jobs
+                    </a>
                 </div>
             </div>
             <ng-template #noJobs>
@@ -54,12 +64,7 @@
                 Resume</a>
         </div>
 
-        <div class="mt-8 text-center">
-            <a routerLink="/jobseekers/explore"
-                class="bg-green-700 hover:bg-green-800 text-white text-sm px-6 py-3 rounded-full shadow">
-                Browse More Jobs
-            </a>
-        </div>
+
     </div>
 </div>
 <router-outlet></router-outlet>
