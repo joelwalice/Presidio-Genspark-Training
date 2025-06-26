@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobPortalAPI.Migrations
 {
     [DbContext(typeof(JobContexts))]
-    [Migration("20250625200318_init")]
+    [Migration("20250626184116_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -131,6 +131,35 @@ namespace JobPortalAPI.Migrations
                     b.HasIndex("RecruiterId");
 
                     b.ToTable("Jobs");
+                });
+
+            modelBuilder.Entity("JobPortalAPI.Models.JobApplication", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("AppliedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("JobId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("JobSeekerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ResumeDocumentId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobId");
+
+                    b.HasIndex("JobSeekerId");
+
+                    b.HasIndex("ResumeDocumentId");
+
+                    b.ToTable("JobApplications");
                 });
 
             modelBuilder.Entity("JobPortalAPI.Models.JobEmploymentType", b =>
@@ -361,6 +390,33 @@ namespace JobPortalAPI.Migrations
                     b.Navigation("Company");
 
                     b.Navigation("PostedBy");
+                });
+
+            modelBuilder.Entity("JobPortalAPI.Models.JobApplication", b =>
+                {
+                    b.HasOne("JobPortalAPI.Models.Job", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JobPortalAPI.Models.JobSeeker", "User")
+                        .WithMany()
+                        .HasForeignKey("JobSeekerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JobPortalAPI.Models.ResumeDocument", "ResumeDocument")
+                        .WithMany()
+                        .HasForeignKey("ResumeDocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Job");
+
+                    b.Navigation("ResumeDocument");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("JobPortalAPI.Models.JobEmploymentType", b =>

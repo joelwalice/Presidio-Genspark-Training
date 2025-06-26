@@ -22,7 +22,7 @@ export class Register implements OnInit {
     }
   }
   
-  constructor(private UserService : UserRegisterService, private router : Router){
+  constructor(public UserService : UserRegisterService, private router : Router){
     this.registerForm = new FormGroup({
       name : new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -73,6 +73,9 @@ export class Register implements OnInit {
     this.UserService.validateUserRegister(this.user).subscribe({
       next : () => {
         this.router.navigateByUrl('/jobseekers');
+      },
+      error : () => {
+        
       }
     })
   }

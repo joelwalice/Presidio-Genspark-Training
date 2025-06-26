@@ -6,6 +6,9 @@ import { LandingPage } from './jobseekers/landing-page/landing-page';
 import { ResumePage } from './jobseekers/resume-page/resume-page';
 import { ProfilePage } from './jobseekers/profile-page/profile-page';
 import { AuthGuard } from './auth-guard';
+import { RecruiterLogin } from './recruiters/login/login';
+import { Explore } from './jobseekers/explore/explore';
+
 
 export const routes: Routes = [
     { path: '', component: HomePage },
@@ -13,7 +16,11 @@ export const routes: Routes = [
     { path: 'register', component: Register },
     {
         path: 'jobseekers', component: LandingPage, canActivate : [AuthGuard], children: [
-            { path: 'profile', component: ProfilePage }
+            { path: 'profile', component: ProfilePage },
+            { path : 'explore', component : Explore }
         ]
-    }
+    },
+    {path : 'recruiters', component : RecruiterLogin, children : [
+        // { path : 'register', }
+    ]}
 ];
