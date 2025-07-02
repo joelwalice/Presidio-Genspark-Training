@@ -158,5 +158,28 @@ namespace JobPortalAPI.Services
                 return Enumerable.Empty<Job>();
             }
         }
+        public async Task<IEnumerable<CompanyDTO>> GetCompaniesByRecruiterIdAsync(Guid recruiterId)
+        {
+            try
+            {
+                var companies = await _companyRepository.GetAllAsync();
+                return companies
+                    .Where(c => c.Recruiters.Any(r => r.Id == recruiterId))
+                    .Select(c => new CompanyDTO
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        Email = c.Email,
+                        PhoneNumber = c.PhoneNumber,
+                        Address = c.Address,
+                        EstablishedDate = c.EstablishedDate
+                    });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Failed to get companies for recruiter ID: {recruiterId}");
+                return Enumerable.Empty<CompanyDTO>();
+            }
+        }
     }
 }

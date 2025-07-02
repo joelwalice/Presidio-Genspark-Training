@@ -1,6 +1,8 @@
-<div class="flex flex-col items-center justify-center">
+<router-outlet></router-outlet>
+<div *ngIf="isOnRecruiterLoginPage" class="flex flex-col items-center justify-center">
     <div class="w-full bg-gray-100 h-[80px] flex items-center justify-between p-5">
-        <a class="flex text-2xl cursor-pointer text-green-900 font-semibold gap-1" href="/">SkillSync<span class="text-sm text-yellow-700">Recruiters</span></a>
+        <a class="flex text-2xl cursor-pointer text-green-900 font-semibold gap-1" href="/">SkillSync<span
+                class="text-sm text-yellow-700">Recruiters</span></a>
     </div>
     @if(userService.errorMessage){
     <div class="mx-6 mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative shadow-md w-[500px]"
@@ -15,51 +17,42 @@
         </button>
     </div>
     }
-    <form [formGroup]="loginForm" (ngSubmit)="handleLogin()"
-        class="mt-5 w-[500px] h-[550px] bg-gray-100 flex flex-col rounded-lg shadow-lg m-4">
-        <h1 class="p-4 mt-4 font-semibold text-3xl text-center">Login Page</h1>
-        <div class="w-[410px] m-4 ml-11">
-            <div>
-                <h1>Email</h1>
-                <input type="email"
-                    class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500 border-0"
-                    [ngClass]="{'border border-1 border-red-500' : email.touched && email.errors, 'border-1 border-green-600' : !email.errors}"
-                    placeholder="example@gmail.com" formControlName="email">
-                @if(email.touched && email.errors){
-                <p class="py-2 text-red-700 font-semibold">Username can't be Empty</p>
-                }
+    <div class="flex items-center justify-center min-h-[80vh]">
+        <form [formGroup]="loginForm" (ngSubmit)="handleLogin()"
+            class="mt-5 w-[500px] min-h-[420px] bg-gray-100 flex flex-col rounded-lg shadow-lg m-4">
+            <h1 class="p-4 mt-4 font-semibold text-3xl text-center">Login Page</h1>
+            <div class="w-[410px] m-4 ml-11">
+                <div>
+                    <h1>Email</h1>
+                    <input type="email"
+                        class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500 border-0"
+                        [ngClass]="{'border border-1 border-red-500' : email.touched && email.errors, 'border-1 border-green-600' : !email.errors}"
+                        placeholder="example@gmail.com" formControlName="email">
+                    @if(email.touched && email.errors){
+                    <p class="py-2 text-red-700 font-semibold">Username can't be Empty</p>
+                    }
+                </div>
+                <div class="mt-4">
+                    <h1>Password</h1>
+                    <input type="password"
+                        class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500"
+                        placeholder="Atleast 6 letters"
+                        [ngClass]="{'border border-1 border-red-500' : password.touched && password.errors, 'border border-1 border-green-600' : !password.errors}"
+                        formControlName="password">
+                    @if(password.touched && password.errors?.required){
+                    <p class="py-2 text-red-700 font-semibold">Password can't be Empty</p>
+                    }
+                    @if(password.errors?.minlength){
+                    <p class="py-2 text-red-700 font-semibold">Password should have atleast 6 characters</p>
+                    }
+                </div>
+                <button class="p-3 w-full mt-6 bg-black text-white rounded-md shadow-lg cursor-pointer font-semibold"
+                    [disabled]="loginForm.invalid">Login Now</button>
+                <div class="mt-6 flex items-center justify-between">
+                    <h1>Not Registered?</h1>
+                    <a href="/recruiters/register" class="cursor-pointer text-green-900 hover:underline">Register Now</a>
+                </div>
             </div>
-            <div class="mt-4">
-                <h1>Password</h1>
-                <input type="password"
-                    class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500"
-                    placeholder="Atleast 6 letters"
-                    [ngClass]="{'border border-1 border-red-500' : password.touched && password.errors, 'border border-1 border-green-600' : !password.errors}"
-                    formControlName="password">
-                @if(password.touched && password.errors?.required){
-                <p class="py-2 text-red-700 font-semibold">Password can't be Empty</p>
-                }
-                @if(password.errors?.minlength){
-                <p class="py-2 text-red-700 font-semibold">Password should have atleast 6 characters</p>
-                }
-            </div>
-            <div class="mt-5">
-                <h1>Confirm Password</h1>
-                <input type="password"
-                    class="bg-white w-full mt-2 p-[10px] shadow-lg rounded-sm focus:outline-none text-gray-500"
-                    placeholder="Atleast 6 letters"
-                    [ngClass]="{'border-1 border-red-500' : cpassword.touched && cpassword.errors, 'border-1 border-green-600' : cpassword.touched && !cpassword.errors}"
-                    formControlName="cpassword">
-                @if(cpassword.touched && cpassword.errors){
-                <p class="py-2 text-red-700 font-semibold">Confirm Password can't be Empty</p>
-                }
-            </div>
-            <button class="p-3 w-full mt-6 bg-black text-white rounded-md shadow-lg cursor-pointer font-semibold"
-                [disabled]="loginForm.invalid">Login Now</button>
-            <div class="mt-6 flex items-center justify-between">
-                <h1>Not Registered?</h1>
-                <a href="register" class="cursor-pointer text-green-900 hover:underline">Register Now</a>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>

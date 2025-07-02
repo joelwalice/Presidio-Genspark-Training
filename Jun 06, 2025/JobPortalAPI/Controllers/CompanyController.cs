@@ -21,7 +21,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles="Admin, Recruiter")]
+        [Authorize(Roles = "Admin, Recruiter")]
         public async Task<ActionResult<IEnumerable<CompanyDTO>>> GetAllCompanies()
         {
             var companies = await _companyService.GetAllCompaniesAsync();
@@ -29,7 +29,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles="Admin, Recruiter")]
+        [Authorize(Roles = "Admin, Recruiter")]
         public async Task<ActionResult<CompanyDTO>> GetCompanyById(Guid id)
         {
             var company = await _companyService.GetCompanyByIdAsync(id);
@@ -40,7 +40,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles="Admin, Recruiter")]
+        [Authorize(Roles = "Admin, Recruiter")]
         public async Task<ActionResult<Company>> AddCompany([FromBody] CompanyAddDTO companyDto)
         {
             if (!ModelState.IsValid)
@@ -54,7 +54,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles="Admin, Recruiter")]
+        [Authorize(Roles = "Admin, Recruiter")]
         public async Task<ActionResult<Company>> UpdateCompany([FromBody] CompanyUpdateDTO companyDto)
         {
             if (!ModelState.IsValid)
@@ -68,7 +68,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles="Admin, Recruiter")]
+        [Authorize(Roles = "Admin, Recruiter")]
         public async Task<IActionResult> DeleteCompany(Guid id)
         {
             var deleted = await _companyService.DeleteCompanyAsync(id);
@@ -90,6 +90,12 @@ namespace JobPortalAPI.Controllers
         {
             var jobs = await _companyService.GetJobsByCompanyIdAsync(id);
             return Ok(jobs);
+        }
+        [HttpGet("recruiter/{recruiterId}")]
+        public async Task<ActionResult<IEnumerable<CompanyDTO>>> GetCompaniesByRecruiterId(Guid recruiterId)
+        {
+            var companies = await _companyService.GetCompaniesByRecruiterIdAsync(recruiterId);
+            return Ok(companies);
         }
     }
 }

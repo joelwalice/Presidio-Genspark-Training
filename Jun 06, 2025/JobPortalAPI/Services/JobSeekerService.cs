@@ -19,7 +19,7 @@ namespace JobPortalAPI.Services
         {
             _context = context;
         }
-        public async Task<JobSeekerAddRequestDto> GetJobSeekerByIdAsync(Guid id)
+        public async Task<JobSeekerGetRequestDto> GetJobSeekerByIdAsync(Guid id)
         {
             try
             {
@@ -32,14 +32,16 @@ namespace JobPortalAPI.Services
                     throw new KeyNotFoundException($"JobSeeker with ID {id} not found.");
                 }
 
-                return new JobSeekerAddRequestDto
+                return new JobSeekerGetRequestDto
                 {
                     Name = jobSeeker.Name,
                     Email = jobSeeker.Email,
                     PhoneNumber = jobSeeker.PhoneNumber,
                     Address = jobSeeker.Address,
                     Password = jobSeeker.User.PasswordHash,
-                    DateOfBirth = jobSeeker.DateOfBirth
+                    DateOfBirth = jobSeeker.DateOfBirth,
+                    Id = jobSeeker.Id,
+                    DefaultResumeId = (Guid)jobSeeker.DefaultResumeId
                 };
             }
             catch (KeyNotFoundException)

@@ -45,7 +45,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin, Recruiter")]
+        [Authorize(Roles = "Admin, Recruiter, JobSeeker")]
         public async Task<IActionResult> GetById(Guid id)
         {
             _logger.LogInformation("Fetching job with ID {JobId}", id);
@@ -77,7 +77,8 @@ namespace JobPortalAPI.Controllers
             }
             _logger.LogInformation("Successfully created job with ID {JobId}", User.Identity?.Name);
             _logger.LogInformation("User {User} successfully created a new job with ID {JobId}", User.Identity?.Name);
-            await _hubContext.Clients.All.SendAsync("ReceiveNotification", new {
+            await _hubContext.Clients.All.SendAsync("ReceiveNotification", new
+            {
                 Title = created.Title,
                 CompanyName = created.CompanyName,
                 Description = created.Description,
@@ -105,7 +106,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin, JobSeeker")]
+        [Authorize(Roles = "Admin, Recruiter")]
         public async Task<IActionResult> Delete(Guid id)
         {
             _logger.LogInformation("Deleting job with ID {JobId}", id);
@@ -120,6 +121,32 @@ namespace JobPortalAPI.Controllers
             _logger.LogInformation("Successfully deleted job with ID {JobId}", id);
             _logger.LogInformation("User {User} successfully deleted job with ID {JobId}", User.Identity?.Name, id);
             return NoContent();
+        }
+        [HttpPost("apply")]
+        [Authorize(Roles = "JobSeeker")]
+        public async Task<IActionResult> ApplyJobs([FromBody] JobApplicationAddDto request)
+        {
+            _logger.LogInformation("User {User} is applying for job with ID {JobId}", User.Identity?.Name, request.JobId);
+
+            if (request.JobId == Guid.Empty || request.JobSeekerId == Guid.Empty || request.ResumeDocumentId == Guid.Empty)
+            {
+                _logger.LogWarning("Invalid input provided. jobId: {JobId}, jobSeekerId: {JobSeekerId}, resumeId: {ResumeId}",
+                    request.JobId, request.JobSeekerId, request.ResumeDocumentId);
+                return BadRequest("All parameters (jobId, jobSeekerId, resumeId) are required.");
+            }
+
+            var result = await _jobService.ApplyForJobWithResumeIdAsync(request.JobId, request.JobSeekerId, request.ResumeDocumentId);
+
+            if (result == "Application submitted successfully.")
+            {
+                _logger.LogInformation("User {User} successfully applied for job with ID {JobId}", User.Identity?.Name, request.JobId);
+                return Ok(new { message = result });
+            }
+            else
+            {
+                _logger.LogWarning("Application failed: {Reason}", result);
+                return BadRequest(new { error = result });
+            }
         }
     }
 }

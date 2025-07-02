@@ -5,7 +5,10 @@
             <h2 class="text-3xl font-semibold text-orange-600 mb-1">Welcome, {{ fullName }}</h2>
             <p class="text-sm text-gray-600">Here's what's new today, stay on track and apply confidently.</p>
         </div>
-
+        <div *ngIf="showToast"
+            class="fixed top-4 right-4 z-50 bg-green-600 text-white px-6 py-3 rounded shadow-lg animate-bounce transition">
+            {{ toastMessage }}
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
                 <p class="text-sm text-gray-500">Jobs Available</p>
@@ -13,7 +16,7 @@
             </div>
             <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
                 <p class="text-sm text-gray-500">Jobs Applied</p>
-                <p class="text-2xl font-semibold text-red-700 m-2">0</p>
+                <p class="text-2xl font-semibold text-red-700 m-2">{{appliedJobs.length}}</p>
             </div>
             <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
                 <p class="text-sm text-gray-500">Jobs Shortlisted</p>
@@ -37,7 +40,7 @@
                         <p class="text-md text-gray-500"><span class="font-semibold text-gray-700">Salary : </span>{{
                             job.salary | currency : 'INR' }}</p>
                     </div>
-                    <button
+                    <button [routerLink]="['apply', job.id]"
                         class="bg-green-600 text-white px-4 py-2 text-sm rounded-md hover:bg-green-700 transition">Apply</button>
                 </div>
                 <div class="mt-8 text-center" *ngIf="jobs.length >= 5">

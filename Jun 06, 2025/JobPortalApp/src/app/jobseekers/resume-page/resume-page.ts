@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
+import { ResumeStateService } from '../../services/user/resume-state-service';
 
 @Component({
   selector: 'app-resume-page',
@@ -15,12 +17,12 @@ export class ResumePage implements OnInit {
   resumes: any[] = [];
   selectedResumeId: string = '';
   selectedResume: any = null;
-
-  constructor(private JobSeekerService: JobSeekerService, private http: HttpClient, private sanitizer: DomSanitizer) {}
+  message: string = "";
+  constructor(private JobSeekerService: JobSeekerService, private http: HttpClient, private sanitizer: DomSanitizer, private resumeState: ResumeStateService) { }
 
   ngOnInit(): void {
     const getResumeFn = () => {
-      const id = sessionStorage.getItem("Id");
+      const id = localStorage.getItem("Id");
       if (id) {
         this.JobSeekerService.getResumesByJobseekerId(id).subscribe({
           next: (res) => {
@@ -28,6 +30,9 @@ export class ResumePage implements OnInit {
             if (this.resumes.length > 0) {
               this.selectedResumeId = this.resumes[0].id;
               this.selectedResume = this.resumes[0];
+              this.resumeState.setHasResume(true);
+            } else {
+              this.resumeState.setHasResume(false);
             }
           },
           error: (err) => console.error('Error fetching resumes:', err)
@@ -41,6 +46,13 @@ export class ResumePage implements OnInit {
 
   onResumeChange(id: string) {
     this.selectedResume = this.resumes.find(r => r.id === id);
+    const jobSeekerId = localStorage.getItem('Id');
+    if (!jobSeekerId) return;
+
+    this.JobSeekerService.setDefaultResume(jobSeekerId, id).subscribe({
+      next: () => this.message = 'Default resume set successfully.',
+      error: err => this.message = 'Error setting default resume: ' + err.message
+    });
   }
 
   downloadResume(resume: any) {
@@ -57,27 +69,43 @@ export class ResumePage implements OnInit {
   }
 
   deleteResume(resumeId: string) {
-    this.http.delete(`/api/resumes/${resumeId}`).subscribe({
+    this.JobSeekerService.deleteResume(resumeId).subscribe({
       next: () => {
-        this.resumes = this.resumes.filter(r => r.id !== resumeId);
+        this.refreshResumes();
+      },
+      error: (err) => console.error('Delete error:', err)
+    });
+  }
+
+  refreshResumes() {
+    const id = localStorage.getItem("Id");
+    if (!id) return;
+
+    this.JobSeekerService.getResumesByJobseekerId(id).subscribe({
+      next: (res) => {
+        this.resumes = res;
         if (this.resumes.length > 0) {
           this.selectedResumeId = this.resumes[0].id;
           this.selectedResume = this.resumes[0];
+          this.resumeState.setHasResume(true);
         } else {
           this.selectedResumeId = '';
           this.selectedResume = null;
+          this.resumeState.setHasResume(false);
         }
       },
-      error: err => console.error('Error deleting resume:', err)
+      error: (err) => console.error('Error fetching resumes:', err)
     });
   }
+
+
 
   uploadResume(event: Event) {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
     if (!file) return;
 
-    const jobSeekerId = sessionStorage.getItem('Id');
+    const jobSeekerId = localStorage.getItem('Id');
     if (!jobSeekerId) return;
 
     const formData = new FormData();
@@ -86,9 +114,8 @@ export class ResumePage implements OnInit {
 
     this.JobSeekerService.uploadResume(formData).subscribe({
       next: (data) => {
-        this.resumes.push(data);
-        this.selectedResumeId = data.id;
-        this.selectedResume = data;
+        this.resumeState.setHasResume(true);
+        this.refreshResumes();
       },
       error: (err) => console.error('Upload error:', err)
     });

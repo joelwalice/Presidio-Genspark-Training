@@ -1,6 +1,7 @@
 using JobPortalAPI.Contexts;
 using JobPortalAPI.DTOs;
 using JobPortalAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,12 @@ namespace JobPortalAPI.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<JobAddRequestDto>> GetAllJobsAsync()
+        public async Task<IEnumerable<JobGetRequestDto>> GetAllJobsAsync()
         {
             return await _context.Jobs
-                .Select(j => new JobAddRequestDto
+                .Select(j => new JobGetRequestDto
                 {
+                    Id = j.Id,
                     Title = j.Title,
                     Description = j.Description,
                     Location = j.Location,
@@ -35,13 +37,13 @@ namespace JobPortalAPI.Services
                 }).ToListAsync();
         }
 
-        public async Task<JobAddRequestDto?> GetJobByIdAsync(Guid id)
+        public async Task<JobGetRequestDto?> GetJobByIdAsync(Guid id)
         {
             var job = await _context.Jobs.FindAsync(id);
 
             if (job == null) return null;
 
-            return new JobAddRequestDto
+            return new JobGetRequestDto
             {
                 Title = job.Title,
                 Description = job.Description,
@@ -64,7 +66,7 @@ namespace JobPortalAPI.Services
                 Description = dto.Description,
                 Location = dto.Location,
                 PostedDate = DateTime.UtcNow,
-                ExpiryDate = dto.ExpiryDate,
+                ExpiryDate = dto.ExpiryDate?.ToUniversalTime(),
                 CompanyName = dto.CompanyName,
                 Salary = dto.Salary,
                 Requirements = dto.Requirements,
@@ -89,7 +91,7 @@ namespace JobPortalAPI.Services
             job.Title = dto.Title;
             job.Description = dto.Description;
             job.Location = dto.Location;
-            job.ExpiryDate = dto.ExpiryDate;
+            job.ExpiryDate = dto.ExpiryDate?.ToUniversalTime();
             job.CompanyName = dto.CompanyName;
             job.Salary = dto.Salary;
             job.Requirements = dto.Requirements;
@@ -135,7 +137,8 @@ namespace JobPortalAPI.Services
                 JobId = jobId,
                 JobSeekerId = jobSeekerId,
                 ResumeDocumentId = resumeDocumentId,
-                AppliedAt = DateTime.UtcNow
+                AppliedAt = DateTime.UtcNow,
+                JobStatus = JobStatus.Applied
             };
 
             _context.JobApplications.Add(application);

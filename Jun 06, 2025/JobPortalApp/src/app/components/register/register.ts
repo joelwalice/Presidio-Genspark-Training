@@ -16,7 +16,7 @@ export class Register implements OnInit {
   registerForm : FormGroup;
   
   ngOnInit(): void {
-    const token = sessionStorage.getItem("JwtToken");
+    const token = localStorage.getItem("JwtToken");
     if(token){
       this.router?.navigateByUrl('/jobseekers')
     }

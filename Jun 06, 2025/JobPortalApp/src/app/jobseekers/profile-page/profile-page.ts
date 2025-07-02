@@ -18,16 +18,37 @@ export class ProfilePage implements OnInit {
   location = 'Chennai, India';
   role = 'Frontend Developer';
   showDeleteConfirm: boolean = false;
+  appliedJobs: any[] = [];
+  showToast: boolean = false;
+  toastMessage: string = '';
 
   isEditing = false;
+  message: string = "";
+
+  getStatusText(status: number): string {
+    switch (status) {
+      case 0:
+        return 'Applied';
+      case 1:
+        return 'Accepted';
+      case 2:
+        return 'Hired';
+      case 3:
+        return 'Rejected';
+      default:
+        return 'Unknown';
+    }
+  }
 
   editable = {
-    fullName: '',
+    name: '',
     email: '',
-    phone: '',
-    location: ''
+    phoneNumber: '',
+    address: '',
+    id : '',
+    password: ''
   };
-  
+
 
   constructor(private JobSeekerService: JobSeekerService, private router: Router) {
 
@@ -35,7 +56,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit(): void {
 
-    const email = sessionStorage.getItem('email');
+    const email = localStorage.getItem('email');
     if (email) {
       this.JobSeekerService.fetchJobSeekerByEmail(email).subscribe({
         next: (user: any) => {
@@ -44,20 +65,39 @@ export class ProfilePage implements OnInit {
           this.phone = user.phoneNumber;
           this.location = user.address;
           this.editable = {
-            fullName: user.name,
+            name: user.name,
             email: user.email,
-            phone: user.phoneNumber,
-            location: user.address
+            phoneNumber: user.phoneNumber,
+            address: user.address,
+            id: user.id,
+            password: user.password
           };
-          console.log(user);
-          sessionStorage.setItem("Id", user.id);
+          localStorage.setItem("Id", user.id);
         },
         error: (err) => {
           console.error('Error fetching jobseeker:', err);
         }
       });
     }
+    const appliedJobs = () => {
+      const id = localStorage.getItem("Id");
+      if (id) {
 
+        this.JobSeekerService.getAppliedJobsByJobSeekerId(id).subscribe({
+          next: (data) => {
+            this.appliedJobs = data;
+          },
+          error: (err) => {
+            console.error('Error fetching applied jobs:', err);
+          }
+        })
+      }
+      else {
+        setTimeout(appliedJobs, 100);
+      }
+    };
+
+    appliedJobs();
   }
 
   confirmDeleteAccount() {
@@ -66,7 +106,7 @@ export class ProfilePage implements OnInit {
   }
 
   deleteAccount() {
-    const Id = sessionStorage.getItem("Id");
+    const Id = localStorage.getItem("Id");
     if (Id) {
       this.JobSeekerService.deleteJobSeeker(Id).subscribe({
         next: () => {
@@ -84,17 +124,36 @@ export class ProfilePage implements OnInit {
   }
 
   logout() {
-    sessionStorage.clear();
+    localStorage.clear();
     this.router.navigateByUrl('/login');
   }
   cancelEdit() {
     this.isEditing = false;
   }
   updateProfile() {
-    this.fullName = this.editable.fullName;
+    this.fullName = this.editable.name;
     this.email = this.editable.email;
-    this.phone = this.editable.phone;
-    this.location = this.editable.location;
+    this.phone = this.editable.phoneNumber;
+    this.location = this.editable.address;
     this.isEditing = false;
+    
+    const id = localStorage.getItem("Id");
+    if (!id) {
+      console.error('Job Seeker ID not found in local storage.');
+      return;
+    }
+    this.JobSeekerService.updateProfile(this.editable).subscribe({
+      next: (data) => {
+        this.showToast = true;
+        this.toastMessage = 'Profile updated successfully!';
+        setTimeout(() => {
+          this.showToast = false;
+          this.toastMessage = '';
+        }, 3000);
+      },
+      error: (err) => {
+        console.error('Error updating profile:', err);
+      }
+    });
   }
 }

@@ -85,7 +85,8 @@ namespace JobPortalAPI.Services
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     RefreshToken = refreshToken,
                     ExpiresAt = token.ValidTo,
-                    Email = user.Email
+                    Email = user.Email,
+                    Role = user.Role
                 };
             }
             catch (Exception ex)

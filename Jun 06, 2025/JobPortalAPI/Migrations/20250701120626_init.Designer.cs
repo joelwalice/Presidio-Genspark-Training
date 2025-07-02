@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobPortalAPI.Migrations
 {
     [DbContext(typeof(JobContexts))]
-    [Migration("20250626184116_init")]
+    [Migration("20250701120626_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -147,6 +147,9 @@ namespace JobPortalAPI.Migrations
 
                     b.Property<Guid>("JobSeekerId")
                         .HasColumnType("uuid");
+
+                    b.Property<int>("JobStatus")
+                        .HasColumnType("integer");
 
                     b.Property<Guid>("ResumeDocumentId")
                         .HasColumnType("uuid");

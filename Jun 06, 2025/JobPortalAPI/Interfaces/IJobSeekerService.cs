@@ -10,7 +10,7 @@ namespace JobPortalAPI.Interfaces
 {
     public interface IJobSeekerService
     {
-        Task<JobSeekerAddRequestDto> GetJobSeekerByIdAsync(Guid id);
+        Task<JobSeekerGetRequestDto> GetJobSeekerByIdAsync(Guid id);
         Task<IEnumerable<JobSeekerAddRequestDto>> GetAllJobSeekersAsync();
         Task<JobSeeker> AddJobSeekerAsync(JobSeekerAddRequestDto jobSeeker);
         Task<JobSeeker> UpdateJobSeekerAsync(JobSeekerUpdateRequestDto jobSeeker);

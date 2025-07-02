@@ -13,19 +13,21 @@ export class UserLoginService {
             return throwError(() => new Error(this.errorMessage));
         }
 
-        if (user.password !== user.cpassword) {
-            this.errorMessage = "Passwords do not match.";
-            return throwError(() => new Error(this.errorMessage));
-        }
-
         return this.callLoginAPI(user).pipe(
             tap((data: any) => {
-                sessionStorage.setItem("JwtToken", data.token);
-                sessionStorage.setItem("email", data.email);
+                localStorage.setItem("JwtToken", data.token);
+                localStorage.setItem("email", data.email);
+            }),
+            tap((data: any) => {
+                if (data.role !== 'JobSeeker') {
+                    this.errorMessage = "You are not authorized to login as a Job Seeker.";
+                    throw new Error(this.errorMessage);
+                }
+                localStorage.setItem("role", "JobSeeker");
                 this.errorMessage = '';
             }),
             catchError((err) => {
-                this.errorMessage = err?.error?.message || "Something went wrong. Please try again.";
+                this.errorMessage = err.error.message || "Something went wrong. Please try again later.";
                 return throwError(() => err);
             })
         );

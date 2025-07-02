@@ -1,0 +1,89 @@
+<div class="p-6 relative">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-3xl font-bold text-green-800">Your Companies</h2>
+  </div>
+
+  <div *ngIf="companies.length > 0; else noCompanies">
+    <div *ngFor="let company of companies" class="bg-white p-6 mb-6 rounded-3xl shadow-lg border border-gray-200 transition-all hover:scale-[1.02] hover:shadow-xl">
+      <div class="flex justify-between items-start">
+        <div class="space-y-2">
+          <h3 class="text-2xl font-bold text-blue-800 mb-2">{{ company.name }}</h3>
+
+          <div class="flex items-center gap-2 text-sm text-gray-700">
+            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+            </svg>
+            <span class="font-medium text-gray-500">Address:</span> {{ company.address }}
+          </div>
+
+          <div class="flex items-center gap-2 text-sm text-gray-700">
+            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M16 12A4 4 0 1 1 8 12a4 4 0 0 1 8 0z" />
+              <path d="M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10" />
+            </svg>
+            <span class="font-medium text-gray-500">Email:</span> {{ company.email }}
+          </div>
+
+          <div class="flex items-center gap-2 text-sm text-gray-700">
+            <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M22 16.92V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2.08" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              <path d="M8 3.13a4 4 0 0 0 0 7.75" />
+            </svg>
+            <span class="font-medium text-gray-500">Phone:</span> {{ company.phoneNumber }}
+          </div>
+
+          <div class="flex items-center gap-2 text-sm text-gray-700">
+            <svg class="w-4 h-4 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M8 21h8M12 17v4M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
+            </svg>
+            <span class="font-medium text-gray-500">Established:</span> {{ company.establishedDate | date }}
+          </div>
+        </div>
+
+        <button class="text-sm text-orange-600 hover:text-orange-800 mt-1 bg-orange-50 hover:bg-orange-100 px-3 py-1 rounded-md shadow-sm" (click)="showForm(company)">
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noCompanies>
+    <div class="text-gray-600 text-sm bg-yellow-50 border border-yellow-200 rounded-md p-4">
+      You haven't added any company yet. Click on <strong>"Add New Company"</strong> to get started.
+    </div>
+  </ng-template>
+
+  <div *ngIf="formVisible" class="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-xl w-[500px] max-w-full p-6 shadow-xl border border-gray-300 relative">
+      <button class="absolute top-3 right-3 text-red-600 text-xl font-bold hover:text-red-800" (click)="cancel()">✖</button>
+      <h3 class="text-2xl font-bold text-green-700 mb-4">{{ editMode ? 'Edit Company Details' : 'Add New Company' }}</h3>
+      <form [formGroup]="companyForm" (ngSubmit)="submitCompany()" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Company Name</label>
+          <input formControlName="name" placeholder="Presidio Pvt Ltd" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Location</label>
+          <input formControlName="address" placeholder="New York" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Email Address</label>
+          <input formControlName="email" placeholder="example@gmail.com" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Phone Number</label>
+          <input formControlName="phoneNumber" placeholder="Contains only numbers" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Established Date</label>
+          <input type="date" formControlName="establishedDate" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none" />
+        </div>
+        <div class="flex justify-end gap-4 pt-4">
+          <button type="button" (click)="cancel()" class="text-gray-600 hover:underline">Cancel</button>
+          <button type="submit" [disabled]="companyForm.invalid" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded shadow"> {{ editMode ? 'Update' : 'Save' }} </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
