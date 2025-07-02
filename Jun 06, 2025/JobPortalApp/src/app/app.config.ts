@@ -6,8 +6,9 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { UserLoginService } from './services/user/UserLoginService';
 import { UserRegisterService } from './services/user/UserRegisterService';
 import { JobSeekerService } from './services/user/job-seeker';
-import { AuthGuard } from './auth-guard';
+import { JobSeekerAuthGuard } from './jobseeker-auth-guard';
 import { AuthInterceptor } from './auth-interceptor';
+import { RecruiterAuthGuard } from './recruiter-auth-guard';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     UserLoginService,
     UserRegisterService,
     JobSeekerService,
-    AuthGuard
+    JobSeekerAuthGuard,
+    RecruiterAuthGuard
   ]
 };

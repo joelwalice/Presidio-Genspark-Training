@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, HostListener, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JobSeekerService } from '../../services/user/job-seeker';
@@ -20,24 +20,26 @@ export class Navbar implements OnInit {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+  @ViewChild('dropdown') dropdownRef!: ElementRef;
+  @ViewChild('toggleBtn') toggleBtnRef!: ElementRef;
+
   constructor(private JobSeekerService: JobSeekerService, private router: Router) {
 
   }
 
   logout() {
-    sessionStorage.clear();
+    localStorage.clear();
     this.router.navigateByUrl('/login');
   }
 
   ngOnInit(): void {
     const checkEmailAndFetch = () => {
-      const email = sessionStorage.getItem('email');
+      const email = localStorage.getItem('email');
       if (email) {
         this.email = email;
         this.JobSeekerService.fetchJobSeekerByEmail(email).subscribe({
           next: (user: any) => {
-            console.log(user);
-            sessionStorage.setItem("Id", user.id);
+            localStorage.setItem("Id", user.id);
           },
           error: (err) => {
             console.error('Error fetching jobseeker:', err);
@@ -49,6 +51,16 @@ export class Navbar implements OnInit {
     };
 
     checkEmailAndFetch();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent): void {
+    const clickedInsideDropdown = this.dropdownRef?.nativeElement.contains(event.target);
+    const clickedToggleBtn = this.toggleBtnRef?.nativeElement.contains(event.target);
+
+    if (!clickedInsideDropdown && !clickedToggleBtn) {
+      this.isDropdownOpen = false;
+    }
   }
 
 }

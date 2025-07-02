@@ -38,23 +38,15 @@ namespace JobPortalAPI.Services
             };
 
             _context.ResumeDocuments.Add(resume);
-            await _context.SaveChangesAsync();
 
             var jobSeeker = await _context.JobSeekers
-                .Where(js => js.Id == dto.JobSeekerId)
-                .FirstOrDefaultAsync();
-            if (jobSeeker != null)
-            {
-                jobSeeker.DefaultResumeId = resume.Id;
-                jobSeeker.UpdatedAt = DateTime.UtcNow;
-                _context.JobSeekers.Update(jobSeeker);
-                await _context.SaveChangesAsync();
-            }
+                .FirstOrDefaultAsync(js => js.Id == dto.JobSeekerId);
 
-            else
-            {
+            if (jobSeeker == null)
                 throw new Exception("Job Seeker not found");
-            }
+
+            jobSeeker.DefaultResumeId = resume.Id;
+            jobSeeker.UpdatedAt = DateTime.UtcNow;
 
             _context.JobSeekers.Update(jobSeeker);
             await _context.SaveChangesAsync();
@@ -65,8 +57,7 @@ namespace JobPortalAPI.Services
         public async Task<FileContentResult?> DownloadAsync(string fileName)
         {
             var file = await _context.ResumeDocuments
-                .Where(f => f.FileName == fileName)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(f => f.FileName == fileName);
 
             if (file == null) return null;
 
@@ -75,5 +66,67 @@ namespace JobPortalAPI.Services
                 FileDownloadName = file.FileName
             };
         }
+
+        public async Task<string> DeleteFileAsync(Guid resumeId)
+        {
+            var file = await _context.ResumeDocuments
+                .FirstOrDefaultAsync(f => f.Id == resumeId);
+
+            if (file == null) return "No such file";
+
+            var jobSeekerId = file.JobSeekerId;
+
+            _context.ResumeDocuments.Remove(file);
+            await _context.SaveChangesAsync();
+
+            var jobSeeker = await _context.JobSeekers
+                .Include(js => js.ResumeDocuments)
+                .FirstOrDefaultAsync(js => js.Id == jobSeekerId);
+
+            if (jobSeeker != null && jobSeeker.DefaultResumeId == resumeId)
+            {
+                var nextResume = jobSeeker.ResumeDocuments
+                    .OrderByDescending(r => r.CreatedAt)
+                    .FirstOrDefault();
+
+                jobSeeker.DefaultResumeId = nextResume?.Id;
+                jobSeeker.UpdatedAt = DateTime.UtcNow;
+                _context.JobSeekers.Update(jobSeeker);
+                await _context.SaveChangesAsync();
+            }
+
+            return "File Removed Successfully";
+        }
+        public async Task<string> SetDefaultResumeAsync(Guid jobSeekerId, Guid resumeId)
+        {
+            var jobSeeker = await _context.JobSeekers
+                .FirstOrDefaultAsync(js => js.Id == jobSeekerId);
+
+            var resumeExists = await _context.ResumeDocuments
+                .AnyAsync(r => r.Id == resumeId && r.JobSeekerId == jobSeekerId);
+
+            if (jobSeeker == null || !resumeExists)
+                return "Invalid JobSeeker or Resume";
+
+            jobSeeker.DefaultResumeId = resumeId;
+            jobSeeker.UpdatedAt = DateTime.UtcNow;
+            _context.JobSeekers.Update(jobSeeker);
+            await _context.SaveChangesAsync();
+
+            return "Default Resume Updated";
+        }
+        public async Task<FileContentResult?> GetResumeByIdAsync(Guid resumeId)
+        {
+            var resume = await _context.ResumeDocuments
+                .FirstOrDefaultAsync(r => r.Id == resumeId);
+
+            if (resume == null) return null;
+
+            return new FileContentResult(resume.Content, resume.FileType)
+            {
+                FileDownloadName = resume.FileName
+            };
+        }
+
     }
 }

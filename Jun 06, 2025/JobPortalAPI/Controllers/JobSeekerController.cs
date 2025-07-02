@@ -26,7 +26,7 @@ namespace JobPortalAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,JobSeeker")]
+        [Authorize(Roles = "Admin,JobSeeker,Recruiter")]
         public async Task<IActionResult> GetJobSeekerById(Guid id)
         {
             _logger.LogInformation("Fetching job seeker with ID {JobSeekerId}", id);

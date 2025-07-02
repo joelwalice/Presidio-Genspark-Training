@@ -17,19 +17,21 @@ export class RecruiterLoginService {
             return throwError(() => new Error(this.errorMessage));
         }
 
-        if (user.password !== user.cpassword) {
-            this.errorMessage = "Passwords do not match.";
-            return throwError(() => new Error(this.errorMessage));
-        }
-
         return this.callLoginAPI(user).pipe(
             tap((data: any) => {
-                sessionStorage.setItem("JwtToken", data.token);
-                sessionStorage.setItem("email", data.email);
+                localStorage.setItem("JwtToken", data.token);
+                localStorage.setItem("email", data.email);
+            }),
+            tap((data: any) => {
+                if (data.role !== 'Recruiter') {
+                    this.errorMessage = "You are not authorized to login as a Recruiter.";
+                    throw new Error(this.errorMessage);
+                }
+                localStorage.setItem("role", "Recruiter");
                 this.errorMessage = '';
             }),
             catchError((err) => {
-                this.errorMessage = err?.error?.message || "Something went wrong. Please try again.";
+                this.errorMessage = this.errorMessage = err.error.message || "Something came up! Please try again later.";
                 return throwError(() => err);
             })
         );

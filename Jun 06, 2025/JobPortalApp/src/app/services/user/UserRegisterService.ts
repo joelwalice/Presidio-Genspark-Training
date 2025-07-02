@@ -23,8 +23,9 @@ export class UserRegisterService {
     return this.callRegisterAPI(user).pipe(
     switchMap(() => this.callLoginAPI(user)),
     tap((loginData: any) => {
-      sessionStorage.setItem("JwtToken", loginData.token);
-      sessionStorage.setItem("email", loginData.email);
+      localStorage.setItem("JwtToken", loginData.token);
+      localStorage.setItem("email", loginData.email);
+      localStorage.setItem("role", "JobSeeker");
       this.errorMessage = '';
     }),
     catchError((err) => {

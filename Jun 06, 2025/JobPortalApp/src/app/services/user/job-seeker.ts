@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class JobSeekerService {
   http = inject(HttpClient);
-  getJobSeekerById(Id : string){
-    const token = sessionStorage.getItem("JwtToken");
+  getJobSeekerById(Id: string) {
+    const token = localStorage.getItem("JwtToken");
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
-    }); 
-    return this.http.get<any>(`http://localhost:5039/api/jobseeker/${Id}`,{headers})
+    });
+    return this.http.get<any>(`http://localhost:5039/api/jobseeker/${Id}`, { headers })
   }
 
   fetchJobSeekerByEmail(email: string) {
@@ -29,8 +29,8 @@ export class JobSeekerService {
       });
     });
   }
-  deleteJobSeeker(id : string){
-    const token = sessionStorage.getItem("JwtToken");
+  deleteJobSeeker(id: string) {
+    const token = localStorage.getItem("JwtToken");
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
@@ -38,7 +38,7 @@ export class JobSeekerService {
   }
 
   fetchAllJobSeeker() {
-    const token = sessionStorage.getItem("JwtToken");
+    const token = localStorage.getItem("JwtToken");
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
@@ -46,7 +46,7 @@ export class JobSeekerService {
   }
 
   getResumesByJobseekerId(jobseekerId: string): Observable<any[]> {
-    const token = sessionStorage.getItem('JwtToken');
+    const token = localStorage.getItem('JwtToken');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
@@ -55,7 +55,7 @@ export class JobSeekerService {
   }
 
   uploadResume(formData: FormData) {
-    const token = sessionStorage.getItem('JwtToken');
+    const token = localStorage.getItem('JwtToken');
     const headers = {
       Authorization: `Bearer ${token}`
     };
@@ -63,11 +63,69 @@ export class JobSeekerService {
     return this.http.post<any>('http://localhost:5039/api/files/upload', formData, { headers });
   }
 
-  getJobDetails(): Observable<any>{
-    const token = sessionStorage.getItem('JwtToken');
+  deleteResume(resumeId: string): Observable<any> {
+    const token = localStorage.getItem('JwtToken');
     const headers = {
-      Authorization : `Bearer ${token}`
+      Authorization: `Bearer ${token}`
     };
-    return this.http.get<any>("http://localhost:5039/api/jobs", {headers});
+    return this.http.delete<any>(`http://localhost:5039/api/files/${resumeId}`, { headers });
+  }
+
+  getJobDetails(): Observable<any> {
+    const token = localStorage.getItem('JwtToken');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    return this.http.get<any>("http://localhost:5039/api/jobs", { headers });
+  }
+
+  getJobDetailById(id: string): Observable<any> {
+    const token = localStorage.getItem('JwtToken');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    return this.http.get<any>(`http://localhost:5039/api/jobs/${id}`, { headers });
+  }
+
+  getResumeById(resumeId: string): Observable<any> {
+    const token = localStorage.getItem('JwtToken');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    return this.http.get<any>(`http://localhost:5039/api/files/resume/${resumeId}`, { headers });
+  }
+
+  getAppliedJobsByJobSeekerId(jobSeekerId: string): Observable<any> {
+    const token = localStorage.getItem('JwtToken');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    return this.http.get<any>(`http://localhost:5039/api/JobApplication/applied/${jobSeekerId
+      }`, { headers });
+  }
+
+  applyJobs(payload: {}): Observable<any> {
+    const token = localStorage.getItem('JwtToken');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    return this.http.post<any>(`http://localhost:5039/api/jobs/apply`, payload, { headers });
+  }
+
+  updateProfile(payload: any): Observable<any> {
+    const token = localStorage.getItem('JwtToken');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put<any>(`http://localhost:5039/api/jobseeker`, payload, { headers });
+  }
+
+  setDefaultResume(jobSeekerId: string, resumeId: string): Observable<any> {
+    const token = localStorage.getItem('JwtToken');
+    const headers = { Authorization: `Bearer ${token}` };
+    return this.http.put(`http://localhost:5039/api/files/set-default`, {
+      jobSeekerId,
+      resumeId
+    }, { headers });
   }
 }

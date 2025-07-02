@@ -15,5 +15,6 @@ namespace JobPortalAPI.Interfaces
         Task<bool> DeleteCompanyAsync(Guid id);
         Task<IEnumerable<Recruiter>> GetRecruitersByCompanyIdAsync(Guid companyId);
         Task<IEnumerable<Job>> GetJobsByCompanyIdAsync(Guid companyId);
+        Task<IEnumerable<CompanyDTO>> GetCompaniesByRecruiterIdAsync(Guid recruiterId);
     }
 }

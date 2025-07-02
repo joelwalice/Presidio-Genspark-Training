@@ -167,7 +167,8 @@ namespace JobPortalAPI.Migrations
                     JobId = table.Column<Guid>(type: "uuid", nullable: false),
                     JobSeekerId = table.Column<Guid>(type: "uuid", nullable: false),
                     ResumeDocumentId = table.Column<Guid>(type: "uuid", nullable: false),
-                    AppliedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    AppliedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    JobStatus = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {

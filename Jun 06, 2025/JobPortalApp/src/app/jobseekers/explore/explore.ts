@@ -15,7 +15,7 @@ export class Explore implements OnInit {
   filteredJobs: any[] = [];
   constructor(private JobSeekerService: JobSeekerService, private router: Router) { }
   ngOnInit(): void {
-    const token = sessionStorage.getItem("JwtToken");
+    const token = localStorage.getItem("JwtToken");
     const getJobDetails = () => {
       if (token) {
         this.JobSeekerService.getJobDetails().subscribe({

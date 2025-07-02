@@ -145,6 +145,9 @@ namespace JobPortalAPI.Migrations
                     b.Property<Guid>("JobSeekerId")
                         .HasColumnType("uuid");
 
+                    b.Property<int>("JobStatus")
+                        .HasColumnType("integer");
+
                     b.Property<Guid>("ResumeDocumentId")
                         .HasColumnType("uuid");
 

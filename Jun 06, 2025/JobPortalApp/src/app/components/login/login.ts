@@ -19,14 +19,13 @@ export class Login implements OnInit {
   constructor(public userService: UserLoginService, public router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, textValidator()]),
-      cpassword: new FormControl('', Validators.required)
+      password: new FormControl(null, [Validators.required, textValidator()])
     })
 
   }
 
   ngOnInit(): void {
-    const token = sessionStorage.getItem("JwtToken");
+    const token = localStorage.getItem("JwtToken"); 
     if (token) {
       this.router?.navigateByUrl('/jobseekers')
     }
@@ -40,14 +39,9 @@ export class Login implements OnInit {
     return this.loginForm.get("password");
   }
 
-  public get cpassword(): any {
-    return this.loginForm.get("cpassword");
-  }
-
   handleLogin() {
     this.user.email = this.email.value;
     this.user.password = this.password.value;
-    this.user.cpassword = this.cpassword.value;
     if (this.loginForm.invalid) {
       return;
     }
@@ -56,7 +50,7 @@ export class Login implements OnInit {
       next: () => {
         this.router.navigateByUrl('/jobseekers');
       },
-      error: () => {
+      error: (err) => {
       }
     });
   }
