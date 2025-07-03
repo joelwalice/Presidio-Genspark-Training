@@ -20,6 +20,7 @@ export class RecruiterApplicants implements OnInit {
   showModal: boolean = false;
   action: string = '';
   errorMessage: string = '';
+  resumePreviewUrl: string | undefined = '';
 
   constructor(private JobSeekerService: JobSeekerService, private recruiterService: RecruiterService, private route: ActivatedRoute) { }
 
@@ -34,7 +35,6 @@ export class RecruiterApplicants implements OnInit {
   }
 
   updateStatus(applicant: any) {
-    console.log('Updating status for applicant:', applicant);
     this.recruiterService.updateApplicationStatus(applicant.jobSeekerId, applicant.jobStatus).subscribe({
       next: () => {
         console.log('Status updated');
@@ -46,6 +46,32 @@ export class RecruiterApplicants implements OnInit {
     });
   }
 
+  openApplicantResume(applicant: any) {
+    this.selectedApplicant = applicant;
+    this.showModal = true;
+
+    const byteCharacters = atob(applicant.resumeContent);
+    const byteNumbers = Array.from(byteCharacters, char => char.charCodeAt(0));
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: applicant.resumeFileType });
+    this.resumePreviewUrl = URL.createObjectURL(blob);
+  }
+
+  viewApplicantDetails(applicant: any) {
+    this.selectedApplicant = applicant;
+    this.showModal = true;
+    this.openApplicantResume(applicant);
+  }
+
+  closeApplicantDetails() {
+    this.showModal = false;
+    this.selectedApplicant = null;
+
+    if (this.resumePreviewUrl) {
+      URL.revokeObjectURL(this.resumePreviewUrl);
+      this.resumePreviewUrl = undefined;
+    }
+  }
 
   fetchApplicants(jobId: string) {
     this.recruiterService.getJobApplicationsByJobId(jobId).subscribe({
@@ -65,16 +91,15 @@ export class RecruiterApplicants implements OnInit {
               this.JobSeekerService.getResumeById(applicant.resumeDocumentId).pipe(
                 map(resume => ({
                   ...applicant,
-                  resumeContent: resume.FileContent,
-                  resumeFileName: resume.FileName,
-                  resumeFileType: resume.FileType
+                  resumeContent: resume.fileContents,
+                  resumeFileName: resume.fileDownloadName,
+                  resumeFileType: resume.contentType
                 }))
               )
             );
 
             forkJoin(resumeFetches).subscribe({
               next: (finalApplicants) => {
-                console.log('Final Applicants:', finalApplicants);
                 this.applicants = finalApplicants;
               },
               error: (err) => console.error('Error fetching resumes:', err)
