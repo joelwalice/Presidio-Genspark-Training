@@ -1,8 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using FirstAPI.Models;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Authorization;
-using System.Linq;
 
 namespace FirstAPI.Controllers
 {
@@ -15,13 +12,11 @@ namespace FirstAPI.Controllers
         new Patient{Id=201,Name="Wani", Age=25},
         new Patient{Id=202,Name="Hari", Age=30},
     };
-        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Patient>> GetPatients()
         {
             return Ok(patients);
         }
-        
         [HttpPost]
         public ActionResult<Patient> PostPatient([FromBody] Patient patient)
         {
@@ -29,7 +24,7 @@ namespace FirstAPI.Controllers
             return Created("", patient);
         }
         [HttpPut]
-        public ActionResult<Doctor> PutPatient([FromBody] Patient patient)
+        public ActionResult<Doctor> PutDoctor([FromBody] Patient patient)
         {
             var existingPatient = patients.FirstOrDefault(p => p.Id == patient.Id);
             if (existingPatient == null)
@@ -40,7 +35,7 @@ namespace FirstAPI.Controllers
             return Ok(existingPatient);
         }
         [HttpDelete]
-        public ActionResult DeletePatient(int id)
+        public ActionResult DeleteDoctor(int id)
         {
             var patient = patients.FirstOrDefault(p => p.Id == id);
             if (patient == null)

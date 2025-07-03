@@ -45,23 +45,6 @@ namespace FirstAPI.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpPost("cancelAppointment")]
-        [Authorize(Roles = "Doctor")]
-        [Authorize(Policy = "MinYearsExp")]
-        public async Task<ActionResult<bool>> CancelAppointment([FromBody] int appointmentId)
-        {
-            try
-            {
-                var result = await _doctorService.CancelAppointment(appointmentId);
-                if (result)
-                    return Ok(true);
-                return NotFound("Appointment not found or could not be cancelled.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
 
     }
 }

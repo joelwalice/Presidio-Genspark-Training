@@ -1,4 +1,4 @@
-using Google.Apis.Auth;
+
 using FirstAPI.Interfaces;
 using FirstAPI.Models;
 using FirstAPI.Models.DTOs.DoctorSpecialities;
@@ -48,32 +48,6 @@ namespace FirstAPI.Services
             return new UserLoginResponse
             {
                 Username = user.Username,
-                Token = token,
-            };
-        }
-        
-        public async Task<UserLoginResponse> GoogleLogin(string googleToken)
-        {
-            // Validate the Google token and extract user info
-            var payload = await Google.Apis.Auth.GoogleJsonWebSignature.ValidateAsync(googleToken);
-            if (payload == null || string.IsNullOrEmpty(payload.Email))
-            {
-                _logger.LogError("Invalid Google token");
-                throw new Exception("Invalid Google token");
-            }
-
-            var dbUser = await _userRepository.Get(payload.Email);
-            if (dbUser == null)
-            {
-                _logger.LogCritical("Google user not found");
-                throw new Exception("No such user");
-            }
-
-            var token = await _tokenService.GenerateToken(dbUser);
-
-            return new UserLoginResponse
-            {
-                Username = dbUser.Username,
                 Token = token,
             };
         }

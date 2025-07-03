@@ -70,10 +70,5 @@ namespace FirstAPI.Services
         {
             throw new NotImplementedException();
         }
-
-        public Task<bool> CancelAppointment(int appointmentId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

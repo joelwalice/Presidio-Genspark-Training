@@ -5,6 +5,5 @@ namespace FirstAPI.Interfaces
     public interface IAuthenticationService
     {
         public Task<UserLoginResponse> Login(UserLoginRequest user);
-        public Task<UserLoginResponse> GoogleLogin(string googleToken);
     }
 }
