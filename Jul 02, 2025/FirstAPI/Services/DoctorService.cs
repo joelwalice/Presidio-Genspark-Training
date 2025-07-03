@@ -10,7 +10,7 @@ namespace FirstAPI.Services
 {
     public class DoctorService : IDoctorService
     {
-        DoctorMapper doctorMapper;
+        DoctorMapper doctorMapper ;
         SpecialityMapper specialityMapper;
         private readonly IRepository<int, Doctor> _doctorRepository;
         private readonly IRepository<int, Speciality> _specialityRepository;
@@ -23,7 +23,7 @@ namespace FirstAPI.Services
         public DoctorService(IRepository<int, Doctor> doctorRepository,
                             IRepository<int, Speciality> specialityRepository,
                             IRepository<int, DoctorSpeciality> doctorSpecialityRepository,
-                            IRepository<string, User> userRepository,
+                            IRepository<string,User> userRepository,
                             IOtherContextFunctionities otherContextFunctionities,
                             IEncryptionService encryptionService,
                             IMapper mapper)
@@ -47,7 +47,7 @@ namespace FirstAPI.Services
                 var user = _mapper.Map<DoctorAddRequestDto, User>(doctor);
                 var encryptedData = await _encryptionService.EncryptData(new EncryptModel
                 {
-                    Data = doctor.Password
+                    Data= doctor.Password
                 });
                 user.Password = encryptedData.EncryptedData;
                 user.HashKey = encryptedData.HashKey;
@@ -72,7 +72,7 @@ namespace FirstAPI.Services
             {
                 throw new Exception(e.Message);
             }
-
+            
         }
 
         private async Task<int[]> MapAndAddSpeciality(DoctorAddRequestDto doctor)
@@ -113,11 +113,6 @@ namespace FirstAPI.Services
         {
             var result = await _otherContextFunctionities.GetDoctorsBySpeciality(speciality);
             return result;
-        }
-        
-        public Task<bool> CancelAppointment(int appointmentId)
-        {
-            throw new NotImplementedException();
         }
     }
 }

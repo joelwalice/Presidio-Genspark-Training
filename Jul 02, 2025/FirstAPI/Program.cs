@@ -50,13 +50,6 @@ builder.Services.AddControllers()
                     opts.JsonSerializerOptions.WriteIndented = true;
                 });
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("MinYearsExp", policy =>
-    {
-        policy.Requirements.Add(new MinYearsExp(3));
-    });
-});
 
 
 builder.Services.AddDbContext<ClinicContext>(opts =>
@@ -99,16 +92,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAutoMapper(typeof(User));
 #endregion
 
-builder.Logging.AddLog4Net();
 
-
-builder.Services.AddAuthentication()
-    .AddCookie()
-    .AddGoogle(options =>
-    {
-        options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
