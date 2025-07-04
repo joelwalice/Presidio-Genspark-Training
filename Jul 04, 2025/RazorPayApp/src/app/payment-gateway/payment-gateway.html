@@ -1,0 +1,69 @@
+<div class="flex flex-col justify-center items-center min-h-screen bg-gray-100">
+  <h1 class="p-4 text-2xl text-blue-700 font-semibold">RazorPay Testing Form</h1>
+
+  <form
+    [formGroup]="paymentForm"
+    (ngSubmit)="onSubmit()"
+    class="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
+  >
+    <div class="mb-6">
+      <label for="customerName" class="block text-gray-700 font-semibold mb-2">Customer Name:</label>
+      <input
+        id="customerName"
+        formControlName="customerName"
+        type="text"
+        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <div *ngIf="customerName?.invalid && customerName?.touched">
+        <small class="text-red-500">Customer Name is required (min 3 characters).</small>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label for="email" class="block text-gray-700 font-semibold mb-2">Email:</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <div *ngIf="email?.invalid && email?.touched">
+        <small class="text-red-500">Valid Email is required.</small>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label for="amount" class="block text-gray-700 font-semibold mb-2">Amount:</label>
+      <input
+        id="amount"
+        formControlName="amount"
+        type="number"
+        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <div *ngIf="amount?.invalid && amount?.touched">
+        <small class="text-red-500">Amount must be greater than 0.</small>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label for="contactNumber" class="block text-gray-700 font-semibold mb-2">Contact Number:</label>
+      <input
+        id="contactNumber"
+        formControlName="contactNumber"
+        type="text"
+        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <div *ngIf="contactNumber?.invalid && contactNumber?.touched">
+        <small class="text-red-500">Contact Number must be 10 digits.</small>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="paymentForm.invalid || isLoading"
+      class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition disabled:opacity-50"
+    >
+      {{ isLoading ? 'Processing...' : 'Pay with Razorpay' }}
+    </button>
+  </form>
+</div>
