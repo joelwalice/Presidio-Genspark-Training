@@ -1,0 +1,5 @@
+docker pull mysql:latest
+
+docker run -d --name mysql-test -e MYSQL_ROOT_PASSWORD=secret -v mydbdata:/var/lib/mysql mysql:latest
+
+docker exec -it mysql-test mysql -uroot -p
