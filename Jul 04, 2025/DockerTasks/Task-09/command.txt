@@ -1,0 +1,3 @@
+docker service create --name webapp --replicas 3 --update-delay 10s httpd
+
+docker service update --image httpd:alpine webapp

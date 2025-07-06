@@ -1,0 +1,5 @@
+docker network create mynet
+
+docker run -d --name api --network mynet my-api-image
+
+docker run -d --name frontend --network mynet my-frontend-image
