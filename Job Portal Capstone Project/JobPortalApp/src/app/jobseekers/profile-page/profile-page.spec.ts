@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfilePage } from './profile-page';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { JobSeekerService } from '../../services/user/job-seeker';
 
 describe('ProfilePage', () => {
   let component: ProfilePage;
@@ -8,7 +10,9 @@ describe('ProfilePage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProfilePage]
+      imports: [ProfilePage, HttpClientTestingModule],
+      providers: [JobSeekerService]
+
     })
     .compileComponents();
 
