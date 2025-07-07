@@ -1,18 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Register } from './register';
+import { RecruiterRegister } from './register';
+import { RecruiterRegisterService } from '../../services/recruiter/recruiter-register-service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('Register', () => {
-  let component: Register;
-  let fixture: ComponentFixture<Register>;
+describe('Recruiter Register', () => {
+  let component: RecruiterRegister;
+  let fixture: ComponentFixture<RecruiterRegister>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Register]
+      imports: [RecruiterRegister, HttpClientTestingModule],
+      providers: [RecruiterRegisterService]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Register);
+    fixture = TestBed.createComponent(RecruiterRegister);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
