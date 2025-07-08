@@ -3,7 +3,7 @@ import { Explore } from './explore';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { JobSeekerService } from '../../services/user/job-seeker';
 
-describe('Explore', () => {
+describe('JobSeeker Explore', () => {
   let component: Explore;
   let fixture: ComponentFixture<Explore>;
 
