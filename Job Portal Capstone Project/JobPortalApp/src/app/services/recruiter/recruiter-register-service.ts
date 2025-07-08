@@ -43,7 +43,8 @@ export class RecruiterRegisterService {
       password: user.password,
       address: user.address,
       dateOfBirth: new Date(user.dateOfBirth).toISOString(),
-      phoneNumber: user.phoneNumber
+      phoneNumber: user.phoneNumber,
+      companyName: user.companyName
     }, {
       headers: {
         'Content-Type': 'application/json'
@@ -58,4 +59,6 @@ export class RecruiterRegisterService {
       password: user.password
     });
   }
+
+  
 }

@@ -41,7 +41,11 @@ export class RecruiterProfilePage implements OnInit {
           this.email = user.email;
           this.phone = user.phoneNumber;
           this.location = user.address;
-          this.companyName = user.companyName;
+          this.recruiterService.getCompanyById(user.companyId).subscribe({
+            next: (data) => {
+              this.companyName = data.name;
+            }
+          })
           this.editable = {
             name: user.name,
             email: user.email,
