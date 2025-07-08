@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RecruiterCompany } from './recruiter-company';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('RecruiterCompany', () => {
+describe('Recruiter Company Page', () => {
   let component: RecruiterCompany;
   let fixture: ComponentFixture<RecruiterCompany>;
 

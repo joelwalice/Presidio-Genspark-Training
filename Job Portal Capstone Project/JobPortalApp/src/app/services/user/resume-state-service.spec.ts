@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ResumeStateService } from './resume-state-service';
 
-describe('ResumeStateService', () => {
+describe('JobSeeker Resume State Service', () => {
   let service: ResumeStateService;
 
   beforeEach(() => {

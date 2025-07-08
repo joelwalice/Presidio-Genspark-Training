@@ -4,7 +4,7 @@ import { ProfilePage } from './profile-page';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { JobSeekerService } from '../../services/user/job-seeker';
 
-describe('ProfilePage', () => {
+describe('JobSeeker Profile Page', () => {
   let component: ProfilePage;
   let fixture: ComponentFixture<ProfilePage>;
 

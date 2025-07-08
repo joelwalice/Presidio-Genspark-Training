@@ -6,7 +6,7 @@ import { RecruiterService } from '../../services/recruiter/recruiter-service';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
-describe('RecruiterNavbar', () => {
+describe('Recruiter Navbar', () => {
   let component: RecruiterNavbar;
   let fixture: ComponentFixture<RecruiterNavbar>;
 
