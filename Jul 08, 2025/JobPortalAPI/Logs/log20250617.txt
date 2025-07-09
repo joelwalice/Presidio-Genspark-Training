@@ -1,0 +1,18 @@
+2025-06-17 23:18:23.664 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-17 23:18:23.799 +05:30 [INF] Now listening on: http://localhost:5000
+2025-06-17 23:18:23.800 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-17 23:18:23.801 +05:30 [INF] Hosting environment: Production
+2025-06-17 23:18:23.801 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-17 23:18:48.670 +05:30 [INF] Application is shutting down...
+2025-06-17 23:20:33.654 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-17 23:20:33.798 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-17 23:20:33.800 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-17 23:20:33.801 +05:30 [INF] Hosting environment: Development
+2025-06-17 23:20:33.801 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-17 23:20:38.055 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/ - null null
+2025-06-17 23:20:38.144 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-17 23:20:38.162 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/ - 404 0 null 112.1978ms
+2025-06-17 23:20:38.187 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5039/, Response status code: 404
+2025-06-17 23:20:43.672 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-17 23:20:43.825 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 153.928ms
+2025-06-17 23:21:07.316 +05:30 [INF] Application is shutting down...
