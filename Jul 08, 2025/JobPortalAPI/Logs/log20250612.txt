@@ -1,0 +1,719 @@
+2025-06-12 02:45:26.020 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-12 02:45:26.214 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-12 02:45:26.217 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-12 02:45:26.218 +05:30 [INF] Hosting environment: Development
+2025-06-12 02:45:26.218 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-12 02:45:28.745 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/ - null null
+2025-06-12 02:45:28.844 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-12 02:45:28.862 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/ - 404 0 null 119.5138ms
+2025-06-12 02:45:28.900 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5039/, Response status code: 404
+2025-06-12 02:45:28.904 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/favicon.ico - null null
+2025-06-12 02:45:28.921 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/favicon.ico - 404 0 null 18.0366ms
+2025-06-12 02:45:28.922 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5039/favicon.ico, Response status code: 404
+2025-06-12 02:45:48.485 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-12 02:45:48.567 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 81.8864ms
+2025-06-12 02:45:48.843 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-12 02:45:49.066 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 223.3811ms
+2025-06-12 02:45:57.809 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-12 02:45:57.834 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.9592ms
+2025-06-12 03:01:20.619 +05:30 [INF] Application is shutting down...
+2025-06-12 14:51:27.120 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-12 14:51:27.328 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-12 14:51:27.331 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-12 14:51:27.332 +05:30 [INF] Hosting environment: Development
+2025-06-12 14:51:27.332 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-12 14:52:58.977 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 14:52:59.100 +05:30 [INF] CORS policy execution successful.
+2025-06-12 14:52:59.115 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 142.1738ms
+2025-06-12 14:52:59.143 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 14:52:59.148 +05:30 [INF] CORS policy execution successful.
+2025-06-12 14:52:59.149 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-12 14:52:59.173 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 14:52:59.187 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 14:52:59.188 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 46.4949ms
+2025-06-12 14:52:59.200 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=UFXxZ0B5flaGymV18g60Ug - null null
+2025-06-12 14:52:59.209 +05:30 [INF] CORS policy execution successful.
+2025-06-12 14:52:59.210 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 14:53:18.745 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 14:53:18.751 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=UFXxZ0B5flaGymV18g60Ug - 101 null null 19550.0377ms
+2025-06-12 14:53:18.763 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 14:53:18.764 +05:30 [INF] CORS policy execution successful.
+2025-06-12 14:53:18.764 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 1.19ms
+2025-06-12 14:53:18.769 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 14:53:18.769 +05:30 [INF] CORS policy execution successful.
+2025-06-12 14:53:18.770 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 14:53:18.771 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 14:53:18.771 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 2.0466ms
+2025-06-12 14:53:18.781 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=AvxU8mMyc1ZY-ajdB7KfEA - null null
+2025-06-12 14:53:18.784 +05:30 [INF] CORS policy execution successful.
+2025-06-12 14:53:18.785 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 14:53:56.102 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-12 14:53:56.175 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 73.5979ms
+2025-06-12 14:53:56.487 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-12 14:53:56.673 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 185.8518ms
+2025-06-12 14:56:11.243 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/files/upload - multipart/form-data; boundary=--------------------------870674684256939831721223 224331
+2025-06-12 14:56:11.313 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/10/2025 7:40:44 PM', Current time (UTC): '6/12/2025 9:26:11 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-12 14:56:11.334 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/10/2025 7:40:44 PM', Current time (UTC): '6/12/2025 9:26:11 AM'.
+2025-06-12 14:56:11.340 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (JobSeeker|Admin)
+2025-06-12 14:56:11.347 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-12 14:56:11.348 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/files/upload - 401 0 null 104.9663ms
+2025-06-12 14:57:00.157 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 81
+2025-06-12 14:57:00.160 +05:30 [INF] CORS policy execution failed.
+2025-06-12 14:57:00.160 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-12 14:57:00.160 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-12 14:57:00.188 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-12 14:57:02.109 +05:30 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-12 14:57:03.657 +05:30 [INF] User joelw@gmail.com logged in successfully
+2025-06-12 14:57:03.812 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-12 14:57:03.836 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-12 14:57:03.852 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 3659.1204ms
+2025-06-12 14:57:03.852 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-12 14:57:03.861 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 3703.9259ms
+2025-06-12 14:57:20.505 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/files/upload - multipart/form-data; boundary=--------------------------022700193905990174228862 224331
+2025-06-12 14:57:20.523 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.FileController.Upload (JobPortalAPI)'
+2025-06-12 14:57:20.532 +05:30 [INF] Route matched with {action = "Upload", controller = "File"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Upload(JobPortalAPI.DTOs.ResumeUploadDto) on controller JobPortalAPI.Controllers.FileController (JobPortalAPI).
+2025-06-12 14:57:20.568 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-06-12 14:57:20.583 +05:30 [INF] Executed action JobPortalAPI.Controllers.FileController.Upload (JobPortalAPI) in 51.1094ms
+2025-06-12 14:57:20.583 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.FileController.Upload (JobPortalAPI)'
+2025-06-12 14:57:20.586 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/files/upload - 400 null application/problem+json; charset=utf-8 80.8988ms
+2025-06-12 15:01:04.571 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/files/upload - multipart/form-data; boundary=--------------------------861250181979711717588169 224474
+2025-06-12 15:01:04.576 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.FileController.Upload (JobPortalAPI)'
+2025-06-12 15:01:04.576 +05:30 [INF] Route matched with {action = "Upload", controller = "File"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Upload(JobPortalAPI.DTOs.ResumeUploadDto) on controller JobPortalAPI.Controllers.FileController (JobPortalAPI).
+2025-06-12 15:01:04.590 +05:30 [INF] Uploading file for user : 
+2025-06-12 15:01:04.706 +05:30 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Binary), @p2='?' (DbType = DateTime), @p3='?', @p4='?' (DbType = Int64), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ResumeDocuments" ("Id", "Content", "CreatedAt", "FileName", "FileSize", "FileType", "JobSeekerId", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-06-12 15:01:04.757 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__dto_JobSeekerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId"
+FROM "JobSeekers" AS j
+WHERE j."Id" = @__dto_JobSeekerId_0
+LIMIT 1
+2025-06-12 15:01:04.780 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p10='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Guid), @p8='?' (DbType = DateTime), @p9='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "JobSeekers" SET "Address" = @p0, "CreatedAt" = @p1, "DateOfBirth" = @p2, "Email" = @p3, "Name" = @p4, "PasswordHash" = @p5, "PhoneNumber" = @p6, "ResumeId" = @p7, "UpdatedAt" = @p8, "UserId" = @p9
+WHERE "Id" = @p10;
+2025-06-12 15:01:04.783 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p10='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Guid), @p8='?' (DbType = DateTime), @p9='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "JobSeekers" SET "Address" = @p0, "CreatedAt" = @p1, "DateOfBirth" = @p2, "Email" = @p3, "Name" = @p4, "PasswordHash" = @p5, "PhoneNumber" = @p6, "ResumeId" = @p7, "UpdatedAt" = @p8, "UserId" = @p9
+WHERE "Id" = @p10;
+2025-06-12 15:01:04.783 +05:30 [INF] File doctor.png uploaded successfully by user: 
+2025-06-12 15:01:04.784 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-06-12 15:01:04.789 +05:30 [INF] Executed action JobPortalAPI.Controllers.FileController.Upload (JobPortalAPI) in 212.9086ms
+2025-06-12 15:01:04.789 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.FileController.Upload (JobPortalAPI)'
+2025-06-12 15:01:04.790 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/files/upload - 200 null application/json; charset=utf-8 218.8502ms
+2025-06-12 15:01:24.581 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/files/BankFAQs.csv - null null
+2025-06-12 15:01:24.582 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.FileController.Download (JobPortalAPI)'
+2025-06-12 15:01:24.586 +05:30 [INF] Route matched with {action = "Download", controller = "File"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Download(System.String) on controller JobPortalAPI.Controllers.FileController (JobPortalAPI).
+2025-06-12 15:01:24.591 +05:30 [INF] Downloading file: BankFAQs.csv for user: 
+2025-06-12 15:01:24.695 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__fileName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Content", r."CreatedAt", r."FileName", r."FileSize", r."FileType", r."JobSeekerId", r."UpdatedAt"
+FROM "ResumeDocuments" AS r
+WHERE r."FileName" = @__fileName_0
+LIMIT 1
+2025-06-12 15:01:24.699 +05:30 [INF] File BankFAQs.csv downloaded successfully by user: 
+2025-06-12 15:01:24.700 +05:30 [INF] Executing FileContentResult, sending file with download name 'BankFAQs.csv' ...
+2025-06-12 15:01:24.717 +05:30 [INF] Executed action JobPortalAPI.Controllers.FileController.Download (JobPortalAPI) in 130.5313ms
+2025-06-12 15:01:24.717 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.FileController.Download (JobPortalAPI)'
+2025-06-12 15:01:24.717 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/files/BankFAQs.csv - 200 774150 text/csv 136.2981ms
+2025-06-12 15:02:12.042 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:02:12.042 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=AvxU8mMyc1ZY-ajdB7KfEA - 101 null null 533261.8058ms
+2025-06-12 15:02:33.065 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:02:33.065 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/10/2025 9:07:03 PM', Current time (UTC): '6/12/2025 9:32:33 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-12 15:02:33.066 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '6/10/2025 9:07:03 PM', Current time (UTC): '6/12/2025 9:32:33 AM'.
+2025-06-12 15:02:33.066 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Recruiter)
+2025-06-12 15:02:33.067 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-12 15:02:33.067 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 401 0 null 2.3111ms
+2025-06-12 15:03:04.107 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 80
+2025-06-12 15:03:04.110 +05:30 [INF] CORS policy execution failed.
+2025-06-12 15:03:04.110 +05:30 [INF] Request origin http://localhost:5039 does not have permission to access the resource.
+2025-06-12 15:03:04.111 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-12 15:03:04.111 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-06-12 15:03:04.134 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."ResumeId", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-06-12 15:03:04.961 +05:30 [INF] User hari@gmail.com logged in successfully
+2025-06-12 15:03:04.965 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "Name" = @p2, "PasswordHash" = @p3, "RefreshToken" = @p4, "RefreshTokenExpiryTime" = @p5, "Role" = @p6, "UpdatedAt" = @p7
+WHERE "Id" = @p8;
+2025-06-12 15:03:04.965 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-06-12 15:03:04.966 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 854.5024ms
+2025-06-12 15:03:04.966 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-06-12 15:03:04.966 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 858.785ms
+2025-06-12 15:03:24.134 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:03:24.135 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:03:24.139 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:03:24.169 +05:30 [INF] Creating a new job
+2025-06-12 15:03:24.170 +05:30 [INF] User null is creating a new job
+2025-06-12 15:03:24.243 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:03:24.244 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:03:24.247 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:03:24.280 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 140.0918ms
+2025-06-12 15:03:24.280 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:03:24.280 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 146.6843ms
+2025-06-12 15:04:56.411 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:04:56.413 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:04:56.414 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 2.3045ms
+2025-06-12 15:04:56.417 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:04:56.417 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:04:56.418 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:04:56.418 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:04:56.418 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.9192ms
+2025-06-12 15:04:56.428 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=XI9oaA3Ubjio98F27x48pQ - null null
+2025-06-12 15:04:56.428 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:04:56.429 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:05:52.873 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:05:52.873 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=XI9oaA3Ubjio98F27x48pQ - 101 null null 56445.2672ms
+2025-06-12 15:07:32.270 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:07:32.271 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:07:32.272 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 1.9789ms
+2025-06-12 15:07:32.275 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:07:32.276 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:07:32.281 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:07:32.282 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:07:32.282 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 6.6687ms
+2025-06-12 15:07:32.296 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=8boaItTIYNhltru2iaO2GQ - null null
+2025-06-12 15:07:32.296 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:07:32.297 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:09:21.031 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:09:21.034 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:09:21.034 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:09:21.036 +05:30 [INF] Creating a new job
+2025-06-12 15:09:21.036 +05:30 [INF] User null is creating a new job
+2025-06-12 15:09:21.063 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:09:21.063 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:09:21.064 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:09:21.065 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 30.9404ms
+2025-06-12 15:09:21.065 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:09:21.066 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 34.6179ms
+2025-06-12 15:24:23.071 +05:30 [INF] Application is shutting down...
+2025-06-12 15:24:23.074 +05:30 [INF] Connection id "0HND9IASEGVS5", Request id "0HND9IASEGVS5:00000003": the application aborted the connection.
+2025-06-12 15:24:23.079 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:24:23.079 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=8boaItTIYNhltru2iaO2GQ - 101 null null 1010780.3218ms
+2025-06-12 15:24:58.671 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-12 15:24:58.889 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-12 15:24:58.893 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-12 15:24:58.894 +05:30 [INF] Hosting environment: Development
+2025-06-12 15:24:58.894 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-12 15:25:28.643 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:25:28.748 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:25:28.758 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 118.4944ms
+2025-06-12 15:25:28.776 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:25:28.780 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:25:28.782 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-12 15:25:28.796 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:25:28.808 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:25:28.809 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 32.7242ms
+2025-06-12 15:25:28.817 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=9NvyGE1pzV9kQ_cac0Tp6Q - null null
+2025-06-12 15:25:28.825 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:25:28.826 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:25:44.996 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:25:45.094 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:25:45.121 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:25:45.399 +05:30 [INF] Creating a new job
+2025-06-12 15:25:45.399 +05:30 [INF] User null is creating a new job
+2025-06-12 15:25:46.958 +05:30 [INF] Executed DbCommand (87ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:25:46.991 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:25:47.030 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:25:47.073 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 1947.2076ms
+2025-06-12 15:25:47.074 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:25:47.089 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 2092.1718ms
+2025-06-12 15:30:00.715 +05:30 [INF] Application is shutting down...
+2025-06-12 15:30:00.719 +05:30 [INF] Connection id "0HND9IT1G63JR", Request id "0HND9IT1G63JR:00000003": the application aborted the connection.
+2025-06-12 15:30:00.732 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:30:00.732 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=9NvyGE1pzV9kQ_cac0Tp6Q - 101 null null 271914.002ms
+2025-06-12 15:30:10.056 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-12 15:30:10.252 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-12 15:30:10.257 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-12 15:30:10.258 +05:30 [INF] Hosting environment: Development
+2025-06-12 15:30:10.258 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-12 15:30:14.867 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:30:14.943 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:30:14.950 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 85.0378ms
+2025-06-12 15:30:14.968 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:30:14.972 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:30:14.973 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-12 15:30:14.985 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:30:14.996 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:30:14.996 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 29.1272ms
+2025-06-12 15:30:15.005 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=D5cYJTX1-02eVxJJhUvf9Q - null null
+2025-06-12 15:30:15.013 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:30:15.014 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:30:21.747 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:30:21.852 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:30:21.875 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:30:22.101 +05:30 [INF] Creating a new job
+2025-06-12 15:30:22.101 +05:30 [INF] User null is creating a new job
+2025-06-12 15:30:23.937 +05:30 [INF] Executed DbCommand (87ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:30:23.971 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:30:24.011 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:30:24.046 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 2166.7617ms
+2025-06-12 15:30:24.047 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:30:24.062 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 2314.656ms
+2025-06-12 15:31:53.968 +05:30 [INF] Application is shutting down...
+2025-06-12 15:31:53.970 +05:30 [INF] Connection id "0HND9IVMPVSDF", Request id "0HND9IVMPVSDF:00000003": the application aborted the connection.
+2025-06-12 15:31:53.982 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:31:53.983 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=D5cYJTX1-02eVxJJhUvf9Q - 101 null null 98978.1918ms
+2025-06-12 15:32:02.816 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-12 15:32:02.999 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-12 15:32:03.003 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-12 15:32:03.004 +05:30 [INF] Hosting environment: Development
+2025-06-12 15:32:03.004 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-12 15:32:07.494 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:32:07.568 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:32:07.575 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 83.4536ms
+2025-06-12 15:32:07.592 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:32:07.596 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:32:07.597 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-12 15:32:07.609 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:32:07.619 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:32:07.620 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 27.7179ms
+2025-06-12 15:32:07.626 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=p8b7RF_SmxnazRG_iSt8wQ - null null
+2025-06-12 15:32:07.635 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:32:07.636 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:32:13.286 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:32:13.391 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:32:13.415 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:32:13.637 +05:30 [INF] Creating a new job
+2025-06-12 15:32:13.638 +05:30 [INF] User null is creating a new job
+2025-06-12 15:32:15.163 +05:30 [INF] Executed DbCommand (86ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:32:15.196 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:32:15.244 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:32:15.278 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 1859.1938ms
+2025-06-12 15:32:15.279 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:32:15.292 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 2006.1282ms
+2025-06-12 15:33:25.636 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:33:25.637 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=p8b7RF_SmxnazRG_iSt8wQ - 101 null null 78010.5238ms
+2025-06-12 15:33:32.482 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:33:32.482 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:32.483 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 1.3903ms
+2025-06-12 15:33:32.486 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:33:32.486 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:32.488 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:33:32.490 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:33:32.490 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 4.5965ms
+2025-06-12 15:33:32.586 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=Q1upguqbucHyQSYlTPjAMw - null null
+2025-06-12 15:33:32.589 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:32.590 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:33:34.092 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:33:34.092 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=Q1upguqbucHyQSYlTPjAMw - 101 null null 1505.9014ms
+2025-06-12 15:33:34.163 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:33:34.164 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:34.165 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:33:34.165 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:33:34.165 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.515ms
+2025-06-12 15:33:34.171 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=3nAhWhNyu0ZEtPhhXiaSTw - null null
+2025-06-12 15:33:34.172 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:34.172 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:33:36.663 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:33:36.664 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=3nAhWhNyu0ZEtPhhXiaSTw - 101 null null 2492.4758ms
+2025-06-12 15:33:36.740 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:33:36.741 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:36.741 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:33:36.741 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:33:36.741 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.4095ms
+2025-06-12 15:33:36.749 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=XST7dIuDSKfB51KKHz2CBg - null null
+2025-06-12 15:33:36.749 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:36.750 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:33:40.881 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:33:40.881 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=XST7dIuDSKfB51KKHz2CBg - 101 null null 4132.2534ms
+2025-06-12 15:33:40.960 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:33:40.961 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:40.961 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 1.1101ms
+2025-06-12 15:33:40.965 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:33:40.966 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:40.966 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:33:40.967 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:33:40.967 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.6305ms
+2025-06-12 15:33:40.975 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=7WeyIMA0s-bhMtd29SsJpw - null null
+2025-06-12 15:33:40.976 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:40.976 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:33:43.041 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:33:43.041 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=7WeyIMA0s-bhMtd29SsJpw - 101 null null 2065.8042ms
+2025-06-12 15:33:43.115 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:33:43.116 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:43.116 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:33:43.117 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:33:43.117 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.6799ms
+2025-06-12 15:33:43.123 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=BCXRiZ9TRTExxtzrE2UD8g - null null
+2025-06-12 15:33:43.124 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:33:43.124 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:33:50.348 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:33:50.353 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 503 0 null 5.113ms
+2025-06-12 15:34:09.622 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:34:09.623 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=BCXRiZ9TRTExxtzrE2UD8g - 101 null null 26499.7468ms
+2025-06-12 15:34:09.641 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:34:09.641 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:34:09.641 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.5683ms
+2025-06-12 15:34:09.644 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:34:09.644 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:34:09.644 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 503 0 null 0.6132ms
+2025-06-12 15:35:46.566 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:35:46.568 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:35:46.568 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 1.8171ms
+2025-06-12 15:35:46.570 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:35:46.571 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:35:46.571 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:35:46.572 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:35:46.573 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 2.3347ms
+2025-06-12 15:35:46.581 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=YFo6tadpvkPmWwRJproFSg - null null
+2025-06-12 15:35:46.582 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:35:46.583 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:35:47.610 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:35:47.611 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=YFo6tadpvkPmWwRJproFSg - 101 null null 1029.7359ms
+2025-06-12 15:35:47.680 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:35:47.681 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:35:47.681 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:35:47.681 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:35:47.682 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.1835ms
+2025-06-12 15:35:47.688 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=i4phYtpCZ0rpDV8fBFAn1Q - null null
+2025-06-12 15:35:47.688 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:35:47.688 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:37:19.421 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:37:19.422 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=i4phYtpCZ0rpDV8fBFAn1Q - 101 null null 91734.1967ms
+2025-06-12 15:37:19.499 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:37:19.499 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:37:19.500 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 1.0668ms
+2025-06-12 15:37:19.504 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:37:19.504 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:37:19.504 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:37:19.505 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:37:19.505 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.5273ms
+2025-06-12 15:37:19.514 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=aNHvE6joUBzh8oLlQ2vzGQ - null null
+2025-06-12 15:37:19.514 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:37:19.515 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:37:27.200 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:37:27.203 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=aNHvE6joUBzh8oLlQ2vzGQ - 101 null null 7689.1335ms
+2025-06-12 15:37:27.272 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:37:27.273 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:37:27.273 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.8508ms
+2025-06-12 15:37:27.276 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:37:27.276 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:37:27.276 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:37:27.277 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:37:27.277 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.51ms
+2025-06-12 15:37:27.284 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=g1rtspSvNeWD2QHI_LjBqA - null null
+2025-06-12 15:37:27.285 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:37:27.285 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:37:31.812 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:37:31.812 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=g1rtspSvNeWD2QHI_LjBqA - 101 null null 4528.1615ms
+2025-06-12 15:37:31.894 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:37:31.895 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:37:31.895 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:37:31.895 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:37:31.895 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 0.9489ms
+2025-06-12 15:37:31.901 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=Y7wRyquzNbmbFBXDVEHtqg - null null
+2025-06-12 15:37:31.902 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:37:31.902 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:38:06.189 +05:30 [INF] Application is shutting down...
+2025-06-12 15:38:06.190 +05:30 [INF] Connection id "0HND9J0OC1KKI", Request id "0HND9J0OC1KKI:00000002": the application aborted the connection.
+2025-06-12 15:38:06.191 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:38:06.192 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=Y7wRyquzNbmbFBXDVEHtqg - 101 null null 34290.5648ms
+2025-06-12 15:38:14.631 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-12 15:38:14.819 +05:30 [INF] Now listening on: http://localhost:5039
+2025-06-12 15:38:14.823 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-12 15:38:14.823 +05:30 [INF] Hosting environment: Development
+2025-06-12 15:38:14.824 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Jun 06, 2025/JobPortalAPI
+2025-06-12 15:38:22.107 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:38:22.180 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:38:22.187 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 82.7903ms
+2025-06-12 15:38:22.205 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:38:22.209 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:38:22.211 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-06-12 15:38:22.223 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:38:22.234 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:38:22.235 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 30.1741ms
+2025-06-12 15:38:22.242 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=NytfYXIpHV0g3mAv5mI7Vw - null null
+2025-06-12 15:38:22.251 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:38:22.251 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:38:31.182 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:38:31.276 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:38:31.300 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:38:31.511 +05:30 [INF] Creating a new job
+2025-06-12 15:38:31.512 +05:30 [INF] User null is creating a new job
+2025-06-12 15:38:33.049 +05:30 [INF] Executed DbCommand (84ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:38:33.084 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:38:33.121 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:38:33.164 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 1858.9988ms
+2025-06-12 15:38:33.165 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:38:33.183 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 2001.3126ms
+2025-06-12 15:39:03.277 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:39:03.279 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=NytfYXIpHV0g3mAv5mI7Vw - 101 null null 41036.1886ms
+2025-06-12 15:39:03.346 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:39:03.348 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:03.350 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 3.226ms
+2025-06-12 15:39:03.354 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:39:03.355 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:03.355 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:39:03.356 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:39:03.356 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.621ms
+2025-06-12 15:39:03.366 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=n-FXj1qhpDSfqNbPOe4Phg - null null
+2025-06-12 15:39:03.370 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:03.370 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:39:04.401 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:39:04.404 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=n-FXj1qhpDSfqNbPOe4Phg - 101 null null 1038.4004ms
+2025-06-12 15:39:04.478 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:39:04.479 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:04.480 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:39:04.481 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:39:04.482 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 3.0103ms
+2025-06-12 15:39:04.488 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=-kEB-LOx8FrfUArAirCaXQ - null null
+2025-06-12 15:39:04.489 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:04.489 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:39:15.960 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:39:15.965 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:39:15.966 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:39:15.969 +05:30 [INF] Creating a new job
+2025-06-12 15:39:15.969 +05:30 [INF] User null is creating a new job
+2025-06-12 15:39:16.055 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:39:16.056 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:39:16.057 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:39:16.059 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 92.3746ms
+2025-06-12 15:39:16.059 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:39:16.059 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 99.4136ms
+2025-06-12 15:39:35.556 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:39:35.559 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=-kEB-LOx8FrfUArAirCaXQ - 101 null null 31069.9692ms
+2025-06-12 15:39:35.655 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:39:35.656 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:35.656 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 1.3917ms
+2025-06-12 15:39:35.660 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:39:35.667 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:35.667 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:39:35.668 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:39:35.669 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 8.5531ms
+2025-06-12 15:39:35.681 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=eNTNF7932XpkIsYBH9hWmA - null null
+2025-06-12 15:39:35.682 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:35.682 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:39:43.900 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:39:43.902 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=eNTNF7932XpkIsYBH9hWmA - 101 null null 8220.0901ms
+2025-06-12 15:39:43.927 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:39:43.928 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:43.928 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.8574ms
+2025-06-12 15:39:43.931 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:39:43.931 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:43.931 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:39:43.931 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:39:43.932 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 0.9834ms
+2025-06-12 15:39:43.940 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=buJCawGnnBD3zsnsg7nCDg - null null
+2025-06-12 15:39:43.940 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:39:43.940 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:39:48.258 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:39:48.261 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:39:48.262 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:39:48.269 +05:30 [INF] Creating a new job
+2025-06-12 15:39:48.270 +05:30 [INF] User null is creating a new job
+2025-06-12 15:39:48.293 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:39:48.293 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:39:48.294 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:39:48.294 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 31.7554ms
+2025-06-12 15:39:48.295 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:39:48.295 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 37.4012ms
+2025-06-12 15:40:06.484 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:40:06.485 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=buJCawGnnBD3zsnsg7nCDg - 101 null null 22545.237ms
+2025-06-12 15:40:06.584 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:40:06.585 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:06.587 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 2.6646ms
+2025-06-12 15:40:06.592 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:06.592 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:06.592 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:40:06.593 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:40:06.593 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.6309ms
+2025-06-12 15:40:06.601 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=4dDjNxSTkY9QGA1HmRXbXA - null null
+2025-06-12 15:40:06.603 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:06.604 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:40:10.029 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:40:10.030 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=4dDjNxSTkY9QGA1HmRXbXA - 101 null null 3428.2739ms
+2025-06-12 15:40:10.128 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:10.129 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:10.129 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:40:10.130 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:40:10.130 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.6497ms
+2025-06-12 15:40:10.139 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=B29RXpPS2djkZdt0kjP-Ww - null null
+2025-06-12 15:40:10.139 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:10.139 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:40:12.525 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:40:12.526 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=B29RXpPS2djkZdt0kjP-Ww - 101 null null 2387.1228ms
+2025-06-12 15:40:12.609 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:40:12.610 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:12.611 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 2.2417ms
+2025-06-12 15:40:12.616 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:12.616 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:12.617 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:40:12.617 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:40:12.617 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.4825ms
+2025-06-12 15:40:12.628 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=Q11VFIpLYmMxIlSo_CiwCw - null null
+2025-06-12 15:40:12.628 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:12.631 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=Q11VFIpLYmMxIlSo_CiwCw - 503 0 null 2.7185ms
+2025-06-12 15:40:12.659 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:12.659 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:12.660 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 503 0 null 0.7366ms
+2025-06-12 15:40:22.396 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:40:22.397 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:22.397 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.9344ms
+2025-06-12 15:40:22.403 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:22.404 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:22.404 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 503 0 null 1.1246ms
+2025-06-12 15:40:26.139 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:26.140 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:26.140 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 503 0 null 0.8821ms
+2025-06-12 15:40:33.376 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:40:33.376 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:33.376 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.7711ms
+2025-06-12 15:40:33.382 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:33.383 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:33.384 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 503 0 null 1.3853ms
+2025-06-12 15:40:34.779 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:34.779 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:34.779 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 503 0 null 0.753ms
+2025-06-12 15:40:38.345 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:40:38.346 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:38.346 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:40:38.347 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:40:38.347 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 2.2821ms
+2025-06-12 15:40:38.356 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=pPQ5yYCnUVtomtfEEmHQuw - null null
+2025-06-12 15:40:38.357 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:40:38.357 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:40:54.135 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 380
+2025-06-12 15:40:54.136 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:40:54.136 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:40:54.136 +05:30 [INF] Creating a new job
+2025-06-12 15:40:54.137 +05:30 [INF] User null is creating a new job
+2025-06-12 15:40:54.140 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:40:54.140 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:40:54.141 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:40:54.142 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 5.9999ms
+2025-06-12 15:40:54.142 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:40:54.142 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 7.5935ms
+2025-06-12 15:41:17.531 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:41:17.532 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=pPQ5yYCnUVtomtfEEmHQuw - 101 null null 39176.1085ms
+2025-06-12 15:41:17.628 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:41:17.629 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:17.629 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.7186ms
+2025-06-12 15:41:17.633 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:41:17.633 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:17.636 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:41:17.641 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:41:17.643 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 9.8322ms
+2025-06-12 15:41:17.662 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=qVpEFlJu3RSzrhPwSfGJBA - null null
+2025-06-12 15:41:17.663 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:17.663 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:41:31.587 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:41:31.587 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=qVpEFlJu3RSzrhPwSfGJBA - 101 null null 14061.4118ms
+2025-06-12 15:41:31.603 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:41:31.604 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:31.604 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.6864ms
+2025-06-12 15:41:31.607 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:41:31.607 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:31.607 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:41:31.607 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:41:31.607 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 0.9404ms
+2025-06-12 15:41:31.613 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=zNoW9argsinIe76kHGC6uQ - null null
+2025-06-12 15:41:31.614 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:31.614 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:41:44.472 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:41:44.472 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=zNoW9argsinIe76kHGC6uQ - 101 null null 12859.287ms
+2025-06-12 15:41:44.551 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:41:44.552 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:44.552 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.6951ms
+2025-06-12 15:41:44.554 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:41:44.554 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:44.555 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:41:44.555 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:41:44.555 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.0758ms
+2025-06-12 15:41:44.561 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=iWlfsh9S6C44eU82mAwXFg - null null
+2025-06-12 15:41:44.562 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:41:44.562 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:42:05.619 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:42:05.620 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=iWlfsh9S6C44eU82mAwXFg - 101 null null 21059.5918ms
+2025-06-12 15:42:05.697 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:42:05.697 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:42:05.698 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 1.2017ms
+2025-06-12 15:42:05.702 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:42:05.704 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:42:05.704 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:42:05.705 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:42:05.706 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 3.3227ms
+2025-06-12 15:42:05.719 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=QaiHWgLAaDdAbfQrnZVSNA - null null
+2025-06-12 15:42:05.719 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:42:05.720 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:43:29.460 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:43:29.461 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=QaiHWgLAaDdAbfQrnZVSNA - 101 null null 83744.4586ms
+2025-06-12 15:43:29.538 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:43:29.538 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:43:29.539 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.6348ms
+2025-06-12 15:43:29.542 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:43:29.542 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:43:29.542 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:43:29.543 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:43:29.543 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 1.2818ms
+2025-06-12 15:43:29.554 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=e9SH6Nk1do5ZyOsxnw_4tg - null null
+2025-06-12 15:43:29.554 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:43:29.554 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 15:57:44.074 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 393
+2025-06-12 15:57:44.076 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:57:44.077 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-06-12 15:57:44.077 +05:30 [INF] Creating a new job
+2025-06-12 15:57:44.077 +05:30 [INF] User null is creating a new job
+2025-06-12 15:57:44.102 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-06-12 15:57:44.102 +05:30 [INF] Successfully created job with ID null
+2025-06-12 15:57:44.103 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-06-12 15:57:44.104 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 26.8771ms
+2025-06-12 15:57:44.104 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-06-12 15:57:44.104 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 30.2385ms
+2025-06-12 15:58:06.934 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 15:58:06.935 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=e9SH6Nk1do5ZyOsxnw_4tg - 101 null null 877313.854ms
+2025-06-12 15:58:07.506 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-06-12 15:58:07.507 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:58:07.507 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 0.6734ms
+2025-06-12 15:58:07.509 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-12 15:58:07.509 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:58:07.510 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-06-12 15:58:07.510 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-06-12 15:58:07.510 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 0.8607ms
+2025-06-12 15:58:07.517 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=_H-j-qQBC30QloU2sqbNDA - null null
+2025-06-12 15:58:07.517 +05:30 [INF] CORS policy execution successful.
+2025-06-12 15:58:07.517 +05:30 [INF] Executing endpoint '/notification'
+2025-06-12 16:26:35.526 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/index.html - null null
+2025-06-12 16:26:35.579 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/index.html - 200 null text/html;charset=utf-8 53.1235ms
+2025-06-12 16:26:35.876 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - null null
+2025-06-12 16:26:36.018 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 142.3026ms
+2025-06-12 16:35:02.580 +05:30 [INF] Executed endpoint '/notification'
+2025-06-12 16:35:02.582 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=_H-j-qQBC30QloU2sqbNDA - 101 null null 2214972.1683ms
+2025-06-12 17:44:12.051 +05:30 [INF] Application is shutting down...

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SignalR Test Client</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+</head>
+<body>
+  <h1>SignalR Notification Test</h1>
+  <h2>The Job Alerts are shown below</h2>
+  <!-- <button onclick="sendNotification()">Send Notification</button> -->
+  <script>
+    function sendNotification() {
+    connection.invoke("SendNotification", "Hello from the client!")
+      .catch(err => console.error(err.toString()));
+  }
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:5039/notification")
+        .build();
+    
+    connection.start().then(() => {
+        console.log("Connected to the SignalR hub!");
+    }).catch((err) => {
+      console.error("Error Connecting : ", err);
+    })
+    connection.on("ReceiveNotification", (data) => {
+      console.log(data);
+      const msgDiv = document.createElement("div");
+      msgDiv.style.cssText = `
+        background-color: #e3f2fd;
+        border: 1px solid #90caf9;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 8px;
+        font-family: Arial, sans-serif;
+      `;
+
+      msgDiv.innerHTML = `
+        <strong style = "font-size : large">New job posted</strong><br>
+        <strong>Role:</strong> ${data.title}<br>
+        <strong>Company:</strong> ${data.companyName}<br>
+        <strong>Description:</strong> ${data.description}<br>
+        <strong>Salary:</strong> ${data.salary}
+      `;
+
+      document.body.appendChild(msgDiv);
+    });
+  </script>
+</body>
+</html>

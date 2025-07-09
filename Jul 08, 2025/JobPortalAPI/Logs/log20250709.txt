@@ -1,0 +1,1 @@
+2025-07-09 10:26:03.447 +05:30 [ERR] An error occurred using the connection to database 'JobPortalDB' on server 'tcp://20.51.234.25:5432'.
