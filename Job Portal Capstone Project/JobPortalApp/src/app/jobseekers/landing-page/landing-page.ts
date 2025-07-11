@@ -35,9 +35,10 @@ export class LandingPage implements OnInit {
 
     connection.on('ReceiveNotification', (data: any) => {
       this.toastMessage = `New Job Posted: ${data.title} at ${data.companyName} - ₹${data.salary}`;
+      console.log(this.toastMessage);
       this.showToast = true;
       this.fetchAppliedJobs(); 
-      setTimeout(() => this.showToast = false, 5000);
+      setTimeout(() => this.showToast = false, 10000);
       
     });
     const checkRole = () => {
