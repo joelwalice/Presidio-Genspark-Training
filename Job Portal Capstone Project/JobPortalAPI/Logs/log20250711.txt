@@ -5894,3 +5894,652 @@ WHERE j."JobSeekerId" = @__jobSeekerId_0
 2025-07-11 16:50:35.396 +05:30 [INF] Executed endpoint '/notification'
 2025-07-11 16:50:35.397 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=z-dT49Zo1Z8kK510aR5LaA - 101 null null 585765.7373ms
 2025-07-11 18:15:40.892 +05:30 [INF] Application is shutting down...
+2025-07-11 18:35:33.591 +05:30 [INF] User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-11 18:35:33.707 +05:30 [INF] Now listening on: http://localhost:5039
+2025-07-11 18:35:33.709 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 18:35:33.709 +05:30 [INF] Hosting environment: Development
+2025-07-11 18:35:33.709 +05:30 [INF] Content root path: /Users/presidio/Desktop/Presidio-Genspark-Training/Job Portal Capstone Project/JobPortalAPI
+2025-07-11 18:35:57.345 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/Authentication/auth/login - null null
+2025-07-11 18:35:57.404 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:57.410 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/Authentication/auth/login - 204 null null 67.3156ms
+2025-07-11 18:35:57.424 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 68
+2025-07-11 18:35:57.429 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:57.430 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-07-11 18:35:57.438 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-07-11 18:35:57.452 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-07-11 18:35:58.599 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."DefaultResumeId", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-07-11 18:35:59.628 +05:30 [INF] User joelw@gmail.com logged in successfully
+2025-07-11 18:35:59.730 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@p9='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?' (DbType = Boolean), @p3='?', @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?', @p8='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "IsDeleted" = @p2, "Name" = @p3, "PasswordHash" = @p4, "RefreshToken" = @p5, "RefreshTokenExpiryTime" = @p6, "Role" = @p7, "UpdatedAt" = @p8
+WHERE "Id" = @p9;
+2025-07-11 18:35:59.754 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-07-11 18:35:59.768 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 2312.4799ms
+2025-07-11 18:35:59.768 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-07-11 18:35:59.777 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 2352.5849ms
+2025-07-11 18:35:59.785 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - null null
+2025-07-11 18:35:59.786 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobs - null null
+2025-07-11 18:35:59.786 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobseeker - null null
+2025-07-11 18:35:59.789 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.789 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.789 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.789 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobseeker - 204 null null 3.6427ms
+2025-07-11 18:35:59.789 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobs - 204 null null 3.6336ms
+2025-07-11 18:35:59.789 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/notification/negotiate?negotiateVersion=1 - 204 null null 3.8625ms
+2025-07-11 18:35:59.791 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobs - null null
+2025-07-11 18:35:59.791 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobseeker - null null
+2025-07-11 18:35:59.792 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - null 0
+2025-07-11 18:35:59.792 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.793 +05:30 [INF] Executing endpoint '/notification/negotiate'
+2025-07-11 18:35:59.801 +05:30 [INF] Executed endpoint '/notification/negotiate'
+2025-07-11 18:35:59.802 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/notification/negotiate?negotiateVersion=1 - 200 316 application/json 9.8136ms
+2025-07-11 18:35:59.810 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/notification?id=OTEWiS2LdCd4luUFPL7-jA - null null
+2025-07-11 18:35:59.814 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.815 +05:30 [INF] Executing endpoint '/notification'
+2025-07-11 18:35:59.844 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.844 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.848 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobSeekerController.GetAllJobSeekers (JobPortalAPI)'
+2025-07-11 18:35:59.848 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:35:59.853 +05:30 [INF] Route matched with {action = "GetAll", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-07-11 18:35:59.853 +05:30 [INF] Route matched with {action = "GetAllJobSeekers", controller = "JobSeeker"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllJobSeekers() on controller JobPortalAPI.Controllers.JobSeekerController (JobPortalAPI).
+2025-07-11 18:35:59.856 +05:30 [INF] Fetching all jobs
+2025-07-11 18:35:59.856 +05:30 [INF] Fetching all job seekers
+2025-07-11 18:35:59.856 +05:30 [INF] User null is fetching all jobs
+2025-07-11 18:35:59.856 +05:30 [INF] User null is fetching all job seekers
+2025-07-11 18:35:59.893 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."DefaultResumeId", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."UpdatedAt", j."UserId", u."Id", u."CreatedAt", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt"
+FROM "JobSeekers" AS j
+INNER JOIN "Users" AS u ON j."UserId" = u."Id"
+2025-07-11 18:35:59.898 +05:30 [INF] Successfully fetched job seekers
+2025-07-11 18:35:59.898 +05:30 [INF] User null successfully fetched all job seekers
+2025-07-11 18:35:59.899 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[JobPortalAPI.Models.JobSeeker, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[JobPortalAPI.Models.DTOs.JobSeekerAddRequestDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:35:59.900 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Title", j."Description", j."Location", j."ExpiryDate", j."CompanyName", j."Salary", j."Requirements", j."CompanyId", j."RecruiterId"
+FROM "Jobs" AS j
+2025-07-11 18:35:59.906 +05:30 [INF] Successfully fetched {Count} jobs
+2025-07-11 18:35:59.906 +05:30 [INF] User null successfully fetched all jobs
+2025-07-11 18:35:59.907 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.DTOs.JobGetRequestDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:35:59.914 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobSeekerController.GetAllJobSeekers (JobPortalAPI) in 61.0947ms
+2025-07-11 18:35:59.915 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobSeekerController.GetAllJobSeekers (JobPortalAPI)'
+2025-07-11 18:35:59.915 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobseeker - 200 null application/json; charset=utf-8 123.8002ms
+2025-07-11 18:35:59.925 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI) in 71.6923ms
+2025-07-11 18:35:59.925 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:35:59.925 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobs - 200 null application/json; charset=utf-8 133.7733ms
+2025-07-11 18:35:59.986 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobseeker/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - null null
+2025-07-11 18:35:59.987 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.987 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/JobApplication/applied/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - null null
+2025-07-11 18:35:59.987 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobseeker/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - 204 null null 1.061ms
+2025-07-11 18:35:59.988 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.988 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/JobApplication/applied/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - 204 null null 0.9405ms
+2025-07-11 18:35:59.988 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobseeker/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - null null
+2025-07-11 18:35:59.989 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/JobApplication/applied/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - null null
+2025-07-11 18:35:59.989 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.990 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:35:59.991 +05:30 [INF] Executing endpoint 'JobApplicationController.GetAppliedJobs (JobPortalAPI)'
+2025-07-11 18:35:59.991 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobSeekerController.GetJobSeekerById (JobPortalAPI)'
+2025-07-11 18:35:59.995 +05:30 [INF] Route matched with {action = "GetAppliedJobs", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppliedJobs(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:35:59.995 +05:30 [INF] Route matched with {action = "GetJobSeekerById", controller = "JobSeeker"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobSeekerById(System.Guid) on controller JobPortalAPI.Controllers.JobSeekerController (JobPortalAPI).
+2025-07-11 18:36:00.000 +05:30 [INF] Fetching job seeker with ID "1a94e6be-c94c-4a69-be4f-b50c6b889c5e"
+2025-07-11 18:36:00.000 +05:30 [INF] User null is fetching job seeker with ID "1a94e6be-c94c-4a69-be4f-b50c6b889c5e"
+2025-07-11 18:36:00.095 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__jobSeekerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id" AS "JobApplicationId", j0."Id" AS "JobId", j0."Title", j0."Description", j0."Location", j0."CompanyName", j0."Salary", j0."Requirements", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+INNER JOIN "Jobs" AS j0 ON j."JobId" = j0."Id"
+WHERE j."JobSeekerId" = @__jobSeekerId_0
+2025-07-11 18:36:00.098 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.AppliedJobDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:00.103 +05:30 [INF] Executed action JobApplicationController.GetAppliedJobs (JobPortalAPI) in 107.2371ms
+2025-07-11 18:36:00.103 +05:30 [INF] Executed endpoint 'JobApplicationController.GetAppliedJobs (JobPortalAPI)'
+2025-07-11 18:36:00.103 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/JobApplication/applied/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - 200 null application/json; charset=utf-8 114.348ms
+2025-07-11 18:36:00.107 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."DefaultResumeId", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."UpdatedAt", j."UserId", u."Id", u."CreatedAt", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt"
+FROM "JobSeekers" AS j
+INNER JOIN "Users" AS u ON j."UserId" = u."Id"
+WHERE j."Id" = @__id_0
+LIMIT 1
+2025-07-11 18:36:00.110 +05:30 [INF] Successfully fetched job seeker with ID "1a94e6be-c94c-4a69-be4f-b50c6b889c5e"
+2025-07-11 18:36:00.110 +05:30 [INF] User null successfully fetched job seeker with ID "1a94e6be-c94c-4a69-be4f-b50c6b889c5e"
+2025-07-11 18:36:00.110 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.JobSeekerGetRequestDto'.
+2025-07-11 18:36:00.112 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobSeekerController.GetJobSeekerById (JobPortalAPI) in 116.6652ms
+2025-07-11 18:36:00.112 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobSeekerController.GetJobSeekerById (JobPortalAPI)'
+2025-07-11 18:36:00.113 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobseeker/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - 200 null application/json; charset=utf-8 124.4859ms
+2025-07-11 18:36:02.355 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobs - null null
+2025-07-11 18:36:02.356 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:02.357 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:36:02.357 +05:30 [INF] Route matched with {action = "GetAll", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-07-11 18:36:02.358 +05:30 [INF] Fetching all jobs
+2025-07-11 18:36:02.358 +05:30 [INF] User null is fetching all jobs
+2025-07-11 18:36:02.364 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Title", j."Description", j."Location", j."ExpiryDate", j."CompanyName", j."Salary", j."Requirements", j."CompanyId", j."RecruiterId"
+FROM "Jobs" AS j
+2025-07-11 18:36:02.364 +05:30 [INF] Successfully fetched {Count} jobs
+2025-07-11 18:36:02.365 +05:30 [INF] User null successfully fetched all jobs
+2025-07-11 18:36:02.365 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.DTOs.JobGetRequestDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:02.365 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI) in 8.0312ms
+2025-07-11 18:36:02.365 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:36:02.366 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobs - 200 null application/json; charset=utf-8 10.6831ms
+2025-07-11 18:36:39.187 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/Authentication/auth/login - null null
+2025-07-11 18:36:39.188 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.188 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/Authentication/auth/login - 204 null null 1.3674ms
+2025-07-11 18:36:39.189 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - application/json 67
+2025-07-11 18:36:39.189 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.189 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-07-11 18:36:39.189 +05:30 [INF] Route matched with {action = "Login", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(JobPortalAPI.Models.DTOs.UserAddRequestDto) on controller JobPortalAPI.Controllers.AuthenticationController (JobPortalAPI).
+2025-07-11 18:36:39.193 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."IsDeleted", u."Name", u."PasswordHash", u."RefreshToken", u."RefreshTokenExpiryTime", u."Role", u."UpdatedAt", j."Id", j."Address", j."CreatedAt", j."DateOfBirth", j."DefaultResumeId", j."Email", j."Name", j."PasswordHash", j."PhoneNumber", j."UpdatedAt", j."UserId", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Users" AS u
+LEFT JOIN "JobSeekers" AS j ON u."Id" = j."UserId"
+LEFT JOIN "Recruiters" AS r ON u."Id" = r."UserId"
+2025-07-11 18:36:39.699 +05:30 [INF] User hari@gmail.com logged in successfully
+2025-07-11 18:36:39.702 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p9='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?' (DbType = Boolean), @p3='?', @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?', @p8='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "CreatedAt" = @p0, "Email" = @p1, "IsDeleted" = @p2, "Name" = @p3, "PasswordHash" = @p4, "RefreshToken" = @p5, "RefreshTokenExpiryTime" = @p6, "Role" = @p7, "UpdatedAt" = @p8
+WHERE "Id" = @p9;
+2025-07-11 18:36:39.702 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.AuthResultDto'.
+2025-07-11 18:36:39.703 +05:30 [INF] Executed action JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI) in 513.2321ms
+2025-07-11 18:36:39.703 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.AuthenticationController.Login (JobPortalAPI)'
+2025-07-11 18:36:39.703 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/Authentication/auth/login - 200 null application/json; charset=utf-8 514.5634ms
+2025-07-11 18:36:39.717 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/recruiter - null null
+2025-07-11 18:36:39.718 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.718 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/recruiter - 204 null null 0.4802ms
+2025-07-11 18:36:39.719 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/recruiter - null null
+2025-07-11 18:36:39.719 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.719 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.RecruiterController.GetAllRecruiters (JobPortalAPI)'
+2025-07-11 18:36:39.723 +05:30 [INF] Route matched with {action = "GetAllRecruiters", controller = "Recruiter"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRecruiters() on controller JobPortalAPI.Controllers.RecruiterController (JobPortalAPI).
+2025-07-11 18:36:39.731 +05:30 [INF] Fetching all recruiters
+2025-07-11 18:36:39.742 +05:30 [INF] User null is fetching all recruiters
+2025-07-11 18:36:39.785 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Recruiters" AS r
+2025-07-11 18:36:39.786 +05:30 [INF] Successfully fetched {Count} recruiters
+2025-07-11 18:36:39.790 +05:30 [INF] User null successfully fetched all recruiters
+2025-07-11 18:36:39.791 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.Recruiter, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:39.807 +05:30 [INF] Executed action JobPortalAPI.Controllers.RecruiterController.GetAllRecruiters (JobPortalAPI) in 83.599ms
+2025-07-11 18:36:39.807 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.RecruiterController.GetAllRecruiters (JobPortalAPI)'
+2025-07-11 18:36:39.807 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/recruiter - 200 null application/json; charset=utf-8 88.7232ms
+2025-07-11 18:36:39.816 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/recruiter/f277e5de-16a3-447f-8a26-ab0d0b2c7096 - null null
+2025-07-11 18:36:39.817 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.817 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobs - null null
+2025-07-11 18:36:39.817 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/recruiter/f277e5de-16a3-447f-8a26-ab0d0b2c7096 - 204 null null 0.5242ms
+2025-07-11 18:36:39.817 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.817 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobs - 204 null null 0.5287ms
+2025-07-11 18:36:39.817 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/recruiter/f277e5de-16a3-447f-8a26-ab0d0b2c7096 - null null
+2025-07-11 18:36:39.818 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobs - null null
+2025-07-11 18:36:39.818 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.818 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.818 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.RecruiterController.GetRecruiterById (JobPortalAPI)'
+2025-07-11 18:36:39.818 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:36:39.818 +05:30 [INF] Route matched with {action = "GetAll", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-07-11 18:36:39.821 +05:30 [INF] Fetching all jobs
+2025-07-11 18:36:39.821 +05:30 [INF] User null is fetching all jobs
+2025-07-11 18:36:39.822 +05:30 [INF] Route matched with {action = "GetRecruiterById", controller = "Recruiter"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRecruiterById(System.Guid) on controller JobPortalAPI.Controllers.RecruiterController (JobPortalAPI).
+2025-07-11 18:36:39.822 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Title", j."Description", j."Location", j."ExpiryDate", j."CompanyName", j."Salary", j."Requirements", j."CompanyId", j."RecruiterId"
+FROM "Jobs" AS j
+2025-07-11 18:36:39.823 +05:30 [INF] Successfully fetched {Count} jobs
+2025-07-11 18:36:39.823 +05:30 [INF] User null successfully fetched all jobs
+2025-07-11 18:36:39.823 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.DTOs.JobGetRequestDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:39.823 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI) in 4.5897ms
+2025-07-11 18:36:39.823 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:36:39.823 +05:30 [INF] Fetching recruiter with ID "f277e5de-16a3-447f-8a26-ab0d0b2c7096"
+2025-07-11 18:36:39.823 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobs - 200 null application/json; charset=utf-8 5.694ms
+2025-07-11 18:36:39.824 +05:30 [INF] User null is fetching recruiter with ID "f277e5de-16a3-447f-8a26-ab0d0b2c7096"
+2025-07-11 18:36:39.826 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - null null
+2025-07-11 18:36:39.827 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.827 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - 204 null null 1.0928ms
+2025-07-11 18:36:39.828 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - null null
+2025-07-11 18:36:39.828 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.829 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - null null
+2025-07-11 18:36:39.829 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - null null
+2025-07-11 18:36:39.829 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - 204 null null 0.7237ms
+2025-07-11 18:36:39.829 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - null null
+2025-07-11 18:36:39.829 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - null null
+2025-07-11 18:36:39.829 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.829 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.829 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - null null
+2025-07-11 18:36:39.829 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.830 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - 204 null null 1.0739ms
+2025-07-11 18:36:39.830 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - 204 null null 1.0987ms
+2025-07-11 18:36:39.830 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.830 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - 204 null null 1.3826ms
+2025-07-11 18:36:39.830 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.831 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.831 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.831 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - null null
+2025-07-11 18:36:39.831 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - null null
+2025-07-11 18:36:39.831 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - null null
+2025-07-11 18:36:39.832 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.832 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.832 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.832 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:39.832 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.832 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.835 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:39.835 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:39.835 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:39.835 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:39.835 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:39.844 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId"
+FROM "Recruiters" AS r
+WHERE r."Id" = @__p_0
+LIMIT 1
+2025-07-11 18:36:39.844 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:39.844 +05:30 [INF] Successfully fetched recruiter with ID "f277e5de-16a3-447f-8a26-ab0d0b2c7096"
+2025-07-11 18:36:39.845 +05:30 [INF] User null successfully fetched recruiter with ID "f277e5de-16a3-447f-8a26-ab0d0b2c7096"
+2025-07-11 18:36:39.845 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.Recruiter'.
+2025-07-11 18:36:39.845 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:39.845 +05:30 [INF] Executed action JobPortalAPI.Controllers.RecruiterController.GetRecruiterById (JobPortalAPI) in 23.4501ms
+2025-07-11 18:36:39.845 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.RecruiterController.GetRecruiterById (JobPortalAPI)'
+2025-07-11 18:36:39.846 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/recruiter/f277e5de-16a3-447f-8a26-ab0d0b2c7096 - 200 null application/json; charset=utf-8 28.211ms
+2025-07-11 18:36:39.848 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 12.2407ms
+2025-07-11 18:36:39.848 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.848 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - 200 null application/json; charset=utf-8 18.9677ms
+2025-07-11 18:36:39.859 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:39.859 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:39.860 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:39.860 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:39.860 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 24.7889ms
+2025-07-11 18:36:39.860 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 24.6697ms
+2025-07-11 18:36:39.860 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:39.860 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.860 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.861 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:39.860 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:39.861 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - 200 null application/json; charset=utf-8 31.7923ms
+2025-07-11 18:36:39.861 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - 200 null application/json; charset=utf-8 29.7447ms
+2025-07-11 18:36:39.861 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 25.3394ms
+2025-07-11 18:36:39.861 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:39.862 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.862 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 26.738ms
+2025-07-11 18:36:39.862 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - 200 null application/json; charset=utf-8 30.655ms
+2025-07-11 18:36:39.862 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:39.863 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - 200 null application/json; charset=utf-8 31.5927ms
+2025-07-11 18:36:41.991 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobs - null null
+2025-07-11 18:36:41.992 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:41.992 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:36:41.992 +05:30 [INF] Route matched with {action = "GetAll", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-07-11 18:36:41.993 +05:30 [INF] Fetching all jobs
+2025-07-11 18:36:41.993 +05:30 [INF] User null is fetching all jobs
+2025-07-11 18:36:41.993 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/company/recruiter/f277e5de-16a3-447f-8a26-ab0d0b2c7096 - null null
+2025-07-11 18:36:41.994 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:41.994 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/company/recruiter/f277e5de-16a3-447f-8a26-ab0d0b2c7096 - 204 null null 0.5874ms
+2025-07-11 18:36:41.995 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/company/recruiter/f277e5de-16a3-447f-8a26-ab0d0b2c7096 - null null
+2025-07-11 18:36:41.996 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Title", j."Description", j."Location", j."ExpiryDate", j."CompanyName", j."Salary", j."Requirements", j."CompanyId", j."RecruiterId"
+FROM "Jobs" AS j
+2025-07-11 18:36:41.997 +05:30 [INF] Successfully fetched {Count} jobs
+2025-07-11 18:36:41.997 +05:30 [INF] User null successfully fetched all jobs
+2025-07-11 18:36:41.997 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:41.997 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.DTOs.JobGetRequestDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:41.997 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetCompaniesByRecruiterId (JobPortalAPI)'
+2025-07-11 18:36:41.997 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI) in 4.9825ms
+2025-07-11 18:36:41.998 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:36:41.998 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobs - 200 null application/json; charset=utf-8 6.8527ms
+2025-07-11 18:36:42.001 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - null null
+2025-07-11 18:36:42.002 +05:30 [INF] Route matched with {action = "GetCompaniesByRecruiterId", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[JobPortalAPI.Models.DTOs.CompanyDTO]]] GetCompaniesByRecruiterId(System.Guid) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-07-11 18:36:42.002 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - null null
+2025-07-11 18:36:42.002 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:42.002 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - null null
+2025-07-11 18:36:42.002 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:42.002 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - null null
+2025-07-11 18:36:42.002 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.002 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - null null
+2025-07-11 18:36:42.002 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.002 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:42.003 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:42.003 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:42.003 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:42.003 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.003 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:42.003 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:42.003 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.003 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.004 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:42.004 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:42.005 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:42.005 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:42.005 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:42.005 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:42.005 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:42.005 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:42.005 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 1.9046ms
+2025-07-11 18:36:42.005 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:42.005 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 2.2405ms
+2025-07-11 18:36:42.005 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 2.4612ms
+2025-07-11 18:36:42.005 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.006 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:42.006 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:42.006 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.006 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.006 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - 200 null application/json; charset=utf-8 4.7221ms
+2025-07-11 18:36:42.007 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:42.007 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - 200 null application/json; charset=utf-8 5.3406ms
+2025-07-11 18:36:42.007 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 3.1217ms
+2025-07-11 18:36:42.007 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - 200 null application/json; charset=utf-8 6.2925ms
+2025-07-11 18:36:42.008 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 3.9404ms
+2025-07-11 18:36:42.009 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.008 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:42.009 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - 200 null application/json; charset=utf-8 7.3618ms
+2025-07-11 18:36:42.009 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - 200 null application/json; charset=utf-8 7.2979ms
+2025-07-11 18:36:42.045 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-11 18:36:42.067 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM "Companies" AS c
+LEFT JOIN "Recruiters" AS r ON c."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c."Id" = j."CompanyId"
+ORDER BY c."Id", r."Id"
+2025-07-11 18:36:42.116 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListWhereSelectIterator`2[[JobPortalAPI.Models.Company, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[JobPortalAPI.Models.DTOs.CompanyDTO, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:42.119 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetCompaniesByRecruiterId (JobPortalAPI) in 117.0854ms
+2025-07-11 18:36:42.119 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetCompaniesByRecruiterId (JobPortalAPI)'
+2025-07-11 18:36:42.119 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/company/recruiter/f277e5de-16a3-447f-8a26-ab0d0b2c7096 - 200 null application/json; charset=utf-8 123.8971ms
+2025-07-11 18:36:43.246 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/company/cda606f1-d1b5-44c5-aa42-dfb481eceade - null null
+2025-07-11 18:36:43.247 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:43.247 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/company/cda606f1-d1b5-44c5-aa42-dfb481eceade - 204 null null 0.767ms
+2025-07-11 18:36:43.248 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/company/cda606f1-d1b5-44c5-aa42-dfb481eceade - null null
+2025-07-11 18:36:43.249 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:43.249 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.CompanyController.GetCompanyById (JobPortalAPI)'
+2025-07-11 18:36:43.253 +05:30 [INF] Route matched with {action = "GetCompanyById", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[JobPortalAPI.Models.DTOs.CompanyDTO]] GetCompanyById(System.Guid) on controller JobPortalAPI.Controllers.CompanyController (JobPortalAPI).
+2025-07-11 18:36:43.268 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-07-11 18:36:43.290 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c0."Id", c0."Address", c0."CreatedAt", c0."Email", c0."EstablishedDate", c0."Name", c0."PhoneNumber", c0."UpdatedAt", r."Id", r."Address", r."CompanyId", r."CreatedAt", r."DateOfBirth", r."Email", r."Name", r."PhoneNumber", r."UpdatedAt", r."UserId", j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM (
+    SELECT c."Id", c."Address", c."CreatedAt", c."Email", c."EstablishedDate", c."Name", c."PhoneNumber", c."UpdatedAt"
+    FROM "Companies" AS c
+    WHERE c."Id" = @__id_0
+    LIMIT 1
+) AS c0
+LEFT JOIN "Recruiters" AS r ON c0."Id" = r."CompanyId"
+LEFT JOIN "Jobs" AS j ON c0."Id" = j."CompanyId"
+ORDER BY c0."Id", r."Id"
+2025-07-11 18:36:43.294 +05:30 [INF] Executing OkObjectResult, writing value of type 'JobPortalAPI.Models.DTOs.CompanyDTO'.
+2025-07-11 18:36:43.295 +05:30 [INF] Executed action JobPortalAPI.Controllers.CompanyController.GetCompanyById (JobPortalAPI) in 41.6983ms
+2025-07-11 18:36:43.295 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.CompanyController.GetCompanyById (JobPortalAPI)'
+2025-07-11 18:36:43.295 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/company/cda606f1-d1b5-44c5-aa42-dfb481eceade - 200 null application/json; charset=utf-8 46.4748ms
+2025-07-11 18:36:57.064 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobs - null null
+2025-07-11 18:36:57.065 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.066 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobs - 204 null null 1.1925ms
+2025-07-11 18:36:57.066 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5039/api/jobs - application/json 248
+2025-07-11 18:36:57.067 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.067 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-07-11 18:36:57.070 +05:30 [INF] Route matched with {action = "Create", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(JobPortalAPI.DTOs.JobAddRequestDto) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-07-11 18:36:57.081 +05:30 [INF] Creating a new job
+2025-07-11 18:36:57.081 +05:30 [INF] User null is creating a new job
+2025-07-11 18:36:57.124 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = Decimal), @p11='?', @p12='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Jobs" ("Id", "CompanyId", "CompanyName", "CreatedAt", "Description", "ExpiryDate", "Location", "PostedDate", "RecruiterId", "Requirements", "Salary", "Title", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2025-07-11 18:36:57.125 +05:30 [INF] Successfully created job with ID null
+2025-07-11 18:36:57.145 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'JobPortalAPI.DTOs.JobAddRequestDto'.
+2025-07-11 18:36:57.147 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/JobApplication/applied/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - null null
+2025-07-11 18:36:57.147 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.147 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/JobApplication/applied/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - 204 null null 0.3706ms
+2025-07-11 18:36:57.148 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/JobApplication/applied/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - null null
+2025-07-11 18:36:57.148 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.149 +05:30 [INF] Executing endpoint 'JobApplicationController.GetAppliedJobs (JobPortalAPI)'
+2025-07-11 18:36:57.149 +05:30 [INF] Route matched with {action = "GetAppliedJobs", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppliedJobs(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:57.151 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobSeekerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id" AS "JobApplicationId", j0."Id" AS "JobId", j0."Title", j0."Description", j0."Location", j0."CompanyName", j0."Salary", j0."Requirements", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+INNER JOIN "Jobs" AS j0 ON j."JobId" = j0."Id"
+WHERE j."JobSeekerId" = @__jobSeekerId_0
+2025-07-11 18:36:57.151 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.AppliedJobDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:57.152 +05:30 [INF] Executed action JobApplicationController.GetAppliedJobs (JobPortalAPI) in 2.6989ms
+2025-07-11 18:36:57.152 +05:30 [INF] Executed endpoint 'JobApplicationController.GetAppliedJobs (JobPortalAPI)'
+2025-07-11 18:36:57.152 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/JobApplication/applied/1a94e6be-c94c-4a69-be4f-b50c6b889c5e - 200 null application/json; charset=utf-8 4.1466ms
+2025-07-11 18:36:57.167 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Create (JobPortalAPI) in 96.1551ms
+2025-07-11 18:36:57.167 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Create (JobPortalAPI)'
+2025-07-11 18:36:57.167 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5039/api/jobs - 201 null application/json; charset=utf-8 100.4092ms
+2025-07-11 18:36:57.170 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobs - null null
+2025-07-11 18:36:57.170 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.170 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:36:57.170 +05:30 [INF] Route matched with {action = "GetAll", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-07-11 18:36:57.171 +05:30 [INF] Fetching all jobs
+2025-07-11 18:36:57.171 +05:30 [INF] User null is fetching all jobs
+2025-07-11 18:36:57.172 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Title", j."Description", j."Location", j."ExpiryDate", j."CompanyName", j."Salary", j."Requirements", j."CompanyId", j."RecruiterId"
+FROM "Jobs" AS j
+2025-07-11 18:36:57.173 +05:30 [INF] Successfully fetched {Count} jobs
+2025-07-11 18:36:57.173 +05:30 [INF] User null successfully fetched all jobs
+2025-07-11 18:36:57.173 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.DTOs.JobGetRequestDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:57.173 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI) in 2.843ms
+2025-07-11 18:36:57.173 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:36:57.174 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobs - 200 null application/json; charset=utf-8 3.9846ms
+2025-07-11 18:36:57.176 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - null null
+2025-07-11 18:36:57.176 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - null null
+2025-07-11 18:36:57.176 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.177 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - null null
+2025-07-11 18:36:57.177 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.177 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - null null
+2025-07-11 18:36:57.177 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.177 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - 204 null null 0.5325ms
+2025-07-11 18:36:57.177 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - 204 null null 0.554ms
+2025-07-11 18:36:57.177 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - 204 null null 0.4753ms
+2025-07-11 18:36:57.177 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.177 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - null null
+2025-07-11 18:36:57.178 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e - null null
+2025-07-11 18:36:57.178 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - 204 null null 1.0654ms
+2025-07-11 18:36:57.178 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.178 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.179 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - 204 null null 1.0869ms
+2025-07-11 18:36:57.179 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e - 204 null null 0.6764ms
+2025-07-11 18:36:57.179 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - null null
+2025-07-11 18:36:57.179 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - null null
+2025-07-11 18:36:57.180 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.180 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.180 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.180 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - null null
+2025-07-11 18:36:57.180 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.180 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - null null
+2025-07-11 18:36:57.180 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e - null null
+2025-07-11 18:36:57.180 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:57.180 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - null null
+2025-07-11 18:36:57.180 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:57.180 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.180 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.181 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.180 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:36:57.181 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.181 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.181 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:57.181 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.181 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.181 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:57.181 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:57.181 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:36:57.182 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:57.182 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:57.182 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:57.182 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 2.0571ms
+2025-07-11 18:36:57.183 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.183 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:57.183 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - 200 null application/json; charset=utf-8 3.7343ms
+2025-07-11 18:36:57.183 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:57.183 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:57.183 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:57.183 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 2.0421ms
+2025-07-11 18:36:57.183 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:36:57.184 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:57.184 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:57.185 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.185 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 4.2609ms
+2025-07-11 18:36:57.185 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - 200 null application/json; charset=utf-8 5.1835ms
+2025-07-11 18:36:57.185 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:57.185 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 3.452ms
+2025-07-11 18:36:57.185 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:36:57.185 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.186 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 4.2295ms
+2025-07-11 18:36:57.186 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 4.2408ms
+2025-07-11 18:36:57.186 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.186 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - 200 null application/json; charset=utf-8 6.6866ms
+2025-07-11 18:36:57.186 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.186 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:36:57.186 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - 200 null application/json; charset=utf-8 6.5319ms
+2025-07-11 18:36:57.187 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e - 200 null application/json; charset=utf-8 6.8233ms
+2025-07-11 18:36:57.187 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - 200 null application/json; charset=utf-8 6.892ms
+2025-07-11 18:37:08.023 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobs/5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e - null null
+2025-07-11 18:37:08.024 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.025 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobs/5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e - 204 null null 1.1769ms
+2025-07-11 18:37:08.026 +05:30 [INF] Request starting HTTP/1.1 DELETE http://localhost:5039/api/jobs/5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e - null null
+2025-07-11 18:37:08.026 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.026 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.Delete (JobPortalAPI)'
+2025-07-11 18:37:08.030 +05:30 [INF] Route matched with {action = "Delete", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(System.Guid) on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-07-11 18:37:08.032 +05:30 [INF] Deleting job with ID "5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e"
+2025-07-11 18:37:08.032 +05:30 [INF] User null is deleting job with ID "5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e"
+2025-07-11 18:37:08.042 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."CompanyId", j."CompanyName", j."CreatedAt", j."Description", j."ExpiryDate", j."Location", j."PostedDate", j."RecruiterId", j."Requirements", j."Salary", j."Title", j."UpdatedAt"
+FROM "Jobs" AS j
+WHERE j."Id" = @__p_0
+LIMIT 1
+2025-07-11 18:37:08.052 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Jobs"
+WHERE "Id" = @p0;
+2025-07-11 18:37:08.055 +05:30 [INF] Successfully deleted job with ID "5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e"
+2025-07-11 18:37:08.056 +05:30 [INF] User null successfully deleted job with ID "5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e"
+2025-07-11 18:37:08.058 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-07-11 18:37:08.059 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.Delete (JobPortalAPI) in 28.5947ms
+2025-07-11 18:37:08.059 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.Delete (JobPortalAPI)'
+2025-07-11 18:37:08.059 +05:30 [INF] Request finished HTTP/1.1 DELETE http://localhost:5039/api/jobs/5dcf7fe3-2e26-4214-ba4a-d4444f30fc1e - 204 null null 33.1032ms
+2025-07-11 18:37:08.061 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobs - null null
+2025-07-11 18:37:08.061 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.062 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobs - 204 null null 0.4009ms
+2025-07-11 18:37:08.062 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobs - null null
+2025-07-11 18:37:08.063 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.063 +05:30 [INF] Executing endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:37:08.063 +05:30 [INF] Route matched with {action = "GetAll", controller = "Job"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller JobPortalAPI.Controllers.JobController (JobPortalAPI).
+2025-07-11 18:37:08.063 +05:30 [INF] Fetching all jobs
+2025-07-11 18:37:08.063 +05:30 [INF] User null is fetching all jobs
+2025-07-11 18:37:08.065 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."Title", j."Description", j."Location", j."ExpiryDate", j."CompanyName", j."Salary", j."Requirements", j."CompanyId", j."RecruiterId"
+FROM "Jobs" AS j
+2025-07-11 18:37:08.065 +05:30 [INF] Successfully fetched {Count} jobs
+2025-07-11 18:37:08.065 +05:30 [INF] User null successfully fetched all jobs
+2025-07-11 18:37:08.065 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.DTOs.JobGetRequestDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:37:08.065 +05:30 [INF] Executed action JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI) in 2.2442ms
+2025-07-11 18:37:08.065 +05:30 [INF] Executed endpoint 'JobPortalAPI.Controllers.JobController.GetAll (JobPortalAPI)'
+2025-07-11 18:37:08.065 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobs - 200 null application/json; charset=utf-8 3.1655ms
+2025-07-11 18:37:08.068 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - null null
+2025-07-11 18:37:08.068 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - null null
+2025-07-11 18:37:08.068 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.069 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.069 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - null null
+2025-07-11 18:37:08.069 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - 204 null null 0.7523ms
+2025-07-11 18:37:08.069 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - 204 null null 0.5643ms
+2025-07-11 18:37:08.069 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - null null
+2025-07-11 18:37:08.069 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.070 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.070 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - null null
+2025-07-11 18:37:08.070 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - 204 null null 0.905ms
+2025-07-11 18:37:08.070 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - 204 null null 0.6234ms
+2025-07-11 18:37:08.070 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.070 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - 204 null null 0.7441ms
+2025-07-11 18:37:08.071 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - null null
+2025-07-11 18:37:08.071 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - null null
+2025-07-11 18:37:08.071 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - null null
+2025-07-11 18:37:08.071 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - null null
+2025-07-11 18:37:08.071 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.072 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - null null
+2025-07-11 18:37:08.072 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.072 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.072 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.072 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:37:08.072 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.072 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.072 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.072 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.072 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:37:08.072 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:37:08.072 +05:30 [INF] CORS policy execution successful.
+2025-07-11 18:37:08.073 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:37:08.073 +05:30 [INF] Executing endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.073 +05:30 [INF] Route matched with {action = "GetApplicationsByJobId", controller = "JobApplication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicationsByJobId(System.Guid) on controller JobApplicationController (JobPortalAPI).
+2025-07-11 18:37:08.074 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:37:08.074 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:37:08.074 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:37:08.074 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:37:08.074 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:37:08.074 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__jobId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j."JobId", j."JobSeekerId", j."ResumeDocumentId", j."AppliedAt", j."JobStatus"::int AS "JobStatus"
+FROM "JobApplications" AS j
+WHERE j."JobId" = @__jobId_0
+2025-07-11 18:37:08.074 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:37:08.075 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:37:08.074 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:37:08.075 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 2.2004ms
+2025-07-11 18:37:08.075 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 2.8204ms
+2025-07-11 18:37:08.075 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[JobPortalAPI.Models.DTOs.JobApplicationDto, JobPortalAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-11 18:37:08.075 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 2.4528ms
+2025-07-11 18:37:08.076 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 3.0358ms
+2025-07-11 18:37:08.075 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.076 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.075 +05:30 [INF] Executed action JobApplicationController.GetApplicationsByJobId (JobPortalAPI) in 2.7222ms
+2025-07-11 18:37:08.076 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/1fa06ff8-94b2-495b-baaa-f33c11e5cb52 - 200 null application/json; charset=utf-8 4.8794ms
+2025-07-11 18:37:08.076 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.076 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/4bb1c19d-9312-4193-8e79-4fd9c3c3986b - 200 null application/json; charset=utf-8 4.6994ms
+2025-07-11 18:37:08.076 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.076 +05:30 [INF] Executed endpoint 'JobApplicationController.GetApplicationsByJobId (JobPortalAPI)'
+2025-07-11 18:37:08.077 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/ce884b76-f9bc-4871-922f-db672b2aecc5 - 200 null application/json; charset=utf-8 5.5438ms
+2025-07-11 18:37:08.077 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/148bf9d4-3c45-497a-a517-e38264444dab - 200 null application/json; charset=utf-8 5.4224ms
+2025-07-11 18:37:08.077 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/api/jobApplication/job/bccd05a7-1e66-4e09-8358-6bd168259f6b - 200 null application/json; charset=utf-8 6.1662ms
+2025-07-11 18:37:18.288 +05:30 [INF] Executed endpoint '/notification'
+2025-07-11 18:37:18.288 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5039/notification?id=OTEWiS2LdCd4luUFPL7-jA - 101 null null 78476.2785ms
