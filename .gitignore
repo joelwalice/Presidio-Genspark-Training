@@ -1,2 +1,4 @@
 obj/
 bin/
+host.json
+local.settings.json
