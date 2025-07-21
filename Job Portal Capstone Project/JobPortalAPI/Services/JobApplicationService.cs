@@ -49,17 +49,17 @@ public class JobApplicationService : IJobApplicationService
             })
             .ToListAsync();
     }
-    public async Task<JobApplicationDto> UpdateApplicationStatusAsync(Guid jobSeekerId, UpdateJobStatusDto jobStatus)
+    public async Task<JobApplicationDto> UpdateApplicationStatusAsync(Guid Id, UpdateJobStatusDto jobStatus)
     {
-        Console.WriteLine("Updating application status for Job Seeker ID: " + jobSeekerId + " with status: " + jobStatus.JobStatus);
+        Console.WriteLine("Updating application status for Job Seeker ID: " + Id + " with status: " + jobStatus.JobStatus);
         var application = await _context.JobApplications
-            .FirstOrDefaultAsync(a => a.JobSeekerId == jobSeekerId && a.JobStatus != JobStatus.Hired);
+            .FirstOrDefaultAsync(a => a.Id == Id && a.JobStatus != JobStatus.Hired);
 
         if (application == null)
         {
             throw new Exception("Application not found or already hired.");
         }
-        Console.WriteLine("Updating application status for Job Seeker ID: " + jobSeekerId + "Application : " + application);
+        Console.WriteLine("Updating application status for Job Seeker ID: " + Id + "Application : " + application);
 
         application.JobStatus = jobStatus.JobStatus;
         _context.JobApplications.Update(application);

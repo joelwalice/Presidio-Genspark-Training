@@ -33,13 +33,13 @@ public class JobApplicationController : ControllerBase
         var result = await _jobApplicationService.GetApplicationsByJobIdAsync(jobId);
         return Ok(result);
     }
-    [HttpPut("{jobSeekerId}/status")]
+    [HttpPut("{Id}/status")]
     [Authorize(Roles = "Recruiter")]
-    public async Task<IActionResult> UpdateApplicationStatus(Guid jobSeekerId, [FromBody] UpdateJobStatusDto dto)
+    public async Task<IActionResult> UpdateApplicationStatus(Guid Id, [FromBody] UpdateJobStatusDto dto)
     {
         try
         {
-            var updatedApplication = await _jobApplicationService.UpdateApplicationStatusAsync(jobSeekerId, dto);
+            var updatedApplication = await _jobApplicationService.UpdateApplicationStatusAsync(Id, dto);
             Console.WriteLine("-----> " + updatedApplication);
             
             return Ok(updatedApplication);

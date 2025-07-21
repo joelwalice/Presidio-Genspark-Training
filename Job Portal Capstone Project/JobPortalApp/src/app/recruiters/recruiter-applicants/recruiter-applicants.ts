@@ -35,7 +35,7 @@ export class RecruiterApplicants implements OnInit {
   }
 
   updateStatus(applicant: any) {
-    this.recruiterService.updateApplicationStatus(applicant.jobSeekerId, applicant.jobStatus).subscribe({
+    this.recruiterService.updateApplicationStatus(applicant.id, applicant.jobStatus).subscribe({
       next: () => {
         console.log('Status updated');
       },
