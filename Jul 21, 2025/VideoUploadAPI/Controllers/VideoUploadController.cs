@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using VideoUploadAPI.Contexts;
 using VideoUploadAPI.Models;
 using VideoUploadAPI.Models.DTOs;
@@ -22,6 +23,33 @@ namespace VideoUploadAPI.Controllers
             _context = context;
             _blobServiceClient = blobServiceClient;
             _containerName = configuration.GetValue<string>("AzureBlobStorage:ContainerName");
+        }
+
+        [HttpGet("")]
+        public async Task<IActionResult> GetVideos()
+        {
+            try
+            {
+                var videos = await _context.VideoUploads
+                        .OrderByDescending(v => v.UploadDate)
+                        .Select(v => new
+                        {
+                            v.Id,
+                            v.Title,
+                            v.Description,
+                            v.UploadDate,
+                            v.BlobUrl
+                        }).ToListAsync();
+
+                return Ok(videos);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception for debugging purposes (in a real app, use a logging framework)
+                Console.WriteLine($"Error fetching videos: {ex.Message}");
+                // Return a 500 Internal Server Error status with a generic message
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
 

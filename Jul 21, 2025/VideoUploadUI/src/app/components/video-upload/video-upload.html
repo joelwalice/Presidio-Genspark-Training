@@ -1,0 +1,29 @@
+<div class="upload-container">
+  <h2>Upload New Training Video</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="title" name="title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description (Optional):</label>
+      <textarea id="description" [(ngModel)]="description" name="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="videoFile">Video File (MP4 recommended):</label>
+      <input type="file" id="videoFile" (change)="onFileSelected($event)" accept="video/mp4" required>
+      <p class="file-name" *ngIf="selectedFile">{{ selectedFile.name }}</p>
+    </div>
+
+    <button type="submit" [disabled]="uploading || !title || !selectedFile">
+      <span *ngIf="!uploading">Upload Video</span>
+      <span *ngIf="uploading">Uploading...</span>
+    </button>
+  </form>
+
+  <p *ngIf="uploadSuccess" class="success-message">Video uploaded successfully! Redirecting to list...</p>
+  <p *ngIf="uploadError" class="error-message">{{ uploadError }}</p>
+</div>

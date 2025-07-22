@@ -22,7 +22,14 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Training Video Portal API", Version = "v1" });
 });
-
+builder.Services.AddCors(options=>{
+    options.AddDefaultPolicy(policy=>{
+        policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -34,6 +41,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

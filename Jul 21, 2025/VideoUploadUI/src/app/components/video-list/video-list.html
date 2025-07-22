@@ -1,0 +1,21 @@
+<div class="video-list-container">
+  <h2>Training Videos</h2>
+
+  <p *ngIf="loading">Loading videos...</p>
+  <p *ngIf="error" class="error-message">{{ error }}</p>
+
+  <div *ngIf="!loading && !error && videos.length === 0" class="no-videos">
+    <p>No videos available yet. Upload some training content!</p>
+  </div>
+
+  <div class="video-grid" *ngIf="videos.length > 0">
+    <div class="video-card" *ngFor="let video of videos">
+      <h3>{{ video.title }}</h3>
+      <p class="description">{{ video.description }}</p>
+      <div class="video-player">
+        <video controls [src]="video.blobUrl" preload="metadata" width="100%"></video>
+      </div>
+      <p class="upload-date">Uploaded on: {{ video.uploadDate | date:'mediumDate' }}</p>
+    </div>
+  </div>
+</div>
