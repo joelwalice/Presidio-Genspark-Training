@@ -1,0 +1,37 @@
+<nav class="bg-gray-800 text-white p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <a routerLink="/" class="text-xl font-bold hover:text-gray-300">Migration Application</a>
+    </div>
+
+    <div>
+      <a routerLink="/products" class="hover:bg-gray-700 px-3 py-2 rounded">Products</a>
+      <a routerLink="/cart" class="hover:bg-gray-700 px-3 py-2 rounded relative">
+        Cart
+        @if(cartItemCount() > 0) {
+        <span
+          class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">
+          {{ cartItemCount() }}
+        </span>
+        }
+      </a>
+      <a routerLink="/colors" class="hover:bg-gray-700 px-3 py-2 rounded">Colors</a>
+      <a routerLink="/news" class="hover:bg-gray-700 px-3 py-2 rounded">News</a>
+      <a routerLink="/contact" class="hover:bg-gray-700 px-3 py-2 rounded">Contact</a>
+      <a routerLink="/login" class="hover:bg-gray-700 px-3 py-2 rounded">Login</a>
+    </div>
+  </div>
+</nav>
+
+@if(isDefaultRoute()) {
+<div class="text-blue-800 p-4 rounded mb-4">
+  <h1 class="text-2xl font-bold mb-4">Welcome to Migration Project Application</h1>
+  <p class="mb-4">This is a sample application demonstrating Angular routing and component structure.</p>
+  <p class="mb-4">Use the navigation links above to explore different sections of the application.</p>
+  <p class="mb-4">The application includes a product list.</p>
+</div>
+}
+
+<main class="container mx-auto p-4">
+  <router-outlet />
+</main>
