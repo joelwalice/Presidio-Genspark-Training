@@ -11,7 +11,6 @@ import { forkJoin, map } from 'rxjs';
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './recruiter-jobs.html',
   styleUrl: './recruiter-jobs.css'
-
 })
 export class RecruiterJobs implements OnInit {
   jobs: any[] = [];
@@ -21,10 +20,17 @@ export class RecruiterJobs implements OnInit {
   companyId: string | null = null;
   editMode: boolean = false;
   JobId: string | null = null;
+  minDate!: string;
 
   constructor(private recruiterService: RecruiterService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    this.minDate = `${yyyy}-${mm}-${dd}`;
+
     this.recruiterId = localStorage.getItem('Id');
     this.buildForm();
     if (this.recruiterId) {
@@ -49,6 +55,7 @@ export class RecruiterJobs implements OnInit {
     }
     getCompanyDetailsByID();
   }
+
   toggleEditMode(job: any) {
     this.editMode = true;
     this.formVisible = true;
@@ -75,7 +82,6 @@ export class RecruiterJobs implements OnInit {
     return `${year}-${month}-${day}`;
   }
 
-
   updateJob() {
     const values = this.jobForm.getRawValue();
     const payload = {
@@ -99,7 +105,11 @@ export class RecruiterJobs implements OnInit {
       error: (err) => console.error('Error updating job:', err)
     });
   }
+  
   deleteJob(jobId: string) {
+    // Note: Using a custom modal for confirmation is better than `confirm()`
+    // as `confirm()` can be blocking and has inconsistent styling.
+    // For this example, we'll keep it, but consider replacing it.
     if (confirm('Are you sure you want to delete this job?')) {
       this.recruiterService.deleteJob(jobId).subscribe({
         next: () => {
@@ -167,6 +177,10 @@ export class RecruiterJobs implements OnInit {
     this.recruiterService.getAllJobs().subscribe({
       next: (allJobs: any[]) => {
         const recruiterJobs = allJobs.filter(job => job.recruiterId === recruiterId);
+        if (recruiterJobs.length === 0) {
+            this.jobs = [];
+            return;
+        }
         const fetches = recruiterJobs.map(job =>
           this.recruiterService.getJobApplicationsByJobId(job.id).pipe(
             map(applicants => ({
